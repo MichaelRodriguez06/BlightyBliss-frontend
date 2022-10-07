@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat Alternates', sans-serif;
+  position: relative;
 }
 
 body {
@@ -99,7 +100,7 @@ body {
 }
 
 .cont-menu {
-  width: 100%;
+  width: 20%;
   max-width: 250px;
   background: #A12626;
   height: 100vh;

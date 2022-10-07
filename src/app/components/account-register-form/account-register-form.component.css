@@ -1,10 +1,11 @@
-* {
-  padding: 30px;
-}
+
 
 .title {
   font-size: 35px;
-  margin-bottom: 20px;
+  margin: auto;
+  margin-top: 5%;
+  width: 40%;
+
 }
 
 body {
@@ -28,6 +29,7 @@ body {
 }
 
 .text {
+  padding: 5px;
   box-sizing: border-box;
   /*position: absolute;*/
   width: 600px;
@@ -40,20 +42,57 @@ body {
 }
 
 .button {
-  position: absolute;
-  width: 200px;
-  height: 30px;
-  left: 850px;
-  top: 550px;
 
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 39px;
-  display: flex;
+  width: 200px;
+  height: 40px;
+  margin: auto;
+
+
   /*align-items: center;*/
   /*text-align: center;*/
   letter-spacing: -0.015em;
 
+}
+input[type="button"]{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
+  padding: 5px;
+}
+.userTipe{
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.labels > label{
+  display: inline-block;
+  width: 100%;
+
+}
+label{
+  height: 10%;
+  margin: 5px;
+}
+input{
+  margin: 4px 2px;
+  padding: 1px;
+
+}
+
+.labels, .inputs{
+  display: inline-block;
+}
+
+.labels{
+  max-width: 30%;
+  height: 100%;
+}
+.inputs{
+  width: 70%;
+}
+
+form{
+  padding: 5%;
 }

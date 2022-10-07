@@ -1,30 +1,47 @@
 <body>
 <h4 class="title">Account registration form</h4>
-<label>Name:</label>
-<input class="text"  type="text" id="name" required>
-<br>
-<label>Mail:</label>
-<input class="text" type="text" id="email"  required>
-<br>
-<label>User type:</label>
-<input type="radio" name="grupo1"> Admin
-<input type="radio" name="grupo1"> User
-<br>
-<label>N. Document:</label>
-<input class="text" type="text" name="text" value=""
-       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-<br>
-<label>Document type:</label>
-<input type="radio" name="grupo2"> CC
-<input type="radio" name="grupo2"> TI
-<input type="radio" name="grupo2"> CE
-<input type="radio" name="grupo2"> OTHER
-<br>
-<label>Password:</label>
-<input class="text" type="text" name="text">
-<br>
-<label>Confirm password:</label>
-<input class="text" type="text" name="text">
-<br>
-<input class="button" type="button" value="Confirmar">
+<form action="">
+
+  <div class="labels">
+    <label>Name:</label>
+    <label>Mail:</label>
+    <label>User type:</label>
+    <label>N. Document:</label>
+    <label>Document type:</label>
+    <label>Password:</label>
+    <label>Confirm password:</label>
+
+  </div>
+  <div class="inputs">
+    <input class="text"  type="text" id="name" required>
+    <br>
+    <input class="text" type="text" id="email"  required>
+    <br>
+
+    <div class="userTipe">
+      <input type="radio" name="grupo1">
+      <label> Admin </label>
+      <input type="radio" name="grupo1">
+      <label> User </label>
+    </div>
+    <br>
+    <input class="text" type="text" name="text" value=""
+           onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+    <br>
+    <input type="radio" name="grupo2"> CC
+    <input type="radio" name="grupo2"> TI
+    <input type="radio" name="grupo2"> CE
+    <input type="radio" name="grupo2"> OTHER
+    <br>
+    <input class="text" type="text" name="text">
+    <br>
+    <input class="text" type="text" name="text">
+    <br>
+
+  </div>
+  <div class="button">
+    <input type="button" value="Confirmar">
+  </div>
+
+</form>
 </body>
