@@ -10,13 +10,17 @@ import {SharedModule} from "./shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {UserFormPageComponent} from "./components/general/user-form-page/user-form-page.component";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
+import { RegisterAccountComponent } from './components/register-account/register-account.component';
+import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserFormPageComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    RegisterAccountComponent,
+    TopNavegationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import {ConfirmationDialogComponent} from "./components/general/confirmation-dia
     RouterModule
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
