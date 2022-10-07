@@ -10,13 +10,18 @@ import {SharedModule} from "./shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {UserFormPageComponent} from "./components/general/user-form-page/user-form-page.component";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
+import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import {TopNavegationBarComponent} from "./components/top-navegation-bar/top-navegation-bar.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserFormPageComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    RegisterStudentComponent,
+    TopNavegationBarComponent
+
   ],
   imports: [
     BrowserModule,

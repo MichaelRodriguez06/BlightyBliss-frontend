@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
+import {RegisterStudentComponent} from "./components/register-student/register-student.component";
 //import {AuthGuard} from "../security/auth.guard";
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
     //canLoad: [AuthGuard]
   },
   {path:'login', component:LoginComponent},
+  {path:'regist-student', component:RegisterStudentComponent},
   {path:'**', redirectTo:'/login', pathMatch:'full'}
 ];
 
