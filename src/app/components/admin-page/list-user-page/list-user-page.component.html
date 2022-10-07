@@ -1,0 +1,35 @@
+<div>
+  <div class="container">
+    <div class="btn-mas">
+      <label (click)="create()" class="fa fa-plus"><img src="assets/" alt="Btn mas"></label>
+    </div>
+  </div>
+  <div class="background">
+  <h1>Gestión de Usuarios</h1>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+      <th mat-header-cell *matHeaderCellDef>{{ col.label }}</th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngSwitch]="col.key" *ngIf="!element.isEdit">
+          <div class="btn-edit" *ngSwitchCase="'isEdit'">
+            <button mat-icon-button (click)="edit(element)">
+              <mat-icon color='primary'>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="delete(element['credentialId'])">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </div>
+          <span *ngSwitchDefault>{{ element[col.key] }}</span>
+        </div>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator
+    [pageSize]="20"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+</div>
+

@@ -1,0 +1,21 @@
+<div class="main">
+  <nav class="flex align-center">
+    <img class="logo" src="assets/" alt="Imagen no encontrada">
+    <ul>
+      <li>
+        <a href="" [routerLink]="'listu'">Gestión de clientes</a>
+        <a href="#">Gestión de productos</a>
+        <a href="#">Gestión de acuerdos </a>
+        <a href="#">+AgroStore</a>
+        <button class="btn login" [routerLink]="'login'"><img src="assets/" alt="Imagen no encontrada"></button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="down">
+    <div class="tab-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

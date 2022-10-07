@@ -1,0 +1,60 @@
+.body{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-color: #F5F5F5;
+}
+
+a{
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+a:hover{
+  color: #6b8c24;
+}
+
+
+.h1{
+  font-family: "Arial Narrow", sans-serif;
+  font-size: 20px;
+}
+.login{
+  font-family: "Arial Narrow", sans-serif;
+  font-size: 15px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 330px;
+  align-items: center;
+}
+
+.login h1, img, button{
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spinner{
+  margin: 0 auto;
+}
+
+.ancho{
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ancho hover{
+  color: #00b300;
+
+}
+
+.boton{
+  height: 50px;
+}
+
+img{
+  width:50%;
+}
