@@ -1,0 +1,144 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.logo {
+  max-width: 150px;
+  max-height: 60px;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: sans-serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.down {
+  /*background-image: url("src/assets/Background.jpeg");*/
+  background-size: cover;
+}
+
+button,
+.btn {
+  font-family: "Arial Narrow", sans-serif;
+}
+
+/* CSS RESET ENDS */
+
+/* NAVIGATION BAR */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 1rem 6vw;
+  box-shadow: 0 0 30px lightgray;
+  max-height: 90px;
+  background: #970e0e;
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black
+}
+
+a {
+  size: 100px;
+  font-palette: dark;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+nav span {
+  color: #6b8c24;
+}
+
+nav p {
+  font-size: 25px;
+  font-weight: 600;
+  cursor: default;
+}
+
+nav li {
+  font-family: "Arial Narrow", sans-serif;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  float: left;
+}
+
+nav a {
+  font-family: "Arial Narrow", sans-serif;
+  text-decoration: none;
+  color: white;
+  padding: 0 1rem;
+  transition: 0.1s ease-in-out;
+  font-size: 20px;
+}
+
+nav a:hover {
+  color: #121212;
+}
+
+nav ul {
+  max-height: 60px;
+}
+
+nav .btn {
+  padding: 0.5rem 1rem;
+  margin: 0 0 0 0.5rem;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  font-size: 17px;
+}
+
+.register {
+  background-color: #6b8c24;
+  color: white;
+  border: 1px solid #6b8c24;
+  border-radius: 5px;
+}
+
+.register:hover {
+  background-color: #162c00;
+
+}
+
+.login {
+  background-color: white;
+  color: #162c00;
+}
+
+.login img {
+  max-width: 20px;
+}
+
+.login:hover {
+  background-color: #6b8c24;
+  color: white;
+  border: 1px solid #6b8c24;
+  border-radius: 5px;
+}
+
+/* NAVIGATION BAR ENDS */

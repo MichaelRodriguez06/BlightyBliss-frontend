@@ -1,0 +1,30 @@
+<body>
+<h4 class="title">Account registration form</h4>
+<label>Name:</label>
+<input class="text"  type="text" id="name" required>
+<br>
+<label>Mail:</label>
+<input class="text" type="text" id="email"  required>
+<br>
+<label>User type:</label>
+<input type="radio" name="grupo1"> Admin
+<input type="radio" name="grupo1"> User
+<br>
+<label>N. Document:</label>
+<input class="text" type="text" name="text" value=""
+       onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+<br>
+<label>Document type:</label>
+<input type="radio" name="grupo2"> CC
+<input type="radio" name="grupo2"> TI
+<input type="radio" name="grupo2"> CE
+<input type="radio" name="grupo2"> OTHER
+<br>
+<label>Password:</label>
+<input class="text" type="text" name="text">
+<br>
+<label>Confirm password:</label>
+<input class="text" type="text" name="text">
+<br>
+<input class="button" type="button" value="Confirmar">
+</body>
