@@ -3,22 +3,26 @@
     <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
     <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
-      <img src="../../../assets/" alt="Logo Marketplace">
+
       <h1>Login</h1>
-      <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Usuario</mat-label>
-        <input matInput autocomplete="off" formControlName="usuario">
+      <mat-form-field class="ancho field" appearance="fill">
+          <mat-label>Institucional mail</mat-label>
+          <input matInput autocomplete="off" formControlName="usuario">
       </mat-form-field>
-      <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Contraseña</mat-label>
+      <mat-form-field class="ancho field" appearance="fill">
+        <mat-label>Password</mat-label>
         <input matInput autocomplete="off" type="password" formControlName="password">
       </mat-form-field>
-      <a (click)="create()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿No tienes una cuenta?
-        Regístrate</a>
-      <br><br>
-      <button class="ancho boton" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Ingresar
+        <button class="ancho boton"  type="submit" [disabled]="form.invalid">Ingresar
       </button>
     </form>
+    <p> <a (click)="create()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forgot password?</a></p>
+  </div>
+
+  <div class="Information">
+    <img alt="Escudo de la institucion" class="Escudo"  src="../../../assets/escudo.png">
+    <h1 class="Institucion"> Blighty Bliss Admin of students and files</h1>
+    <h2 Class="Eslogan">"Beyond teaching a language, we teach its culture"</h2>
   </div>
 </div>
 
