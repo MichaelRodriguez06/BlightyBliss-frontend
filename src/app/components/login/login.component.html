@@ -1,22 +1,23 @@
-<div class="body">
+<div class="body" >
   <div class="login">
     <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
     <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
-      <img src="../../../assets/" alt="Logo Marketplace">
+
       <h1>Login</h1>
-      <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Usuario</mat-label>
+      <mat-form-field class="ancho" appearance="fill" id="fieldMail">
+        <mat-label>Institucional mail</mat-label>
         <input matInput autocomplete="off" formControlName="usuario">
       </mat-form-field>
       <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>Password</mat-label>
         <input matInput autocomplete="off" type="password" formControlName="password">
       </mat-form-field>
-      <a (click)="create()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿No tienes una cuenta1? Regístrate</a>
       <br><br>
-      <button class="ancho boton" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Ingresar</button>
+        <button class="ancho boton" mat-raised-button color="accent" type="submit" [disabled]="form.invalid">Ingresar</button>
     </form>
+    <p> <a (click)="create()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forgot password?</a></p>
   </div>
+  <div></div>
 </div>
 
