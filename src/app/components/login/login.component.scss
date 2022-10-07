@@ -1,13 +1,11 @@
 .body{
   display: flex;
-  justify-content: center;
   height: 100%;
   align-items: center;
   background-image: url('../../../assets/LogoMarketplace.png');
   background-size: 100%;
   background-position-y: -400px;
   backface-visibility: hidden;
-
 }
 
 a{
@@ -84,4 +82,33 @@ ButtonLogin{
 p{
   margin-top: 10%;
 }
+.Information{
+  background-color: #1988FF;
+  margin-left: 10%;
+  border-style: solid;
+  border-color: white;
+  border-width: 6px;
+}
+img.Escudo{
+  float: left;
+  margin-left: 1%;
+  margin-top: 1%;
+  height: 200px;
+  width: auto;
+  overflow: auto;
+}
+.Institucion{
+  color: white;
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: auto;
+}
+.Eslogan{
 
+  color: white;
+  overflow: auto;
+  text-align: center;
+  margin-top: 12%;
+}
