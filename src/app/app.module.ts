@@ -12,6 +12,8 @@ import {UserFormPageComponent} from "./components/general/user-form-page/user-fo
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
+import { SideNavegationBarComponent } from './components/side-navegation-bar/side-navegation-bar.component';
+import { AccountRegisterFormComponent } from './components/account-register-form/account-register-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { TopNavegationBarComponent } from './components/top-navegation-bar/top-n
     UserFormPageComponent,
     ConfirmationDialogComponent,
     RegisterAccountComponent,
-    TopNavegationBarComponent
+    TopNavegationBarComponent,
+    SideNavegationBarComponent,
+    AccountRegisterFormComponent
   ],
   imports: [
     BrowserModule,
