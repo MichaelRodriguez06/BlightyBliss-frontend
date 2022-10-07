@@ -1,0 +1,98 @@
+
+
+.title {
+  font-size: 35px;
+  margin: auto;
+  margin-top: 5%;
+  width: 40%;
+
+}
+
+body {
+  position: absolute;
+  left: 300px;
+  top: 120px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 1039px;
+  height: 578px;
+  background: #a8a8a8 no-repeat;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
+  /*display: flex;*/
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+
+.text {
+  padding: 5px;
+  box-sizing: border-box;
+  /*position: absolute;*/
+  width: 600px;
+  height: 50px;
+  left: 339px;
+  top: 40px;
+
+  background: #FFFFFF;
+  border: 1px solid #000000
+}
+
+.button {
+
+  width: 200px;
+  height: 40px;
+  margin: auto;
+
+
+  /*align-items: center;*/
+  /*text-align: center;*/
+  letter-spacing: -0.015em;
+
+}
+input[type="button"]{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
+  padding: 5px;
+}
+.userTipe{
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.labels > label{
+  display: inline-block;
+  width: 100%;
+
+}
+label{
+  height: 10%;
+  margin: 5px;
+}
+input{
+  margin: 4px 2px;
+  padding: 1px;
+
+}
+
+.labels, .inputs{
+  display: inline-block;
+}
+
+.labels{
+  max-width: 30%;
+  height: 100%;
+}
+.inputs{
+  width: 70%;
+}
+
+form{
+  padding: 5%;
+}

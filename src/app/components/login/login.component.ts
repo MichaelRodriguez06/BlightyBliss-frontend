@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     private apiAccessService: ApiAccessService,
     private dialog: MatDialog,
     private usersService: UsersServices) {
+    this.router.navigate(['dashboard'])
     if (this.apiAccessService.userData) {//user logged
-      this.router.navigate(['dashboard'])
     }
     this.form = fb.group({
       usuario: ['', Validators.required],
@@ -60,8 +60,8 @@ export class LoginComponent implements OnInit {
   login() {
     const email = this.form.value.usuario;
     const password = this.form.value.password;
-    console.log("Email",email)
-    console.log("Password",password)
+    console.log("Email", email)
+    console.log("Password", password)
     this.loading = true;
     this.apiAccessService.login(email, password).subscribe(res => {
       if (res) {
