@@ -5,16 +5,15 @@
     <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
 
       <h1>Login</h1>
-      <mat-form-field class="ancho" appearance="fill" id="fieldMail">
-        <mat-label>Institucional mail</mat-label>
-        <input matInput autocomplete="off" formControlName="usuario">
+      <mat-form-field class="ancho field" appearance="fill">
+          <mat-label>Institucional mail</mat-label>
+          <input matInput autocomplete="off" formControlName="usuario">
       </mat-form-field>
-      <mat-form-field class="ancho" appearance="fill">
+      <mat-form-field class="ancho field" appearance="fill">
         <mat-label>Password</mat-label>
         <input matInput autocomplete="off" type="password" formControlName="password">
       </mat-form-field>
-      <br><br>
-        <button class="ancho boton" mat-raised-button color="accent" type="submit" [disabled]="form.invalid">Ingresar</button>
+        <button class="ancho boton" type="submit" [disabled]="form.invalid">Ingresar</button>
     </form>
     <p> <a (click)="create()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forgot password?</a></p>
   </div>

@@ -55,7 +55,7 @@ a:hover{
   width: 80%;
   display: block;
   margin-left: auto;
-  margin-top: 5%;
+
   margin-right: auto;
 
 }
@@ -69,8 +69,10 @@ a:hover{
   height: 50px;
   border-style: solid;
   border-color: black;
+  background-color: #970E0E;
   border-radius: 4px;
   border-width: 2px;
+  color: black;
 }
 
 img{
@@ -106,9 +108,15 @@ img.Escudo{
   overflow: auto;
 }
 .Eslogan{
-
   color: white;
   overflow: auto;
   text-align: center;
   margin-top: 12%;
+}
+.field {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  margin-top: 3%;
 }
