@@ -72,7 +72,7 @@ export class ListUserPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.usersService.createUser(result).subscribe((res => {
-          console.log(res.msg)
+          console.log(res.message)
           this.getUsers()
         }))
       }
@@ -90,7 +90,7 @@ export class ListUserPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.usersService.updateUser(result).subscribe((res => {
-          console.log(res.msg)
+          console.log(res.message)
           this.getUsers()
         }))
       }
@@ -104,7 +104,7 @@ export class ListUserPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.usersService.deleteUser(email).subscribe((res) => {
-          console.log(res.msg)
+          console.log(res.message)
           this.getUsers()
         });
       }

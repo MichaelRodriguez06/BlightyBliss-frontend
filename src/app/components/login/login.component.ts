@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.usersService.createUser(result).subscribe((res => {
-          console.log(res.msg)
+          console.log(res.message)
           this.form.patchValue({
             usuario: result.credentialId,
             password: result.password
@@ -65,9 +65,8 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.apiAccessService.login(email, password).subscribe(res => {
       if (res) {
-        if (res.role === 'ADMIN') {
-          this.router.navigate(['admin']);
-        }
+        //todo: verify admin
+        this.router.navigate(['register-account']);
       } else {
         //Mostramos un mensaje de error
         this.invalidUser()
