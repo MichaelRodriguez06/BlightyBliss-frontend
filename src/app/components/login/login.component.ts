@@ -4,7 +4,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {ApiAccessService} from "../../../services/apiAccess.service";
 import {MatDialog} from "@angular/material/dialog";
-import {UserFormPageComponent} from "../general/user-form-page/user-form-page.component";
+import {RecoverPasswordComponent} from "../recover-password/recover-password.component";
 import {UsersServices} from "../../../services/users.services";
 
 @Component({
@@ -37,23 +37,10 @@ export class LoginComponent implements OnInit {
   }
 
   create() {
-    const dialogRef = this.dialog.open(UserFormPageComponent, {
-      width: '60%',
-      height: '100%',
+    const dialogRef = this.dialog.open(RecoverPasswordComponent, {
+      width: '40%',
+      height: '45%',
       data: {edit: false}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.usersService.createUser(result).subscribe((res => {
-          console.log(res.message)
-          this.form.patchValue({
-            usuario: result.credentialId,
-            password: result.password
-          })
-          this.login()
-        }))
-      }
     });
   }
 

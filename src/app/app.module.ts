@@ -8,7 +8,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./core/modules/shared/shared.module";
 import {RouterModule} from "@angular/router";
-import {UserFormPageComponent} from "./components/general/user-form-page/user-form-page.component";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
@@ -16,12 +15,12 @@ import { SideNavegationBarComponent } from './components/side-navegation-bar/sid
 import { AccountRegisterFormComponent } from './components/account-register-form/account-register-form.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
+import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserFormPageComponent,
     ConfirmationDialogComponent,
     RegisterStudentComponent,
     TopNavegationBarComponent,
@@ -30,7 +29,8 @@ import { Error404PageComponent } from './components/ErrorPages/error404-page/err
     TopNavegationBarComponent,
     SideNavegationBarComponent,
     AccountRegisterFormComponent,
-    Error404PageComponent
+    Error404PageComponent,
+    RecoverPasswordComponent
   ],
   imports: [
     BrowserModule,

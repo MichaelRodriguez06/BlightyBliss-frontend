@@ -5,7 +5,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator, MatPaginatorIntl} from "@angular/material/paginator";
 import {tap} from "rxjs";
-import {UserFormPageComponent} from "../../general/user-form-page/user-form-page.component";
+import {RecoverPasswordComponent} from "../../recover-password/recover-password.component";
 import {ConfirmationDialogComponent} from "../../general/confirmation-dialog/confirmation-dialog.component";
 
 const COLUMNS_SCHEMA = [
@@ -63,7 +63,7 @@ export class ListUserPageComponent implements OnInit {
   }
 
   create(){
-    const dialogRef = this.dialog.open(UserFormPageComponent, {
+    const dialogRef = this.dialog.open(RecoverPasswordComponent, {
       width: '60%',
       height: '100%',
       data: {edit:false}
@@ -81,7 +81,7 @@ export class ListUserPageComponent implements OnInit {
 
   edit(user: User) {
     console.log(user)
-    const dialogRef = this.dialog.open(UserFormPageComponent, {
+    const dialogRef = this.dialog.open(RecoverPasswordComponent, {
       width: '60%',
       height: '100%',
       data: {edit:true,user:user}
