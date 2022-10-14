@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'register-account', component:RegisterAccountComponent},
   {path:'regist-student', component:RegisterStudentComponent},
   {path:'page-not-found', component: Error404PageComponent},
-  {path:'**', redirectTo:'/login', pathMatch:'full'}
+  {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 
 @NgModule({
