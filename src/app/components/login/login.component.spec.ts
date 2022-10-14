@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import {LoginComponent} from './login.component';
 import {TopNavegationBarComponent} from "../top-navegation-bar/top-navegation-bar.component";
 
 describe('LoginComponent', () => {
@@ -9,11 +9,11 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent,
-      TopNavegationBarComponent
+      declarations: [LoginComponent,
+        TopNavegationBarComponent
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
