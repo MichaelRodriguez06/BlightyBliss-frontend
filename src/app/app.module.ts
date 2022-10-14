@@ -15,6 +15,7 @@ import { TopNavegationBarComponent } from './components/top-navegation-bar/top-n
 import { SideNavegationBarComponent } from './components/side-navegation-bar/side-navegation-bar.component';
 import { AccountRegisterFormComponent } from './components/account-register-form/account-register-form.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
+import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterStudentComponent } from './components/register-student/register
     RegisterAccountComponent,
     TopNavegationBarComponent,
     SideNavegationBarComponent,
-    AccountRegisterFormComponent
+    AccountRegisterFormComponent,
+    Error404PageComponent
   ],
   imports: [
     BrowserModule,
