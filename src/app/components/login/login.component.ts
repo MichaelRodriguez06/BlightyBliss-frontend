@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     private apiAccessService: ApiAccessService,
     private dialog: MatDialog,
     private usersService: UsersServices) {
-    this.router.navigate(['dashboard'])
     if (this.apiAccessService.userData) {//user logged
     }
     this.form = fb.group({
