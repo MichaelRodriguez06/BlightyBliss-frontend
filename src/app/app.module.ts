@@ -11,7 +11,7 @@ import {RouterModule} from "@angular/router";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
-import { SideNavegationBarComponent } from './components/side-navegation-bar/side-navegation-bar.component';
+import { SideNavigationBarComponent } from './components/side-navegation-bar/side-navigation-bar.component';
 import { AccountRegisterFormComponent } from './components/account-register-form/account-register-form.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
@@ -27,7 +27,7 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
     ConfirmationDialogComponent,
     RegisterAccountComponent,
     TopNavegationBarComponent,
-    SideNavegationBarComponent,
+    SideNavigationBarComponent,
     AccountRegisterFormComponent,
     Error404PageComponent,
     RecoverPasswordComponent
