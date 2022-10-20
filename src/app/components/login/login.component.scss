@@ -2,13 +2,13 @@
   display: flex;
   height: 100%;
   align-items: center;
-  background-image: url('../../../assets/LogoMarketplace.png');
-  background-color: #f0f0f0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../../assets/FondoLoginOpacity.png');
+  background-color: thistle;
   background-size: 100%;
-  background-position-y: 42%;
-  backface-visibility: hidden;
 }
-
 a{
   font-family: Arial, sans-serif;
   font-size: 25px;
@@ -29,17 +29,14 @@ a:hover{
   font-size: 15px;
   margin: 0 auto;
   position: absolute ;
-  top: 20%;
-  left: 68%;
   width: 30%;
   height: 55%;
   align-items: center;
   background-color: #A12626;
-  border-style: solid;
-  border-color: white;
-  border-width: 6px;
-  min-width: 450px;
+  min-width: 350px;
   min-height: 500px;
+  box-shadow: 2px 2px 4px 1px;
+  border-radius: 15px;
 }
 
 .login h1, img, button{
@@ -72,52 +69,18 @@ a:hover{
   border-style: solid;
   border-color: black;
   background-color: #970E0E;
-  border-radius: 4px;
-  border-width: 2px;
+  border-radius: 15px;
+  border-width: 1px;
   color: black;
 }
 
 img{
-  width:50%;
+  opacity: 0.5;
 }
 ButtonLogin{
   background: white;
 }
 p{
-  margin-top: 10%;
-}
-.Information{
-  background-color: #1988FF;
-  margin-left: 10%;
-  border-style: solid;
-  border-color: white;
-  border-width: 6px;
-  width: 35%;
-  height: 25%;
-  min-width: 400px;
-  min-height: 250px;
-}
-img.Escudo{
-  float: left;
-  margin-left: 1%;
-  margin-top: 1%;
-  height: 70%;
-  width: auto;
-  overflow: auto;
-}
-.Institucion{
-  color: white;
-  margin-top: 10%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  overflow: auto;
-}
-.Eslogan{
-  color: white;
-  overflow: auto;
-  text-align: center;
-  font-size: 25px;
   margin-top: 10%;
 }
 .field {

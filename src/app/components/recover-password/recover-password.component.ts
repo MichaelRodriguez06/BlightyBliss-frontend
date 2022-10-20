@@ -12,4 +12,6 @@ export class RecoverPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  delete() {
+  }
 }
