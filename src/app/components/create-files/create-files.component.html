@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="tittle">
+    <p>Update File</p>
+  </div>
+  <div class="uploadFile">
+
+    <mat-form-field appearance="fill" class="nameUpdatedFile">
+      <input matInput placeholder="Name file" readonly="readonly">
+    </mat-form-field>
+
+    <button class="buttonUpdate" mat-raised-button  (click)="updateFile()">Update file</button>
+
+  </div>
+  <div class="fields">
+
+    <mat-form-field appearance="fill" class="nameField">
+      <mat-label>Enter name File</mat-label>
+      <input matInput placeholder="Name file" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="listOptions">
+      <mat-label>type of file</mat-label>
+      <mat-select required>
+        <mat-option value="op1">Base de datos</mat-option>
+        <mat-option value="op2">Base de datos</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <div class="buttons">
+    <button class="buttonCancel" mat-raised-button  (click)="delete()">Cancel</button>
+    <button class="buttonSend" mat-raised-button color="warn">Update</button>
+  </div>
+
+</div>
+

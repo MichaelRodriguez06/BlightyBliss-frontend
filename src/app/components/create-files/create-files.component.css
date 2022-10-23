@@ -1,0 +1,53 @@
+.container{
+  background: #75b7ff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  min-width: 400px;
+  min-height: 300px;
+}
+.tittle{
+  box-shadow: 0 0 1px black;
+  font-size: 20px;
+}
+p{
+  margin-left: 2%;
+}
+.fields{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.nameField{
+  margin-left: 3%;
+  margin-right: 3%;
+  min-width: 260px;
+}
+.listOptions{
+  margin-left: 3%;
+  margin-right: 3%;
+  min-width: 260px;
+}
+.nameUpdatedFile{
+  margin-left: 3%;
+  margin-right: 3%;
+  min-width: 260px;
+}
+.uploadFile {
+  margin-top: 1%;
+}
+.buttons{
+  height: 100%;
+  display:flex;
+  justify-content: right;
+  align-items: center;
+  box-shadow: 0 0 1px black;
+}
+.buttonCancel{
+  margin-right: 2%;
+}
+.buttonSend{
+  margin-right: 2%;
+}
+

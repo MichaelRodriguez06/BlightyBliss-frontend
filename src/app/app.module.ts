@@ -16,6 +16,8 @@ import { AccountRegisterFormComponent } from './components/account-register-form
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
+import { CreateFilesComponent } from './components/create-files/create-files.component';
+import { FileManagementComponent } from './components/file-management/file-management.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
     SideNavigationBarComponent,
     AccountRegisterFormComponent,
     Error404PageComponent,
-    RecoverPasswordComponent
+    RecoverPasswordComponent,
+    CreateFilesComponent,
+    FileManagementComponent
   ],
   imports: [
     BrowserModule,
