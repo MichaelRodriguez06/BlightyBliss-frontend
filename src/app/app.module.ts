@@ -18,6 +18,7 @@ import { Error404PageComponent } from './components/ErrorPages/error404-page/err
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { CreateFilesComponent } from './components/create-files/create-files.component';
 import { ForderViewComponent } from './components/forder-view/forder-view.component';
+import { CreateFolderComponent } from './components/create-folder/create-folder.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ForderViewComponent } from './components/forder-view/forder-view.compon
     Error404PageComponent,
     RecoverPasswordComponent,
     CreateFilesComponent,
-    ForderViewComponent
+    ForderViewComponent,
+    CreateFolderComponent
   ],
   imports: [
     BrowserModule,

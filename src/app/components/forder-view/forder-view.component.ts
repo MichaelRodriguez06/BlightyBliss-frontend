@@ -3,6 +3,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {CreateFilesComponent} from "../create-files/create-files.component";
+import {RecoverPasswordComponent} from "../recover-password/recover-password.component";
+import {CreateFolderComponent} from "../create-folder/create-folder.component";
 
 export interface PeriodicElement {
   name: string;
@@ -51,6 +53,27 @@ export class ForderViewComponent implements OnInit,AfterViewInit  {
   ngOnInit(): void {
   }
 
-  create() {
+  createFolderPanel() {
+    const dialogRef = this.dialog.open(CreateFolderComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
+  }
+
+  createEditPanel() {
+    const dialogRef = this.dialog.open(CreateFilesComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
+  }
+
+  createDeletePanel() {
+    const dialogRef = this.dialog.open(RecoverPasswordComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
   }
 }
