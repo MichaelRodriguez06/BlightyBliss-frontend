@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {User} from "../app/models/user";
 import {environment} from "../environments/environment";
 import {Response} from "../app/core/models/response";
-import {ApiAccessService} from "./apiAccess.service";
+import {ApiAccessService} from "../app/modules/access/services/api-access.service";
 
 const headers = {
   'Content-Type': 'application/json',

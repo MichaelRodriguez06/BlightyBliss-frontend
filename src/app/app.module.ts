@@ -19,6 +19,7 @@ import { RecoverPasswordComponent } from './components/recover-password/recover-
 import { CreateFilesComponent } from './components/create-files/create-files.component';
 import { ForderViewComponent } from './components/forder-view/forder-view.component';
 import { CreateFolderComponent } from './components/create-folder/create-folder.component';
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { CreateFolderComponent } from './components/create-folder/create-folder.
     SharedModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   exports: [],
   bootstrap: [AppComponent]
 })

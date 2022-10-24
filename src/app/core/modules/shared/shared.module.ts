@@ -30,7 +30,7 @@ import {MatMenuModule} from "@angular/material/menu";
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports:[
     ReactiveFormsModule,

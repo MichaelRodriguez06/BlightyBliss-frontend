@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {ApiAccessService} from "../../../services/apiAccess.service";
+import {ApiAccessService} from "../../modules/access/services/api-access.service";
 import {MatDialog} from "@angular/material/dialog";
 import {RecoverPasswordComponent} from "../recover-password/recover-password.component";
-import {UsersServices} from "../../../services/users.services";
 
 @Component({
   selector: 'app-login',
@@ -22,8 +21,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private router: Router,
     private apiAccessService: ApiAccessService,
-    private dialog: MatDialog,
-    private usersService: UsersServices) {
+    private dialog: MatDialog) {
     if (this.apiAccessService.userData) {//user logged
     }
     this.form = fb.group({

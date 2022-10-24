@@ -3,7 +3,7 @@ import {environment} from "../environments/environment";
 import {Observable} from "rxjs";
 import {Response} from "../app/core/models/response";
 import {HttpClient} from "@angular/common/http";
-import {ApiAccessService} from "./apiAccess.service";
+import {ApiAccessService} from "../app/modules/access/services/api-access.service";
 import {Product} from "../app/models/product";
 
 const headers = {

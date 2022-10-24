@@ -5,7 +5,7 @@ import {RegisterStudentComponent} from "./components/register-student/register-s
 import {RegisterAccountComponent} from "./components/register-account/register-account.component";
 import {Error404PageComponent} from "./components/ErrorPages/error404-page/error404-page.component";
 import {ForderViewComponent} from "./components/forder-view/forder-view.component";
-//import {AuthGuard} from "../security/auth.guard";
+//import {AuthGuard} from "../security/access.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},

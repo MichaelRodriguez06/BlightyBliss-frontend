@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router} from '@angular/router';
-import { ApiAccessService } from "../../../services/apiAccess.service";
+import { ApiAccessService } from "../../modules/access/services/api-access.service";
 
 @Injectable({
   providedIn: 'root'
