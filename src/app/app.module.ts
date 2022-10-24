@@ -17,7 +17,7 @@ import { RegisterStudentComponent } from './components/register-student/register
 import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { CreateFilesComponent } from './components/create-files/create-files.component';
-import { FileManagementComponent } from './components/file-management/file-management.component';
+import { ForderViewComponent } from './components/forder-view/forder-view.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { FileManagementComponent } from './components/file-management/file-manag
     Error404PageComponent,
     RecoverPasswordComponent,
     CreateFilesComponent,
-    FileManagementComponent
+    ForderViewComponent
   ],
   imports: [
     BrowserModule,
