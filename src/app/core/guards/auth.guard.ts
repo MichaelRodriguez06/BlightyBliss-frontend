@@ -11,7 +11,7 @@ export class AuthGuard implements CanLoad {
   }
 
   canLoad(route: Route) {
-    const user = this.apiAccessService.userData;
+    const user = this.apiAccessService.userAccessData;
     if (user){//Logged user
       return true;
     }

@@ -1,41 +1,38 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
-import {environment} from "../../../../environments/environment";
-import {Account} from "../../../models/account";
 import {map} from "rxjs/operators";
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Contend-Type': 'application/json'
-  })
-}
+import {HttpService} from "../../../core/services/http/http.service";
+import {StorageService} from "../../../core/services/storage/storage.service";
+import {Access} from "../../../core/models/access";
+import {Const} from "../../../core/services/const";
+import * as Console from "console";
+import {HttpResponse} from "../../../core/models/httpResponse";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiAccessService{
 
-  url = `${environment.apiUrl}/Access/login`;
+  url = `Access/login`;
 
-  private userSubject: BehaviorSubject<Account>;
-  public user: Observable<Account>;
+  private userSubject: BehaviorSubject<Access>;
+  public userAccess: Observable<Access>;
 
-  public get userData(): Account{
+  public get userAccessData(): Access{
     return this.userSubject.value;
   }
 
-  constructor(private _http: HttpClient) {
-    this.userSubject = new BehaviorSubject<Account>(JSON.parse(localStorage.getItem('account')!));
-    this.user = this.userSubject.asObservable();
+  public constructor(private _storage: StorageService, private _http: HttpService<Access>) {
+    this.userSubject = new BehaviorSubject<Access>(_storage.getCookie(Const.ACCESS_COOKIE)!);
+    this.userAccess = this.userSubject.asObservable();
   }
 
-  login(email: string, password: string): Observable<Account>{
-    return this._http.post<Account>(this.url,{email, password}, httpOptions).pipe(
+  login(email: string, password: string): Observable<HttpResponse<Access>>{
+    return this._http.post(this.url, {email, password}).pipe(
       map(res =>{
         if (res){
-          const user: Account = res;
-          localStorage.setItem('user', JSON.stringify(user));
+          const user: Access = res.data;
+          this._storage.setCookie(Const.ACCESS_COOKIE, JSON.stringify(user))
           this.userSubject.next(user)
         }
         return res;
@@ -45,7 +42,6 @@ export class ApiAccessService{
 
   logout() {
     // removes user from local storage and set current user to null
-    localStorage.removeItem('user');
-    this.userSubject.next(null!);
+    this._storage.deleteCookie(Const.ACCESS_COOKIE);
   }
 }

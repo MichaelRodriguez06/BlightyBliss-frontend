@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private apiAccessService: ApiAccessService,
     private dialog: MatDialog) {
-    if (this.apiAccessService.userData) {//user logged
+    if (this.apiAccessService.userAccessData) {//user logged
     }
     this.form = fb.group({
       usuario: ['', Validators.required],

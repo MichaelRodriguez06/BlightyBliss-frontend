@@ -3,7 +3,7 @@ import {environment} from "../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {ApiAccessService} from "../app/modules/access/services/api-access.service";
 import {Observable} from "rxjs";
-import {Response} from "../app/core/models/response";
+import {HttpResponse} from "../app/core/models/httpResponse";
 import {SalePromise} from "../app/models/salePromise";
 
 const headers = {
@@ -24,18 +24,18 @@ export class SalePromisesService {
   ) {
   }
 
-  createSalePromise(salePromise: SalePromise): Observable<Response> {
-    headers['x-token'] = this.accessService.userData.token
+  createSalePromise(salePromise: SalePromise): Observable<HttpResponse<SalePromise>> {
+    headers['x-token'] = this.accessService.userAccessData.token
     const userSellerId = salePromise.userSellerId
     const userBuyerId = salePromise.userBuyerId
     const productId = salePromise.productId
-    return this.http.post<Response>(this.url+`/${userSellerId}/${userBuyerId}/${productId}`, salePromise,{headers});
+    return this.http.post<HttpResponse<SalePromise>>(this.url+`/${userSellerId}/${userBuyerId}/${productId}`, salePromise,{headers});
   }
 
-  getUserPromises(id: number, role:string): Observable<Response>{
-    headers['x-token'] = this.accessService.userData.token
+  getUserPromises(id: number, role:string): Observable<HttpResponse<SalePromise>>{
+    headers['x-token'] = this.accessService.userAccessData.token
     if (role === "seller" || role === "buyer")
-      return this.http.get<Response>(this.url+`/${id}/${role}`, {headers})
+      return this.http.get<HttpResponse<SalePromise>>(this.url+`/${id}/${role}`, {headers})
     throw new Error("Role debe ser buyer o seller")
   }
 }
