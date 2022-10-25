@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'register-account', component:RegisterAccountComponent},
   {path:'regist-student', component:RegisterStudentComponent},
   {path:'page-not-found', component: Error404PageComponent},
-  {path:'forder-view-component', component: ForderViewComponent},
+  {path:'forder-view', component: ForderViewComponent},
   {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 
