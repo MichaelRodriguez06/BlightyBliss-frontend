@@ -20,6 +20,8 @@ import { CreateFilesComponent } from './components/create-files/create-files.com
 import { ForderViewComponent } from './components/forder-view/forder-view.component';
 import { CreateFolderComponent } from './components/create-folder/create-folder.component';
 import { CookieService } from "ngx-cookie-service";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CookieService } from "ngx-cookie-service";
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
     CookieService
