@@ -1,0 +1,27 @@
+.container{
+  flex-direction: column;
+  height: 100%;
+  margin: 0 0 0 224px;
+  text-align:center;
+}
+.fileTypeList{
+  margin:0 auto 0 auto;
+  display: table;
+  align-content: center;
+
+}
+p{
+  font-size: 25px;
+  margin-left: 1%;
+}
+.buttons{
+  margin-top: 1%;
+}
+button{
+  margin: 1% 1% 1% 1%;
+}
+ng-container{
+}
+mat-form-field{
+  height: 65px;
+}

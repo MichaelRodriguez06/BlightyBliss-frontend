@@ -5,6 +5,7 @@ import {RegisterStudentComponent} from "./components/register-student/register-s
 import {RegisterAccountComponent} from "./components/register-account/register-account.component";
 import {Error404PageComponent} from "./components/ErrorPages/error404-page/error404-page.component";
 import {ForderViewComponent} from "./components/forder-view/forder-view.component";
+import {FileManagementComponent} from "./components/file-management/file-management.component";
 //import {AuthGuard} from "../security/access.guard";
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'regist-student', component:RegisterStudentComponent},
   {path:'page-not-found', component: Error404PageComponent},
   {path:'forder-view', component: ForderViewComponent},
+    {path:'file-management', component: FileManagementComponent},
   {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 
