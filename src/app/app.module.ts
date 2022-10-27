@@ -20,7 +20,8 @@ import { CreateFilesComponent } from './components/create-files/create-files.com
 import { ForderViewComponent } from './components/forder-view/forder-view.component';
 import { CreateFolderComponent } from './components/create-folder/create-folder.component';
 import { CookieService } from "ngx-cookie-service";
-import { FileManagementComponent } from './components/file-management/file-management.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -38,8 +39,7 @@ import { FileManagementComponent } from './components/file-management/file-manag
     RecoverPasswordComponent,
     CreateFilesComponent,
     ForderViewComponent,
-    CreateFolderComponent,
-    FileManagementComponent
+    CreateFolderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +47,9 @@ import { FileManagementComponent } from './components/file-management/file-manag
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
     CookieService
