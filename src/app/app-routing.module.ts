@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'regist-student', component:RegisterStudentComponent},
   {path:'page-not-found', component: Error404PageComponent},
   {path:'forder-view', component: ForderViewComponent},
-    {path:'file-management', component: FileManagementComponent},
+  {path:'file-management', component: FileManagementComponent},
   {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 

@@ -22,6 +22,8 @@ import { CreateFolderComponent } from './components/create-folder/create-folder.
 import { CookieService } from "ngx-cookie-service";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
+import {FileManagementComponent} from "./components/file-management/file-management.component";
+import { ViewDocumentComponent } from './components/view-document/view-document.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {MatListModule} from "@angular/material/list";
     RecoverPasswordComponent,
     CreateFilesComponent,
     ForderViewComponent,
-    CreateFolderComponent
+    FileManagementComponent,
+    CreateFolderComponent,
+    ViewDocumentComponent
   ],
   imports: [
     BrowserModule,
