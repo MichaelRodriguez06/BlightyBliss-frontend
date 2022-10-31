@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {RecoverPasswordComponent} from "../recover-password/recover-password.component";
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
+import {ViewDocumentComponent} from "../view-document/view-document.component";
 
 export interface PeriodicElement {
   name: string;
@@ -73,6 +74,14 @@ export class ForderViewComponent implements OnInit,AfterViewInit  {
     const dialogRef = this.dialog.open(RecoverPasswordComponent, {
       width: '45%',
       height: '55%',
+      data: {edit: false}
+    });
+  }
+
+  seeDocument() {
+    const dialogRef = this.dialog.open(ViewDocumentComponent, {
+      width: '90%',
+      height: '90%',
       data: {edit: false}
     });
   }
