@@ -17,7 +17,7 @@
 $text-color: #000000;
 $secondary-text-color: #dee2ec;
 
-$bg-color: #fd7b7b;
+$bg-color: #ff5b5b;
 $secondary-bg-color: #0b1a2c;
 
 $border-color: rgba(#535d7d, 0.3);
@@ -37,6 +37,7 @@ $sidebar-footer-height: 64px;
 .container {
   width: 30%;
   height: 100%;
+  background-color: #A12626;
 }
 
 .sidebar {
@@ -64,11 +65,10 @@ $sidebar-footer-height: 64px;
   padding: 20px;
 }
 
-.sidebar {
+.mat-expansion-panel {
   color: $text-color;
-  overflow-x: hidden !important;
-  position: fixed;
   background-color: $bg-color;
+  font-size: 20px;
 
   .image-wrapper {
     overflow: hidden;
@@ -459,9 +459,6 @@ body {
   color: #212529;
 }
 
-a {
-  text-decoration: none;
-}
 
 @media (max-width: 992px) {
   #btn-collapse {
@@ -470,6 +467,18 @@ a {
 }
 
 .mat-menu-item {
-  font-family: "Yu Gothic";
-  border: 1px #ff5252;
+
+  border: 1px #fd2a2a;
+}
+
+.mat-action-row {
+  font-family: "Yu Gothic", ui-sans-serif;
+  font-size: 18px;
+  text-decoration: dashed;
+  color: #0b1a2c;
+}
+
+.mat-expansion-panel-header {
+  font-family: "Calibri Light", ui-sans-serif;
+  font-size: 19px;
 }

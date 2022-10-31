@@ -9,7 +9,7 @@ export class SideNavigationBarComponent implements OnInit {
 
   items = [{
     title: "Profile", subMenu: [{
-      subtitle: "Show users", icon: ""
+      subtitle: "Show users", icon: 'assets/account.svg'
     }, {
       subtitle: "Add user", icon: ""
     }, {
@@ -24,6 +24,8 @@ export class SideNavigationBarComponent implements OnInit {
     ]
   }, {
     title: "Folders", icon: "", subMenu: [{
+      subtitle: "Show folders", icon: ""
+    },{
       subtitle: "Update document", icon: ""
     }, {
       subtitle: "Create folder", icon: ""

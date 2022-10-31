@@ -22,6 +22,8 @@ import { CreateFolderComponent } from './components/create-folder/create-folder.
 import { CookieService } from "ngx-cookie-service";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import {MatListModule} from "@angular/material/list";
     SharedModule,
     RouterModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [
     CookieService
