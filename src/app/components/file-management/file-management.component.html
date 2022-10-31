@@ -1,25 +1,27 @@
 <app-side-navigation-bar></app-side-navigation-bar>
-<div class="container">
-  <p>File types in system</p>
-    <div class="fileTypeList" [formGroup]="form">
-    <ng-container formArrayName="lessons">
-      <ng-container *ngFor="let fileTypeForm of fileTypes.controls; let i = index">
-        <div class="lesson-form-row">
-          <mat-form-field appearance="fill">
-            <input matInput
-                   formControlName="name"
-                   placeholder="File type">
-          </mat-form-field>
-          <mat-icon class="delete-btn" (click)="deleteFileType(i)">
-            delete_forever</mat-icon>
-        </div>
+<body>
+  <div class="container">
+    <p>File types in system</p>
+      <div class="fileTypeList" [formGroup]="form">
+      <ng-container formArrayName="lessons">
+        <ng-container *ngFor="let fileTypeForm of fileTypes.controls; let i = index">
+          <div class="lesson-form-row">
+            <mat-form-field appearance="fill">
+              <input matInput
+                     formControlName="name"
+                     placeholder="File type">
+            </mat-form-field>
+            <mat-icon class="delete-btn" (click)="deleteFileType(i)">
+              delete_forever</mat-icon>
+          </div>
+        </ng-container>
       </ng-container>
-    </ng-container>
-    </div>
-    <div class="buttons">
-      <button color="warn" mat-mini-fab (click)="addFileType()">
-        <mat-icon  class="add-course-btn">add</mat-icon>
-      </button>
-      <button class="buttonEdit" mat-raised-button  color="warn" (click)="sumitChanges()">Summit changes</button>
-    </div>
-</div>
+      </div>
+      <div class="buttons">
+        <button color="warn" mat-mini-fab (click)="addFileType()">
+          <mat-icon  class="add-course-btn">add</mat-icon>
+        </button>
+        <button class="buttonEdit" mat-raised-button  color="warn" (click)="sumitChanges()">Summit changes</button>
+      </div>
+  </div>
+</body>
