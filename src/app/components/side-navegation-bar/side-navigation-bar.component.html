@@ -5,10 +5,9 @@
       <mat-panel-title>
         <img src="{{item.icon}}" alt="">
         {{item.title}}
-
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <a class="mat-action-row" href="#" *ngFor="let submenu of item.subMenu">
+    <a class="mat-action-row" href="{{submenu.Direction}}" *ngFor="let submenu of item.subMenu">
       {{submenu.subtitle}}
     </a>
   </mat-expansion-panel>

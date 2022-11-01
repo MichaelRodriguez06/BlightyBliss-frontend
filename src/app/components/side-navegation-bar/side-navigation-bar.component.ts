@@ -11,12 +11,14 @@ export class SideNavigationBarComponent implements OnInit {
     title: "Profile", subMenu: [{
       subtitle: "Show users", icon: 'assets/account.svg'
     }, {
-      subtitle: "Add user", icon: ""
+      subtitle: "Add user", icon: "", Direction:"http://localhost:4200/register-account"
     }, {
       subtitle: "User", icon: ""
     }], icon: ""
   }, {
     title: "Students", icon: "", subMenu: [{
+        subtitle: "Add students", icon: "",Direction:"http://localhost:4200/regist-student"
+      },{
       subtitle: "Shows students", icon: ""
     }, {
       subtitle: "Certificates", icon: ""
@@ -24,13 +26,21 @@ export class SideNavigationBarComponent implements OnInit {
     ]
   }, {
     title: "Folders", icon: "", subMenu: [{
-      subtitle: "Show folders", icon: ""
+      subtitle: "Show folders", icon: "", Direction: "http://localhost:4200/forder-view"
     },{
       subtitle: "Update document", icon: ""
     }, {
       subtitle: "Create folder", icon: ""
     }, {
       subtitle: "Pending files", icon: ""
+    }]
+  }, {
+    title: "Options", icon: "", subMenu: [{
+      subtitle: "Agreements", icon: ""
+    }, {
+      subtitle: "Programs", icon: ""
+    }, {
+      subtitle: "Files", icon: "",Direction:"http://localhost:4200/file-management"
     }]
   }, {
     title: "Reports", icon: "", subMenu: [{
