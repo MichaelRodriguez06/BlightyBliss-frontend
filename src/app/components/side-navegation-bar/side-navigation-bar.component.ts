@@ -32,7 +32,7 @@ export class SideNavigationBarComponent implements OnInit {
     }, {
       subtitle: "Create folder", icon: ""
     }, {
-      subtitle: "Pending files", icon: ""
+      subtitle: "Pending files", icon: "",Direction:"http://localhost:4200/pending-files"
     }]
   }, {
     title: "Options", icon: "", subMenu: [{

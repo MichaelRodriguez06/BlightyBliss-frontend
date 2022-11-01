@@ -6,6 +6,7 @@ import {RegisterAccountComponent} from "./components/register-account/register-a
 import {Error404PageComponent} from "./components/ErrorPages/error404-page/error404-page.component";
 import {ForderViewComponent} from "./components/forder-view/forder-view.component";
 import {FileManagementComponent} from "./components/file-management/file-management.component";
+import {PendingFilesComponent} from "./components/pending-files/pending-files.component";
 //import {AuthGuard} from "../security/access.guard";
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'page-not-found', component: Error404PageComponent},
   {path:'forder-view', component: ForderViewComponent},
   {path:'file-management', component: FileManagementComponent},
+  {path:'pending-files', component: PendingFilesComponent},
   {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 

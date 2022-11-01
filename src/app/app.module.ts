@@ -26,6 +26,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {FileManagementComponent} from "./components/file-management/file-management.component";
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
+import { PendingFilesComponent } from './components/pending-files/pending-files.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ViewDocumentComponent } from './components/view-document/view-document.
     ForderViewComponent,
     FileManagementComponent,
     CreateFolderComponent,
-    ViewDocumentComponent
+    ViewDocumentComponent,
+    PendingFilesComponent
   ],
   imports: [
     BrowserModule,

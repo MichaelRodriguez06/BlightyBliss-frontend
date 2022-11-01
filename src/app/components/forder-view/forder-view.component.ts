@@ -3,7 +3,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
-import {ViewDocumentComponent} from "../view-document/view-document.component";
 
 export interface PeriodicElement {
   name: string;
@@ -68,11 +67,4 @@ export class ForderViewComponent implements OnInit,AfterViewInit  {
 
   }
 
-  seeDocument() {
-    const dialogRef = this.dialog.open(ViewDocumentComponent, {
-      width: '90%',
-      height: '90%',
-      data: {edit: false}
-    });
-  }
 }
