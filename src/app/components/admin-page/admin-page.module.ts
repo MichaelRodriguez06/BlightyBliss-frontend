@@ -4,19 +4,23 @@ import {AdminPageComponent} from "./admin-page.component";
 import {ListUserPageComponent} from "./list-user-page/list-user-page.component";
 import {AdminPageRoutingModule} from "./admin-page-routing.module";
 import {SharedModule} from "../../core/modules/shared/shared.module";
-import {AppModule} from "../../app.module";
+import {RegisterAccountComponent} from "../register-account/register-account.component";
+import {AccountRegisterFormComponent} from "../register-account/account-register-form/account-register-form.component";
+import {CoreModule} from "../../core/core.module";
 
 @NgModule({
   declarations: [
     AdminPageComponent,
-    ListUserPageComponent
+    ListUserPageComponent,
+    RegisterAccountComponent,
+    AccountRegisterFormComponent
   ],
   exports: [],
   imports: [
     CommonModule,
     AdminPageRoutingModule,
-    SharedModule,
-    AppModule
+    CoreModule,
+    SharedModule
   ]
 })
 export class AdminPageModule {

@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminPageComponent} from "./admin-page.component";
-import {ListUserPageComponent} from "./list-user-page/list-user-page.component";
+import {RegisterAccountComponent} from "../register-account/register-account.component";
+import {AppRoutes} from "../../core/services/app-routes";
 
 const routes: Routes = [
   {
     path: '', component: AdminPageComponent, children: [
-      {path: '', component: ListUserPageComponent},
-      {path: 'listu', component: ListUserPageComponent}
+      {path: '', component: RegisterAccountComponent},
+      {path: AppRoutes.REGISTER_ACCOUNT, component: RegisterAccountComponent},
     ]
   }
 ];

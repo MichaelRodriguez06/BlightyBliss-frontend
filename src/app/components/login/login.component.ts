@@ -5,6 +5,8 @@ import {Router} from "@angular/router";
 import {ApiAccessService} from "../../modules/access/services/api-access.service";
 import {MatDialog} from "@angular/material/dialog";
 import {RecoverPasswordComponent} from "../recover-password/recover-password.component";
+import {AppRoutes} from "../../core/services/app-routes";
+import {NotificationService} from "../../core/services/notification/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private router: Router,
     private apiAccessService: ApiAccessService,
+    private notification: NotificationService,
     private dialog: MatDialog) {
     if (this.apiAccessService.userAccessData) {//user logged
     }
@@ -46,21 +49,25 @@ export class LoginComponent implements OnInit {
     const password = this.form.value.password;
     console.log("Email", email)
     console.log("Password", password)
-    this.loading = true;
-    this.apiAccessService.login(email, password).subscribe(res => {
-      if (res) {
-        //todo: verify admin
-        this.router.navigate(['register-account']);
-      } else {
-        //Mostramos un mensaje de error
-        this.invalidUser()
+    //this.loading = true;
+    this.apiAccessService.login(email, password).subscribe({
+        next: (res) => {
+          if (res) {
+            //todo: verify admin
+            this.router.navigate([AppRoutes.ADMIN_PAGE]);
+          } else {
+            //Mostramos un mensaje de error
+            this.invalidUser()
+          }
+        },
+        error: err => {
+          if (err.status === 401 || err.status === 403 || err.status === 400){
+            this.notification.showsError(err.error.message);
+            this.loading = false;
+          }
+        }
       }
-    }, (error) => {
-      console.log(error)
-      if (error.status === 404) {
-        this.invalidUser()
-      }
-    });
+    );
   }
 
   invalidUser() {

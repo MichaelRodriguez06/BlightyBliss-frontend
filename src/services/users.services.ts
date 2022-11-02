@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {User} from "../app/models/user";
 import {environment} from "../environments/environment";
-import {HttpResponse} from "../app/core/models/httpResponse";
+import {HttpApiResponse} from "../app/core/models/http-api-response";
 import {ApiAccessService} from "../app/modules/access/services/api-access.service";
 
 const headers = {
@@ -27,31 +27,31 @@ export class UsersServices {
     console.log(user)
   }
 
-  createUser(user: User): Observable<HttpResponse<User>> {
+  createUser(user: User): Observable<HttpApiResponse<User>> {
     headers['x-token'] = "Wasdfasdwa"
-    return this.http.post<HttpResponse<User>>(this.url, user,{headers});
+    return this.http.post<HttpApiResponse<User>>(this.url, user,{headers});
   }
 
-  updateUser(user: User): Observable<HttpResponse<User>>{
+  updateUser(user: User): Observable<HttpApiResponse<User>>{
     headers['x-token'] = this.accessService.userAccessData.token
-    return this.http.put<HttpResponse<User>>(this.url+`/${user.id}`, user,{headers});
+    return this.http.put<HttpApiResponse<User>>(this.url+`/${user.id}`, user,{headers});
   }
 
-  deleteUser(email: string): Observable<HttpResponse<User>> {
-    return this.http.patch<HttpResponse<User>>(`${environment.apiUrl}/account/${email}`, {},{headers});
+  deleteUser(email: string): Observable<HttpApiResponse<User>> {
+    return this.http.patch<HttpApiResponse<User>>(`${environment.apiUrl}/account/${email}`, {},{headers});
   }
 
-  getUser(id: number): Observable<HttpResponse<User>>{
+  getUser(id: number): Observable<HttpApiResponse<User>>{
     headers['x-token'] = this.accessService.userAccessData.token
-    return this.http.get<HttpResponse<User>>(this.url+`/${id}`,{headers});
+    return this.http.get<HttpApiResponse<User>>(this.url+`/${id}`,{headers});
   }
 
   getLoggedUser(){
     return this.getUser(this.accessService.userAccessData?.idAccount);
   }
 
-  getUsers(): Observable<HttpResponse<any>> {
+  getUsers(): Observable<HttpApiResponse<any>> {
     headers['x-token'] = this.accessService.userAccessData.token
-    return this.http.get<HttpResponse<User>>(this.url, {headers});
+    return this.http.get<HttpApiResponse<User>>(this.url, {headers});
   }
 }

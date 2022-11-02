@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {catchError, Observable, throwError} from "rxjs";
+import { Observable} from "rxjs";
 import {environment} from "../../../../environments/environment";
-import {HttpResponse} from "../../models/httpResponse";
+import {HttpApiResponse} from "../../models/http-api-response";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -20,34 +20,29 @@ export class HttpService<T> {
   ) {
   }
 
-  private static formatErrors(error: any) {
-    return throwError(error.error);
+  get(path: string, params: HttpParams = new HttpParams()): Observable<HttpApiResponse<T>> {
+    return this.http.get<HttpApiResponse<T>>(`${this.url}/${path}`, {params});
   }
 
-  get(path: string, params: HttpParams = new HttpParams()): Observable<HttpResponse<T>> {
-    return this.http.get<HttpResponse<T>>(`${this.url}/${path}`, {params})
-      .pipe(catchError(HttpService.formatErrors));
-  }
-
-  put(path: string, body: Object = {}): Observable<HttpResponse<T>> {
-    return this.http.put<HttpResponse<T>>(
+  put(path: string, body: Object = {}): Observable<HttpApiResponse<T>> {
+    return this.http.put<HttpApiResponse<T>>(
       `${this.url}/${path}`,
       JSON.stringify(body)
-    ).pipe(catchError(HttpService.formatErrors));
+    );
   }
 
-  post(path: string, body: Object = {}): Observable<HttpResponse<T>> {
-    return this.http.post<HttpResponse<T>>(
+  post(path: string, body: Object = {}): Observable<HttpApiResponse<T>> {
+    return this.http.post<HttpApiResponse<T>>(
       `${this.url}/${path}`,
       JSON.stringify(body),
       httpOptions
-    ).pipe(catchError(HttpService.formatErrors));
+    );
   }
 
-  patch(path: string, body: Object = {}): Observable<HttpResponse<T>> {
-    return this.http.patch<HttpResponse<T>>(
+  patch(path: string, body: Object = {}): Observable<HttpApiResponse<T>> {
+    return this.http.patch<HttpApiResponse<T>>(
       `${this.url}/${path}`,
       JSON.stringify(body)
-    ).pipe(catchError(HttpService.formatErrors));
+    )
   }
 }

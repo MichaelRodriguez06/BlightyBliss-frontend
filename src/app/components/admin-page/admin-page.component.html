@@ -1,21 +1,3 @@
-<div class="main">
-  <nav class="flex align-center">
-    <img class="logo" src="assets/" alt="Imagen no encontrada">
-    <ul>
-      <li>
-        <a href="" [routerLink]="'listu'">Profile</a>
-        <a href="#">Students</a>
-        <a href="#">Folders</a>
-        <a href="#">Reports</a>
-        <button class="btn login" [routerLink]="'login'"><img src="assets/" alt="Imagen no encontrada"></button>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="down">
-    <div class="tab-content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<app-side-navigation-bar></app-side-navigation-bar>
+<router-outlet></router-outlet>
 
