@@ -15,7 +15,7 @@ body{
   margin-bottom: 16px;
 }
 table {
-  width: 100%;
+  width: 95%;
   height: 60%;
   min-width: 500px;
   min-height: 600px;
@@ -31,4 +31,6 @@ table {
 button{
   margin: 2% 2% 2% 2%;
 }
-
+mat-paginator{
+  margin: 1% 2% 1% 1%;
+}

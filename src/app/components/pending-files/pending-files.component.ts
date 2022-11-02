@@ -3,6 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {ViewDocumentComponent} from "../view-document/view-document.component";
+import {CreateFilesComponent} from "../create-files/create-files.component";
 
 export interface foldersMatrix {
   name: string;
@@ -47,6 +48,14 @@ export class PendingFilesComponent implements OnInit {
     const dialogRef = this.dialog.open(ViewDocumentComponent, {
       width: '90%',
       height: '90%',
+      data: {edit: false}
+    });
+  }
+
+  updateDocumentPanel() {
+    const dialogRef = this.dialog.open(CreateFilesComponent, {
+      width: '55%',
+      height: '55%',
       data: {edit: false}
     });
   }

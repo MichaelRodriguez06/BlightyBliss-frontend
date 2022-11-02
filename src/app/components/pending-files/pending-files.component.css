@@ -14,3 +14,19 @@ body{
   letter-spacing: -0.015em;
   margin-bottom: 16px;
 }
+.container{
+  flex-direction: column;
+  height: 100%;
+  margin: 0 0 0 224px;
+  text-align:center;
+}
+table {
+  width: 95%;
+  height: 60%;
+  min-width: 500px;
+  min-height: 600px;
+  margin: 1% 1% 1% 1%;
+}
+mat-paginator{
+  margin: 1% 4% 1% 1%;
+}
