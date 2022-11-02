@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       height: '45%',
       data: {edit: false}
     });
+    dialogRef.afterClosed()
   }
 
   login() {
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
     const password = this.form.value.password;
     console.log("Email", email)
     console.log("Password", password)
-    //this.loading = true;
+    this.loading = true;
     this.apiAccessService.login(email, password).subscribe({
         next: (res) => {
           if (res) {
@@ -61,9 +62,9 @@ export class LoginComponent implements OnInit {
           }
         },
         error: err => {
+          this.loading = false;
           if (err.status === 401 || err.status === 403 || err.status === 400){
             this.notification.showsError(err.error.message);
-            this.loading = false;
           }
         }
       }
