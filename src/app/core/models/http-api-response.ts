@@ -1,6 +1,5 @@
-export interface HttpResponse<T>{
+export interface HttpApiResponse<T>{
   code: number,
   message: string,
   data: T
 }
-

@@ -5,8 +5,7 @@ import {HttpService} from "../../../core/services/http/http.service";
 import {StorageService} from "../../../core/services/storage/storage.service";
 import {Access} from "../../../core/models/access";
 import {Const} from "../../../core/services/const";
-import * as Console from "console";
-import {HttpResponse} from "../../../core/models/httpResponse";
+import {HttpApiResponse} from "../../../core/models/http-api-response";
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +26,13 @@ export class ApiAccessService{
     this.userAccess = this.userSubject.asObservable();
   }
 
-  login(email: string, password: string): Observable<HttpResponse<Access>>{
+  login(email: string, password: string): Observable<HttpApiResponse<Access>>{
     return this._http.post(this.url, {email, password}).pipe(
       map(res =>{
         if (res){
           const user: Access = res.data;
           this._storage.setCookie(Const.ACCESS_COOKIE, JSON.stringify(user))
+          console.log(this._storage.getCookie(Const.ACCESS_COOKIE))
           this.userSubject.next(user)
         }
         return res;
