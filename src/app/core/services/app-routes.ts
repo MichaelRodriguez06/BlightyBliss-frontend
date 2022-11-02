@@ -3,6 +3,10 @@ export abstract class AppRoutes {
   static readonly ADMIN_PAGE: string = 'admin';
   static readonly REGISTER_ACCOUNT: string = 'register-account';
   static readonly NOT_FOUND_PAGE: string = 'page-not-found';
-  static INTERNAL_SERVER_ERROR_PAGE: string = 'internal-server-error';
-  static UNKNOWN_ERROR_PAGE: string = 'unknown-error';
+  static readonly INTERNAL_SERVER_ERROR_PAGE: string = 'internal-server-error';
+  static readonly UNKNOWN_ERROR_PAGE: string = 'unknown-error';
+  static readonly REGISTER_STUDENT: string = 'regist-student';
+  static readonly FOLDER_VIEW: string = 'forder-view';
+  static readonly FILE_MANAGEMENT: string = 'file-management';
+  static readonly PENDING_FILES: string = 'pending-files';
 }

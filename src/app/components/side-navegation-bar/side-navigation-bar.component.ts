@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AppRoutes} from "../../core/services/app-routes";
 
 @Component({
   selector: 'app-side-navigation-bar',
@@ -11,13 +12,13 @@ export class SideNavigationBarComponent implements OnInit {
     title: "Profile", subMenu: [{
       subtitle: "Show users", icon: 'assets/account.svg'
     }, {
-      subtitle: "Add user", icon: "", Direction:"http://localhost:4200/register-account"
+      subtitle: "Add user", icon: "", Direction:AppRoutes.REGISTER_ACCOUNT
     }, {
       subtitle: "User", icon: ""
     }], icon: ""
   }, {
     title: "Students", icon: "", subMenu: [{
-        subtitle: "Add students", icon: "",Direction:"http://localhost:4200/regist-student"
+        subtitle: "Add students", icon: "",Direction:AppRoutes.REGISTER_STUDENT
       },{
       subtitle: "Shows students", icon: ""
     }, {
@@ -26,13 +27,13 @@ export class SideNavigationBarComponent implements OnInit {
     ]
   }, {
     title: "Folders", icon: "", subMenu: [{
-      subtitle: "Show folders", icon: "", Direction: "http://localhost:4200/forder-view"
+      subtitle: "Show folders", icon: "", Direction: AppRoutes.FOLDER_VIEW
     },{
       subtitle: "Update document", icon: ""
     }, {
       subtitle: "Create folder", icon: ""
     }, {
-      subtitle: "Pending files", icon: "",Direction:"http://localhost:4200/pending-files"
+      subtitle: "Pending files", icon: "",Direction:AppRoutes.PENDING_FILES
     }]
   }, {
     title: "Options", icon: "", subMenu: [{
@@ -40,7 +41,7 @@ export class SideNavigationBarComponent implements OnInit {
     }, {
       subtitle: "Programs", icon: ""
     }, {
-      subtitle: "Files", icon: "",Direction:"http://localhost:4200/file-management"
+      subtitle: "Files", icon: "",Direction:AppRoutes.FILE_MANAGEMENT
     }]
   }, {
     title: "Reports", icon: "", subMenu: [{

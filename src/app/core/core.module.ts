@@ -7,15 +7,17 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {ErrorInterceptor} from "./services/interceptors/error.interceptor";
 import {CookieService} from "ngx-cookie-service";
 import {NotificationService} from "./services/notification/notification.service";
+import {AdminPageRoutingModule} from "../components/admin-page/admin-page-routing.module";
 
 @NgModule({
   declarations: [
     SideNavigationBarComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        AdminPageRoutingModule
+    ],
   exports: [
     SideNavigationBarComponent
   ],

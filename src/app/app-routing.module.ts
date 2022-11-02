@@ -1,13 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
-import {RegisterStudentComponent} from "./components/register-student/register-student.component";
 import {ErrorPageComponent} from "./components/ErrorPages/error-page/error-page.component";
-import {ForderViewComponent} from "./components/forder-view/forder-view.component";
-import {FileManagementComponent} from "./components/file-management/file-management.component";
 import {AppRoutes} from "./core/services/app-routes";
-import {PendingFilesComponent} from "./components/pending-files/pending-files.component";
-//import {AuthGuard} from "../security/access.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,9 +12,6 @@ const routes: Routes = [
     //canLoad: [AuthGuard]
   },
   {path: AppRoutes.LOGIN_PAGE, component:LoginComponent},
-  {path:'regist-student', component:RegisterStudentComponent},
-  {path:'forder-view', component: ForderViewComponent},
-  {path:'file-management', component: FileManagementComponent},
   {path: AppRoutes.NOT_FOUND_PAGE, component: ErrorPageComponent,
     data: {errorMessage: '404', message: 'This page is not available at this time'}
   },
@@ -30,8 +22,6 @@ const routes: Routes = [
     data: {errorMessage: 'unknown', message: 'An error has occurred'}
   },
   {path:'**', redirectTo:AppRoutes.NOT_FOUND_PAGE , pathMatch:'full'},
-  {path:'pending-files', component: PendingFilesComponent},
-  {path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
 ];
 
 @NgModule({
