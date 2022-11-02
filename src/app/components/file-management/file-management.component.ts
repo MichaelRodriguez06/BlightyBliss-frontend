@@ -42,7 +42,7 @@ export class FileManagementComponent implements OnInit {
     this.fileTypes.removeAt(fileTypesIndex);
   }
 
-  sumitChanges() {
+  summitChanges() {
 
   }
 }
