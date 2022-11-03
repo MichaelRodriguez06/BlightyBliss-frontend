@@ -26,6 +26,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {FileManagementComponent} from "./components/file-management/file-management.component";
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ViewDocumentComponent } from './components/view-document/view-document.
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [
     CookieService
