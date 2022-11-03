@@ -6,6 +6,9 @@ body{
 
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
   /*display: flex;*/
   align-items: center;
   letter-spacing: -0.015em;
@@ -17,24 +20,13 @@ body{
   margin: 0 0 0 224px;
   text-align:center;
 }
-.fileTypeList{
-  margin:0 auto 0 auto;
-  display: table;
-  align-content: center;
-
-}
-p{
-  font-size: 25px;
-  margin-left: 1%;
-}
-.buttons{
-  margin-top: 1%;
-}
-button{
+table {
+  width: 95%;
+  height: 60%;
+  min-width: 500px;
+  min-height: 600px;
   margin: 1% 1% 1% 1%;
 }
-ng-container{
-}
-mat-form-field{
-  height: 70px;
+mat-paginator{
+  margin: 1% 4% 1% 1%;
 }

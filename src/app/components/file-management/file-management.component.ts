@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CreateFolderComponent} from "../create-folder/create-folder.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-file-management',
@@ -10,7 +12,7 @@ export class FileManagementComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder,private dialog: MatDialog) {
     this.form = this.fb.group({
       name: [Validators.required,
         Validators.minLength(5),
@@ -36,13 +38,17 @@ export class FileManagementComponent implements OnInit {
   }
 
   deleteFileType(fileTypesIndex: number) {
-/**
- * Deberia agregar una ventana para decir estar seguro(agregar despues)
- * */
-    this.fileTypes.removeAt(fileTypesIndex);
+    const dialogRef = this.dialog.open(CreateFolderComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
+    if(false){
+      this.fileTypes.removeAt(fileTypesIndex);
+    }
   }
 
-  sumitChanges() {
+  summitChanges() {
 
   }
 }

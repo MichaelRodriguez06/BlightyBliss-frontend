@@ -12,9 +12,8 @@ import {ConfirmationDialogComponent} from "./components/general/confirmation-dia
 import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
 import { SideNavigationBarComponent } from './components/side-navegation-bar/side-navigation-bar.component';
-import { AccountRegisterFormComponent } from './components/account-register-form/account-register-form.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
-import { Error404PageComponent } from './components/ErrorPages/error404-page/error404-page.component';
+import { ErrorPageComponent } from './components/ErrorPages/error-page/error-page.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { CreateFilesComponent } from './components/create-files/create-files.component';
 import { ForderViewComponent } from './components/forder-view/forder-view.component';
@@ -26,6 +25,8 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {FileManagementComponent} from "./components/file-management/file-management.component";
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
+import {CoreModule} from "./core/core.module";
+import { PendingFilesComponent } from './components/pending-files/pending-files.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
@@ -38,15 +39,14 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     ConfirmationDialogComponent,
     RegisterAccountComponent,
     TopNavegationBarComponent,
-    SideNavigationBarComponent,
-    AccountRegisterFormComponent,
-    Error404PageComponent,
+    ErrorPageComponent,
     RecoverPasswordComponent,
     CreateFilesComponent,
     ForderViewComponent,
     FileManagementComponent,
     CreateFolderComponent,
-    ViewDocumentComponent
+    ViewDocumentComponent,
+    PendingFilesComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     MatListModule,
     MatExpansionModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    CoreModule
   ],
   providers: [
     CookieService

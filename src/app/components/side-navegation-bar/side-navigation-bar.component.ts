@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AppRoutes} from "../../core/services/app-routes";
 
 @Component({
   selector: 'app-side-navigation-bar',
@@ -11,12 +12,14 @@ export class SideNavigationBarComponent implements OnInit {
     title: "Profile", subMenu: [{
       subtitle: "Show users", icon: 'assets/account.svg'
     }, {
-      subtitle: "Add user", icon: ""
+      subtitle: "Add user", icon: "", Direction:AppRoutes.REGISTER_ACCOUNT
     }, {
       subtitle: "User", icon: ""
     }], icon: ""
   }, {
     title: "Students", icon: "", subMenu: [{
+        subtitle: "Add students", icon: "",Direction:AppRoutes.REGISTER_STUDENT
+      },{
       subtitle: "Shows students", icon: ""
     }, {
       subtitle: "Certificates", icon: ""
@@ -24,13 +27,21 @@ export class SideNavigationBarComponent implements OnInit {
     ]
   }, {
     title: "Folders", icon: "", subMenu: [{
-      subtitle: "Show folders", icon: ""
+      subtitle: "Show folders", icon: "", Direction: AppRoutes.FOLDER_VIEW
     },{
       subtitle: "Update document", icon: ""
     }, {
       subtitle: "Create folder", icon: ""
     }, {
-      subtitle: "Pending files", icon: ""
+      subtitle: "Pending files", icon: "",Direction:AppRoutes.PENDING_FILES
+    }]
+  }, {
+    title: "Options", icon: "", subMenu: [{
+      subtitle: "Agreements", icon: ""
+    }, {
+      subtitle: "Programs", icon: ""
+    }, {
+      subtitle: "Files", icon: "",Direction:AppRoutes.FILE_MANAGEMENT
     }]
   }, {
     title: "Reports", icon: "", subMenu: [{

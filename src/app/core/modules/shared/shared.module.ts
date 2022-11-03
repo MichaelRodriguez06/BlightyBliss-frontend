@@ -13,6 +13,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [],
@@ -31,6 +36,15 @@ import {MatMenuModule} from "@angular/material/menu";
     MatTableModule,
     MatIconModule,
     MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut:1500
+    })
   ],
   exports:[
     ReactiveFormsModule,
@@ -45,7 +59,11 @@ import {MatMenuModule} from "@angular/material/menu";
     MatPaginatorModule,
     MatTableModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatCardModule
   ]
 })
 export class SharedModule { }
