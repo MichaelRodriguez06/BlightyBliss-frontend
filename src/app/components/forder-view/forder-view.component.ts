@@ -3,49 +3,63 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
+import {FolderService} from "../../modules/Folders/services/folder.service";
+import {Folder} from "../../modules/Folders/models/folder";
+import {NotificationService} from "../../core/services/notification/notification.service";
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-};
+export interface FolderItem {
+  idFolder: number,
+  name: string,
+  alphabet: string,
+  years: string
+}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+const COLUMNS_SCHEMA = [
+  {
+    key: "idFolder",
+    label: "id"
+  }, {
+    key: "name",
+    label: "name"
+  }, {
+    key: "alphabet",
+    label: "alphabet"
+  }, {
+    key: "years",
+    label: "years"
+  }
+]
 
 @Component({
   selector: 'app-forder-view',
   templateUrl: './forder-view.component.html',
   styleUrls: ['./forder-view.component.css']
 })
+export class ForderViewComponent implements OnInit, AfterViewInit {
 
-export class ForderViewComponent implements OnInit,AfterViewInit  {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
+  columnsSchema: any = COLUMNS_SCHEMA;
+  folderList: Folder[] = [];
+  dataSource = new MatTableDataSource<Folder>(this.folderList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
 
   ngAfterViewInit() {
     // @ts-ignore
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private dialog: MatDialog) {
-
+  constructor(
+    private dialog: MatDialog,
+    private folderService: FolderService,
+    private notification: NotificationService
+  ) {
+    this.folderService.getFolderList(1).subscribe((response) => {
+      this.folderList = response.data;
+      console.log(this.folderList);
+      this.dataSource.data = this.folderList;
+    });
   }
 
   ngOnInit(): void {
@@ -54,10 +68,28 @@ export class ForderViewComponent implements OnInit,AfterViewInit  {
   createFolderPanel() {
     const dialogRef = this.dialog.open(CreateFolderComponent, {
       width: '45%',
-      height: '55%',
+      height: '60%',
       data: {edit: false}
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("Result")
+      console.log(result)
+      if (result) {
+        this.folderService.createFolder(result).subscribe({
+          next: res => {
+            console.log(res.message)
+            this.folderList.push(res.data);
+            this.updateView();
+          },
+          error: err => {
+            this.notification.showsError(err.error.message);
+          }
+        });
+      }
+    });
   }
+
 
   createEditPanel() {
 
@@ -67,4 +99,7 @@ export class ForderViewComponent implements OnInit,AfterViewInit  {
 
   }
 
+  private updateView(){
+    this.dataSource.data = this.folderList;
+  }
 }

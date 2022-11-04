@@ -14,9 +14,9 @@
 
   </div>
   <div class="inputs">
-    <input class="text" type="text" id="name" required>
-    <br>
-    <input class="text" type="email" id="email" required pattern=".+@blightybliss.edu.co" >
+    <input class="mat-form-field" type="text" id="name" required>
+<!--    <br>-->
+    <input class="mat-form-field" type="email" id="email" required pattern=".+@blightybliss.edu.co">
     <br>
 
     <div class="userType">
@@ -38,22 +38,21 @@
       <label> User </label>
     </div>
     <br>
-    <input class="text" type="text" name="text" value=""
-           onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+    <input class="mat-form-field" type="number" name="text" value="">
     <br>
     <input type="radio" name="grupo2"> CC
     <input type="radio" name="grupo2"> TI
     <input type="radio" name="grupo2"> CE
     <input type="radio" name="grupo2"> OTHER
     <br>
-    <input class="text" type="text" name="text">
+    <input class="mat-form-field" type="text" name="text">
     <br>
-    <input class="text" type="text" name="text">
+    <input class="mat-form-field" type="text" name="text">
     <br>
 
   </div>
   <div class="button">
-    <input type="button" value="Confirmar">
+    <button class="buttonCreateFolder" mat-raised-button color="warn" (click)="registerAccount()">Confirmar registro</button>
   </div>
 
 </form>

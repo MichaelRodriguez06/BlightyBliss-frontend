@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor, HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, tap} from "rxjs";
+import {Observable, retry, tap, throwError} from "rxjs";
 import {Router} from "@angular/router";
 import {AppRoutes} from "../app-routes";
 
@@ -18,7 +18,10 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("ERROR INTERCEPTOR");
     return next.handle(request)
-      .pipe(tap({
+      .pipe(
+        //Si la petición falla, intenta realizar la peticioón máximo 3 veces mas
+        retry(3),
+        tap({
         next: res => {
           console.log(res)
         },
@@ -42,6 +45,9 @@ export class ErrorInterceptor implements HttpInterceptor {
         break;
       case 500:
         this.router.navigate([AppRoutes.INTERNAL_SERVER_ERROR_PAGE])
+        break;
+      default:
+        throwError(() => err);
         break;
     }
   }
