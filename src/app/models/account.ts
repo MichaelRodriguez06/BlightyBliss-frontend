@@ -1,6 +1,11 @@
 export interface Account{
   //id del usuario
-  id: number,
-  token: string,
-  role: string
+  name: string,
+  lastName: string,
+  docType: string,
+  docNumber: string,
+  personType: string,
+  accountType: string,
+  email: string,
+  password: string
 }

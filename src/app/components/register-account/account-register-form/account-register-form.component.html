@@ -1,9 +1,10 @@
 <body>
 <h4 class="title">Account registration form</h4>
-<form action="">
+<form action="" [formGroup] = "form">
 
   <div class="labels">
     <label>Name:</label>
+    <label>Lastname:</label>
     <label>Mail:</label>
     <label>User type:</label>
     <label>Person type:</label>
@@ -13,46 +14,52 @@
     <label>Confirm password:</label>
 
   </div>
+
+
   <div class="inputs">
-    <input class="mat-form-field" type="text" id="name" required>
-<!--    <br>-->
-    <input class="mat-form-field" type="email" id="email" required pattern=".+@blightybliss.edu.co">
+    <input class="mat-form-field" type="text" id="name" [(ngModel)]="name" required>
+    <input class="mat-form-field" type="text" id="lastname" [(ngModel)]="lastname" required>
+    <input class="mat-form-field" type="email" id="email" [(ngModel)]="email" formControlName="email" required
+           pattern=".+@blightybliss.edu.co">
     <br>
 
-    <div class="userType">
-      <input type="radio" name="grupo1">
+    <div class="userType" formControlName="userType" required>
+      <input type="radio" value="Admin" (click)="selectAccountType($event)" name="grupo1">
       <label> Admin </label>
-      <input type="radio" name="grupo1">
+      <input type="radio" value="User" (click)="selectAccountType($event)" name="grupo1">
       <label> User </label>
     </div>
     <br>
 
-    <div class="userType">
-      <input type="radio" name="grupo3">
+    <div class="userType" formControlName="userType" required>
+      <input type="radio" value="Student" (click)="selectUserType($event)" name="grupo3">
       <label> Student </label>
-      <input type="radio" name="grupo3">
+      <input type="radio" value="Teacher" (click)="selectUserType($event)" name="grupo3">
       <label> Teacher </label>
-      <input type="radio" name="grupo3">
+      <input type="radio" value="Administrador" (click)="selectUserType($event)" name="grupo3">
       <label> Administrator </label>
-      <input type="radio" name="grupo3">
+      <input type="radio" value="User" (click)="selectUserType($event)" name="grupo3">
       <label> User </label>
     </div>
     <br>
-    <input class="mat-form-field" type="number" name="text" value="">
+    <input class="mat-form-field" type="number" name="text" formControlName="numberDocument" required>
     <br>
-    <input type="radio" name="grupo2"> CC
-    <input type="radio" name="grupo2"> TI
-    <input type="radio" name="grupo2"> CE
-    <input type="radio" name="grupo2"> OTHER
+    <div class="typeDocument" formControlName="typeDocument" required>
+      <input type="radio" value="CC" (click)="selectDocType($event)" name="grupo2"> CC
+      <input type="radio" value="TI" (click)="selectDocType($event)" name="grupo2"> TI
+      <input type="radio" value="CE" (click)="selectDocType($event)" name="grupo2"> CE
+      <input type="radio" value="OTHER" (click)="selectDocType($event)" name="grupo2"> OTHER
+    </div>
+    <input class="mat-form-field" type="text" name="text" [(ngModel)]="passwordUser" formControlName="password">
     <br>
-    <input class="mat-form-field" type="text" name="text">
-    <br>
-    <input class="mat-form-field" type="text" name="text">
+    <input class="mat-form-field" type="text" name="text" [(ngModel)]="confirmPassword"
+           formControlName="confirmPassword">
     <br>
 
   </div>
   <div class="button">
-    <button class="buttonCreateFolder" mat-raised-button color="warn" (click)="registerAccount()">Confirmar registro</button>
+    <button class="buttonCreateFolder" mat-raised-button color="warn" (click)="registerAccount()">Confirmar registro
+    </button>
   </div>
 
 </form>
