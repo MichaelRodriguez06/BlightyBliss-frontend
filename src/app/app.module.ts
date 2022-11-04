@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./core/modules/shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
-import { RegisterAccountComponent } from './components/register-account/register-account.component';
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
 import { SideNavigationBarComponent } from './components/side-navegation-bar/side-navigation-bar.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
@@ -37,7 +36,6 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     RegisterStudentComponent,
     TopNavegationBarComponent,
     ConfirmationDialogComponent,
-    RegisterAccountComponent,
     TopNavegationBarComponent,
     ErrorPageComponent,
     RecoverPasswordComponent,
