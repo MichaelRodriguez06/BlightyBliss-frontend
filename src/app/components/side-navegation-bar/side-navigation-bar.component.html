@@ -8,7 +8,7 @@
 
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <a class="mat-action-row" href="{{submenu.icon}}" *ngFor="let submenu of item.subMenu">
+    <a class="mat-action-row" [routerLink]="submenu.Direction" *ngFor="let submenu of item.subMenu">
       {{submenu.subtitle}}
     </a>
   </mat-expansion-panel>

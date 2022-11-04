@@ -2,21 +2,27 @@
   <div class="tittle">
     <p>Create File</p>
   </div>
-  <div class="fields">
+  <form class="fields" [formGroup]="folderForm" (ngSubmit)="create()">
 
     <mat-form-field appearance="fill" class="nameField">
-      <mat-label>Enter name folder</mat-label>
-      <input matInput placeholder="Name file" required>
+      <mat-label>Enter folder name</mat-label>
+      <input matInput placeholder="E-21" required formControlName="name">
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="ubicationField">
-      <mat-label>Enter ubication folder</mat-label>
-      <input matInput placeholder="Name file" required>
+      <mat-label>Enter folder alphabet</mat-label>
+      <input matInput placeholder="A-B-C-D" required formControlName="alphabet">
     </mat-form-field>
-  </div>
-  <div class="buttons">
-    <button class="buttonCancel" mat-raised-button  (click)="delete()">Cancel</button>
-    <button class="buttonSend" mat-raised-button color="warn">Create</button>
-  </div>
+
+    <mat-form-field appearance="fill" class="ubicationField">
+      <mat-label>Enter folder year</mat-label>
+      <input matInput placeholder="2019-20-21-22" required formControlName="years">
+    </mat-form-field>
+    <div class="buttons">
+      <button class="buttonCancel" mat-raised-button (click)="close()">Cancel</button>
+      <button class="buttonSend" mat-raised-button
+              type="submit" [disabled]="folderForm.invalid" color="warn">Create</button>
+    </div>
+  </form>
 </div>
 

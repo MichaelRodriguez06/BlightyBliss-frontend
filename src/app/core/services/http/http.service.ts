@@ -24,6 +24,10 @@ export class HttpService<T> {
     return this.http.get<HttpApiResponse<T>>(`${this.url}/${path}`, {params});
   }
 
+  getList(path: string, params: HttpParams = new HttpParams()): Observable<HttpApiResponse<T[]>>{
+    return this.http.get<HttpApiResponse<T[]>>(`${this.url}/${path}`, {params});
+  }
+
   put(path: string, body: Object = {}): Observable<HttpApiResponse<T>> {
     return this.http.put<HttpApiResponse<T>>(
       `${this.url}/${path}`,

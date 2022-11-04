@@ -70,6 +70,7 @@ export class ListUserPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
       if (result) {
         this.usersService.createUser(result).subscribe((res => {
           console.log(res.message)
