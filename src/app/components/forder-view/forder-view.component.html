@@ -1,24 +1,59 @@
 <body>
-<div class="container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
-      <th mat-header-cell *matHeaderCellDef>{{ col.label }}</th>
-      <td mat-cell *matCellDef="let element">
-        <span>{{ element[col.key] }}</span>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  <mat-paginator [pageSizeOptions]="[10, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-  <div class="buttons">
-    <button class="buttonCreateFolder" mat-raised-button color="warn" (click)="createFolderPanel()">Create folder
-    </button>
-    <button class="buttonEdit" mat-raised-button color="warn" (click)="createEditPanel()">Edit folder</button>
-    <button class="buttonCancel" mat-raised-button color="warn" (click)="createDeletePanel()">Delete folder</button>
-  </div>
+<div class="card px-6 py-6">
+  <p-table #dt [value]="folderList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="10"
+           [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true"
+           [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
+    <ng-template pTemplate="caption">
+      <h3 class="m-0">Manage Folders</h3>
+      <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+        <button pButton pRipple label="New Folder" icon="pi pi-plus" class="p-button-success mr-2" (click)="createFolderPanel()"></button>
+        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."
+                                   class="w-full sm:w-auto"/>
+                        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th *ngFor="let col of columnsSchema" pSortableColumn="{{col.field}}">{{col.header}}
+          <p-sortIcon field="{{col.field}}"></p-sortIcon>
+        </th>
+        <th>Options</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-folder>
+      <tr>
+        <td style="width:2rem">
+          <i class="pi pi-folder-open" style="font-size: 2rem"></i>
+        </td>
+        <td style="width:14%; min-width:10rem;"><span class="p-column-title">Id</span>
+          {{folder.idFolder}}
+        </td>
+        <td style="width:14%; min-width:10rem;">
+          <span class="p-column-title">Name</span>
+          {{folder.name}}
+        </td>
+        <td style="width:14%; min-width:8rem;">
+          <span class="p-column-title">Alphabet</span>
+          {{folder.alphabet}}
+        </td>
+        <td style="width:14%; min-width:10rem;">
+          <span class="p-column-title">Years</span>
+          {{folder.years}}
+        </td>
+        <td>
+          <div class="flex">
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                    (click)="createFolderPanel()"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    (click)="createFolderPanel()"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 </body>

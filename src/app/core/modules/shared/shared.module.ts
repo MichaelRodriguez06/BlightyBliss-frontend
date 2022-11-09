@@ -18,6 +18,19 @@ import {MatListModule} from "@angular/material/list";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCardModule} from "@angular/material/card";
 import {ToastrModule} from "ngx-toastr";
+import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
+import {FileUploadModule} from "primeng/fileupload";
+import {RippleModule} from "primeng/ripple";
+import {ToastModule} from "primeng/toast";
+import {ToolbarModule} from "primeng/toolbar";
+import {RatingModule} from "primeng/rating";
+import {InputTextModule} from "primeng/inputtext";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {DropdownModule} from "primeng/dropdown";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {InputNumberModule} from "primeng/inputnumber";
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [],
@@ -44,7 +57,22 @@ import {ToastrModule} from "ngx-toastr";
       positionClass: 'toast-top-right',
       preventDuplicates: true,
       timeOut:1500
-    })
+    }),
+    //PRIME NG MODULES
+    TableModule,
+    FileUploadModule,
+    FormsModule,
+    ButtonModule  ,
+    RippleModule,
+    ToastModule,
+    ToolbarModule,
+    RatingModule,
+    InputTextModule,
+    InputTextareaModule,
+    DropdownModule,
+    RadioButtonModule,
+    InputNumberModule,
+    DialogModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -63,7 +91,22 @@ import {ToastrModule} from "ngx-toastr";
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    //PRIME NG MODULES
+    TableModule,
+    FileUploadModule,
+    FormsModule,
+    ButtonModule,
+    RippleModule,
+    ToastModule,
+    ToolbarModule,
+    RatingModule,
+    InputTextModule,
+    InputTextareaModule,
+    DropdownModule,
+    RadioButtonModule,
+    InputNumberModule,
+    DialogModule
   ]
 })
 export class SharedModule { }

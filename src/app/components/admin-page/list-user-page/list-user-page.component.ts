@@ -10,29 +10,29 @@ import {ConfirmationDialogComponent} from "../../general/confirmation-dialog/con
 
 const COLUMNS_SCHEMA = [
   {
-    key: "document",
-    label: "Documento"
+    field: "document",
+    header: "Documento"
   }, {
-    key: "document_type",
-    label: "Tipo"
+    field: "document_type",
+    header: "Tipo"
   }, {
-    key: "full_name",
-    label: "Nombre"
+    field: "full_name",
+    header: "Nombre"
   }, {
-    key: "credentialId",
-    label: "Correo"
+    field: "credentialId",
+    header: "Correo"
   }, {
-    key: "phone_number",
-    label: "Telefono"
+    field: "phone_number",
+    header: "Telefono"
   }, {
-    key: "city",
-    label: "Ciudad"
+    field: "city",
+    header: "Ciudad"
   }, {
-    key: "address",
-    label: "Direccion"
+    field: "address",
+    header: "Direccion"
   }, {
-    key: "isEdit",
-    label: "Acciones"
+    field: "isEdit",
+    header: "Acciones"
   }
 ]
 
@@ -44,7 +44,7 @@ const COLUMNS_SCHEMA = [
 export class ListUserPageComponent implements OnInit {
 
   columnsSchema: any = COLUMNS_SCHEMA;
-  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
+  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.field);
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;

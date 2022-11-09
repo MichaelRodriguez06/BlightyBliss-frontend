@@ -34,3 +34,33 @@ button{
 mat-paginator{
   margin: 1% 2% 1% 1%;
 }
+
+.p-toolbar {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.my-2 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.p-toolbar-group-left, .p-toolbar-group-right {
+  display: flex;
+  align-items: center;
+}
+
+#TableHeader{
+  justify-content: space-between !important;
+  display: flex;
+}
+
+#TableHeader button{
+  margin: 0;
+}
+
+td div button{
+  margin-top: 0;
+}
