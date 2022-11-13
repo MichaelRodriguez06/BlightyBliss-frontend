@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   hostUrl: "http://localhost:3006/",
-  //apiUrl: "https://localhost:7187/api"
-  apiUrl: "https://blightyapi.onrender.com/api"
+  apiUrl: "https://localhost:7187/api"
+  //apiUrl: "https://blightyapi.onrender.com/api"
 };
 
 /*
