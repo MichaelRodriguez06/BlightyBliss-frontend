@@ -27,6 +27,7 @@ import { ViewDocumentComponent } from './components/view-document/view-document.
 import {CoreModule} from "./core/core.module";
 import { PendingFilesComponent } from './components/pending-files/pending-files.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import { ViewStudentsComponent } from './components/view-students/view-students.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     FileManagementComponent,
     CreateFolderComponent,
     ViewDocumentComponent,
-    PendingFilesComponent
+    PendingFilesComponent,
+    ViewStudentsComponent
   ],
   imports: [
     BrowserModule,

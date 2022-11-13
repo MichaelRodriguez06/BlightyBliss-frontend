@@ -50,4 +50,6 @@ p{
 .buttonSend{
   margin-right: 2%;
 }
-
+.inputDocument{
+  width: 60%;
+}
