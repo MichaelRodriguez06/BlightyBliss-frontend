@@ -6,6 +6,7 @@ import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {FolderService} from "../../modules/Folders/services/folder.service";
 import {Folder} from "../../modules/Folders/models/folder";
 import {NotificationService} from "../../core/services/notification/notification.service";
+import {Table} from "primeng/table";
 
 export interface FolderItem {
   idFolder: number,
@@ -16,17 +17,17 @@ export interface FolderItem {
 
 const COLUMNS_SCHEMA = [
   {
-    key: "idFolder",
-    label: "id"
+    field: "idFolder",
+    header: "Id"
   }, {
-    key: "name",
-    label: "name"
+    field: "name",
+    header: "Name"
   }, {
-    key: "alphabet",
-    label: "alphabet"
+    field: "alphabet",
+    header: "Alphabet"
   }, {
-    key: "years",
-    label: "years"
+    field: "years",
+    header: "Years"
   }
 ]
 
@@ -37,18 +38,13 @@ const COLUMNS_SCHEMA = [
 })
 export class ForderViewComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = COLUMNS_SCHEMA.map((col) => col.key);
   columnsSchema: any = COLUMNS_SCHEMA;
   folderList: Folder[] = [];
+  folder: Folder = {alphabet: "", idFolder: 0, idLocationFolder: 0, name: "", years: ""}
   dataSource = new MatTableDataSource<Folder>(this.folderList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-
-  ngAfterViewInit() {
-    // @ts-ignore
-    this.dataSource.paginator = this.paginator;
-  }
 
   constructor(
     private dialog: MatDialog,
@@ -62,6 +58,11 @@ export class ForderViewComponent implements OnInit, AfterViewInit {
     });
   }
 
+  ngAfterViewInit() {
+    // @ts-ignore
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngOnInit(): void {
   }
 
@@ -73,9 +74,9 @@ export class ForderViewComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log("Result")
       console.log(result)
       if (result) {
+        console.log("Result")
         this.folderService.createFolder(result).subscribe({
           next: res => {
             console.log(res.message)
@@ -97,6 +98,10 @@ export class ForderViewComponent implements OnInit, AfterViewInit {
 
   createDeletePanel() {
 
+  }
+
+  onGlobalFilter(table: Table, event: Event) {
+    table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
   private updateView(){

@@ -1,40 +1,31 @@
-<!--    const dialogRef = this.dialog.open(CreateFilesComponent, {
-  width: '45%',
-  height: '55%',
-  data: {edit: false}
-  });
--->
-
 <div class="container">
 
   <div class="tittle">
     <p>Upload File</p>
   </div>
-  <div class="uploadFile">
+  <form class="fields" [formGroup]="filesForm" (ngSubmit)="create()">
+    <div class="uploadFile">
+      <mat-form-field appearance="fill" class="nameUpdatedFile">
+        <input matInput placeholder="Name file" readonly="readonly">
+      </mat-form-field>
 
-    <mat-form-field appearance="fill" class="nameUpdatedFile">
-      <input matInput placeholder="Name file" readonly="readonly">
-    </mat-form-field>
+      <input class="nameUpdatedFile" name="pdf" type="file" accept="application/pdf " />
 
-    <input name="pdf" type="file" accept="application/pdf "  />
+    </div>
+    <div class="fields">
 
-  </div>
-  <div class="fields">
+      <mat-form-field appearance="fill" class="nameField">
+        <mat-label>Enter name File</mat-label>
+        <input matInput placeholder="Name file" required>
+      </mat-form-field>
 
-    <mat-form-field appearance="fill" class="nameField">
-      <mat-label>Enter name File</mat-label>
-      <input matInput placeholder="Name file" required>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="listOptions">
-      <mat-label>type of file</mat-label>
-      <mat-select required>
-        <mat-option>Base de datos</mat-option>
-        <mat-option>Base de datos</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-  </div>
+      <mat-form-field appearance="fill" class="listOptions" [(ngModel)]="this.filesForm">
+        <mat-label>type of file</mat-label>
+        <mat-select required>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
   <div class="buttons">
     <button class="buttonCancel" mat-raised-button  (click)="delete()">Cancel</button>
     <button class="buttonSend" mat-raised-button color="warn">Update</button>
