@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApiAccessService} from "../../../modules/access/services/api-access.service";
-import * as Console from "console";
-import {Router} from "@angular/router";
 import {AccountService} from "../../services/account.service";
+import {HttpService} from "../../../core/services/http/http.service";
+import {AppRoutes} from "../../../core/services/app-routes";
+import {NotificationService} from "../../../core/services/notification/notification.service";
+import {Account} from "../../../models/account";
 
 
 @Component({
@@ -14,27 +16,27 @@ import {AccountService} from "../../services/account.service";
 export class AccountRegisterFormComponent implements OnInit {
 
   form: FormGroup;
-  passwordUser?: string;
-  confirmPassword?: string;
-  name?: string;
-  lastname?: string;
-  docType?: string;
-  email?: string;
-  accountType?: string;
-  personType?: string;
+  typeAccount: FormGroup;
+  personType: FormGroup;
+  docType: FormGroup;
 
 
   constructor(
     private fb: FormBuilder,
     private apiAccessService: ApiAccessService,
-    private serviceAccount: AccountService
+    private serviceAccount: AccountService,
+    private notification: NotificationService,
   ) {
     if (this.apiAccessService.userAccessData) {//user logged
 
     }
+
+    this.typeAccount = new FormBuilder().group({});
+    this.personType = new FormBuilder().group({});
+    this.docType = new FormBuilder().group({});
     this.form = fb.group({
         name: ['', Validators.required],
-        lastname: ['', Validators.required],
+        lastName: ['', Validators.required],
         docType: ['', Validators.required],
         docNumber: ['', Validators.required],
         personType: ['', Validators.required],
@@ -51,20 +53,26 @@ export class AccountRegisterFormComponent implements OnInit {
   }
 
   registerAccount() {
-    const formRegister = this.form.value;
-    // this.serviceAccount.addAccount();
+    const formRegister: Account = this.form.value;
+    formRegister.docNumber = String(formRegister.docNumber);
+    console.log(typeof formRegister.docNumber);
+    console.log(formRegister)
+    this.serviceAccount.addAccount(formRegister).subscribe({
+      next: (res) => {
+        if (res) {
+          this.notification.showsSuccess(res.message)
+        } else {
+          this.notification.showsInfo(res)
+        }
+      },
+      error: err => {
+        if (err.status === 401 || err.status === 403 || err.status === 400) {
+          this.notification.showsError(err.error.message);
+        }
+      }
+
+    });
   }
 
-  selectUserType(event: Event) {
-    this.personType = (<HTMLInputElement>event.target).value;
-  }
-
-  selectDocType(event: Event) {
-    this.docType = (<HTMLInputElement>event.target).value;
-  }
-
-  selectAccountType(event: Event) {
-    this.accountType = (<HTMLInputElement>event.target).value;
-  }
 
 }
