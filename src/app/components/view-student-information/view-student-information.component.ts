@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {CreateFolderComponent} from "../create-folder/create-folder.component";
-import {StudentService} from "../../modules/Students/services/student.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Student} from "../../modules/Students/models/student";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatDialog} from "@angular/material/dialog";
+import {StudentService} from "../../modules/Students/services/student.service";
 import {NotificationService} from "../../core/services/notification/notification.service";
+import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {Table} from "primeng/table";
 
 export interface FolderItem {
@@ -28,12 +28,11 @@ const COLUMNS_SCHEMA = [
 ]
 
 @Component({
-  selector: 'app-view-students',
-  templateUrl: './view-students.component.html',
-  styleUrls: ['./view-students.component.css']
+  selector: 'app-view-student-information',
+  templateUrl: './view-student-information.component.html',
+  styleUrls: ['./view-student-information.component.css']
 })
-export class ViewStudentsComponent implements OnInit {
-
+export class ViewStudentInformationComponent implements OnInit {
   columnsSchema: any = COLUMNS_SCHEMA;
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
@@ -103,4 +102,5 @@ export class ViewStudentsComponent implements OnInit {
   private updateView(){
     this.dataSource.data = this.studentList;
   }
+
 }

@@ -10,4 +10,5 @@ export abstract class AppRoutes {
   static readonly FILE_MANAGEMENT: string = 'file-management';
   static readonly PENDING_FILES: string = 'pending-files';
   static readonly VIEW_STUDENTS: string = 'view-students';
+  static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
 }

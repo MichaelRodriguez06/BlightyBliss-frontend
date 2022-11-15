@@ -8,6 +8,7 @@ import {ForderViewComponent} from "../forder-view/forder-view.component";
 import {FileManagementComponent} from "../file-management/file-management.component";
 import {PendingFilesComponent} from "../pending-files/pending-files.component";
 import {ViewStudentsComponent} from "../view-students/view-students.component";
+import {ViewStudentInformationComponent} from "../view-student-information/view-student-information.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       {path: AppRoutes.FILE_MANAGEMENT , component: FileManagementComponent},
       {path: AppRoutes.PENDING_FILES, component: PendingFilesComponent},
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
+      {path: AppRoutes.VIEW_STUDENT_INFORMATION, component: ViewStudentInformationComponent},
     ]
   }
 ];
