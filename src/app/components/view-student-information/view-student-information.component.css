@@ -14,3 +14,23 @@ body{
   letter-spacing: -0.015em;
   margin-bottom: 16px;
 }
+.buttons{
+  height: 100%;
+  display:flex;
+  justify-content: right;
+  align-items: baseline;
+}
+.container{
+  background: #75b7ff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  min-width: 400px;
+  min-height: 300px;
+}
+.mat-form-field{
+  width: 30%;
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+}

@@ -1,3 +1,56 @@
 <body>
-
+  <div class="container">
+    <div class="name">
+      <mat-form-field id="name" appearance="fill">
+        <span class="custom-control">name :</span>
+        <span> asassa</span>
+      </mat-form-field>
+    </div>
+    <mat-form-field id="Document_type" appearance="fill">
+      <span class="custom-control">Document type:</span>
+    </mat-form-field>
+    <mat-form-field id="Document_number" appearance="fill">
+      <span class="custom-control">Document number:</span>
+    </mat-form-field>
+    <mat-form-field id="first_name" appearance="fill">
+      <span class="custom-control">Name :</span>
+    </mat-form-field>
+    <mat-form-field id="last_name" appearance="fill">
+      <span class="custom-control">Last name :</span>
+    </mat-form-field>
+    <mat-form-field id="gender" appearance="fill">
+      <span class="custom-control">Gender :</span>
+    </mat-form-field>
+    <mat-form-field id="marital_status" appearance="fill">
+      <span class="custom-control">Marital Status :</span>
+    </mat-form-field>
+    <mat-form-field id="birth_date" appearance="fill">
+      <span class="custom-control">Birth date :</span>
+    </mat-form-field>
+    <mat-form-field id="address" appearance="fill">
+      <span class="custom-control">address :</span>
+    </mat-form-field>
+    <mat-form-field id="email" appearance="fill">
+      <span class="custom-control">email :</span>
+    </mat-form-field>
+    <mat-form-field id="ocupation" appearance="fill">
+      <span class="custom-control">ocupation :</span>
+    </mat-form-field>
+    <mat-form-field id="blood_type" appearance="fill">
+      <span class="custom-control">blood_type :</span>
+    </mat-form-field>
+    <mat-form-field id="vulnerable_population" appearance="fill">
+      <span class="custom-control">vulnerable population :</span>
+    </mat-form-field>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>1</mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+    </mat-grid-list>
+    <div class="buttons">
+      <button class="buttonCancel" mat-raised-button (click)="createExamTryPanel()" color="warn">intento de examen</button>
+      <button class="buttonCancel" mat-raised-button (click)="close()" color="warn">X</button>
+    </div>
+  </div>
 </body>

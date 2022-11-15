@@ -2,7 +2,6 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {StudentService} from "../../modules/Students/services/student.service";
 import {Student} from "../../modules/Students/models/student";
 import {NotificationService} from "../../core/services/notification/notification.service";
@@ -63,7 +62,7 @@ export class ViewStudentsComponent implements OnInit {
   }
 
   createStudentPanel() {
-    const dialogRef = this.dialog.open(CreateFolderComponent, {
+    const dialogRef = this.dialog.open(ViewStudentsComponent, {
       width: '45%',
       height: '60%',
       data: {edit: false}

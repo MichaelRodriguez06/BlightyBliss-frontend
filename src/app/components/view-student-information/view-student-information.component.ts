@@ -2,11 +2,13 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Student} from "../../modules/Students/models/student";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {StudentService} from "../../modules/Students/services/student.service";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {Table} from "primeng/table";
+import {CreateFilesComponent} from "../create-files/create-files.component";
+import {ExamTryComponent} from "../exam-try/exam-try.component";
 
 export interface FolderItem {
   name: string,
@@ -44,13 +46,13 @@ export class ViewStudentInformationComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private studentService: StudentService,
-    private notification: NotificationService
-  ) {
+    private notification: NotificationService,
+  ) {/*
     this.studentService.getStudentList(1).subscribe((response) => {
       this.studentList = response.data;
       console.log(this.studentList);
       this.dataSource.data = this.studentList;
-    });
+    });*/
   }
 
   ngAfterViewInit() {
@@ -87,14 +89,6 @@ export class ViewStudentInformationComponent implements OnInit {
   }
 
 
-  createEditPanel() {
-
-  }
-
-  createDeletePanel() {
-
-  }
-
   onGlobalFilter(table: Table, event: Event) {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
@@ -103,4 +97,15 @@ export class ViewStudentInformationComponent implements OnInit {
     this.dataSource.data = this.studentList;
   }
 
+  close() {
+
+  }
+
+  createExamTryPanel() {
+    const dialogRef = this.dialog.open(ExamTryComponent, {
+      width: '55%',
+      height: '55%',
+      data: {edit: false}
+    });
+  }
 }

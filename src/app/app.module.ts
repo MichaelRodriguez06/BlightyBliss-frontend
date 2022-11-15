@@ -29,6 +29,7 @@ import { PendingFilesComponent } from './components/pending-files/pending-files.
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ViewStudentsComponent } from './components/view-students/view-students.component';
 import { ViewStudentInformationComponent } from './components/view-student-information/view-student-information.component';
+import { ExamTryComponent } from './components/exam-try/exam-try.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ViewStudentInformationComponent } from './components/view-student-infor
     ViewDocumentComponent,
     PendingFilesComponent,
     ViewStudentsComponent,
-    ViewStudentInformationComponent
+    ViewStudentInformationComponent,
+    ExamTryComponent
   ],
   imports: [
     BrowserModule,

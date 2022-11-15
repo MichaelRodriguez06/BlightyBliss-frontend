@@ -5,13 +5,20 @@
 }
 
 body {
+    position: absolute;
+    left: 300px;
+    top: 0;
+    right: 0;
 
-  font-family: "Arial Narrow", sans-serif;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 39px;
+    /*display: flex;*/
+    align-items: center;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
 }
 .right .background {
   background-size: cover;
