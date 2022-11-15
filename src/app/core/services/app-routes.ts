@@ -9,6 +9,7 @@ export abstract class AppRoutes {
   static readonly FOLDER_VIEW: string = 'forder-view';
   static readonly FILE_MANAGEMENT: string = 'file-management';
   static readonly PENDING_FILES: string = 'pending-files';
+  static readonly NEW_USER: string = 'api/Access/newUser';
   static readonly VIEW_STUDENTS: string = 'view-students';
   static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
 }

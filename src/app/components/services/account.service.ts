@@ -4,6 +4,7 @@ import {AppRoutes} from "../../core/services/app-routes";
 import {Account} from "../../models/account";
 import {Observable} from "rxjs";
 import {HttpService} from "../../core/services/http/http.service";
+import {HttpApiResponse} from "../../core/models/http-api-response";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AccountService {
 
   }
 
-  addAccount(accountNew: Account) {
-    this.server.post(`Access/login`, accountNew);
+  addAccount(accountNew: Account): Observable<HttpApiResponse<Account>> {
+    return this.server.post(`Access/newUser`, accountNew);
   }
 }
