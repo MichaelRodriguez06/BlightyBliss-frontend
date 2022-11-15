@@ -11,7 +11,7 @@ import {Table} from "primeng/table";
 export interface FolderItem {
   name: string,
   doctype: string,
-  docnumber: number
+  docNumber: number
 }
 
 const COLUMNS_SCHEMA = [
