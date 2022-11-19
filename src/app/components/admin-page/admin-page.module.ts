@@ -7,13 +7,15 @@ import {SharedModule} from "../../core/modules/shared/shared.module";
 import {RegisterAccountComponent} from "../register-account/register-account.component";
 import {AccountRegisterFormComponent} from "../register-account/account-register-form/account-register-form.component";
 import {CoreModule} from "../../core/core.module";
+import {ViewStudentInformationComponent} from "../view-student-information/view-student-information.component";
 
 @NgModule({
   declarations: [
     AdminPageComponent,
     ListUserPageComponent,
     RegisterAccountComponent,
-    AccountRegisterFormComponent
+    AccountRegisterFormComponent,
+    ViewStudentInformationComponent
   ],
   exports: [],
   imports: [

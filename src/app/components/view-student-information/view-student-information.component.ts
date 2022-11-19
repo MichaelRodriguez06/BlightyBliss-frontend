@@ -2,12 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Student} from "../../modules/Students/models/student";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {StudentService} from "../../modules/Students/services/student.service";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {Table} from "primeng/table";
-import {CreateFilesComponent} from "../create-files/create-files.component";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
 
 export interface FolderItem {
@@ -32,13 +31,23 @@ const COLUMNS_SCHEMA = [
 @Component({
   selector: 'app-view-student-information',
   templateUrl: './view-student-information.component.html',
-  styleUrls: ['./view-student-information.component.css']
+  styleUrls: ['./view-student-information.component.css',
+    '../../../../node_modules/primeflex/primeflex.css']
 })
 export class ViewStudentInformationComponent implements OnInit {
+
   columnsSchema: any = COLUMNS_SCHEMA;
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
   dataSource = new MatTableDataSource<Student>(this.studentList);
+
+  selectedState: any = null;
+
+  dropdownItems = [
+    { name: 'Option 1', code: 'Option 1' },
+    { name: 'Option 2', code: 'Option 2' },
+    { name: 'Option 3', code: 'Option 3' }
+  ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 

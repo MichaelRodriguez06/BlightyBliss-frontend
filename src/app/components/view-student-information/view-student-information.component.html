@@ -1,4 +1,5 @@
 <body>
+<!--
   <div class="container">
     <div class="name">
       <mat-form-field id="name" appearance="fill">
@@ -42,15 +43,41 @@
     <mat-form-field id="vulnerable_population" appearance="fill">
       <span class="custom-control">vulnerable population :</span>
     </mat-form-field>
-    <mat-grid-list cols="2" rowHeight="2:1">
-      <mat-grid-tile>1</mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
-    </mat-grid-list>
     <div class="buttons">
       <button class="buttonCancel" mat-raised-button (click)="createExamTryPanel()" color="warn">intento de examen</button>
       <button class="buttonCancel" mat-raised-button (click)="close()" color="warn">X</button>
+    </div>
+  </div>
+  -->
+  <div class="col-12">
+    <div class="card">
+      <h5>Advanced</h5>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-6">
+          <label htmlFor="firstname2">Firstname</label>
+          <input pInputText id="firstname2" type="text" />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label htmlFor="lastname2">Lastname</label>
+          <input pInputText id="lastname2" type="text" />
+        </div>
+        <div class="field col-12">
+          <label htmlFor="address">Address</label>
+          <input pInputTextarea id="address" rows="4" />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label htmlFor="city">City</label>
+          <input pInputText id="city" type="text" />
+        </div>
+        <div class="field col-12 md:col-3">
+          <label htmlFor="state">State</label>
+          <p-dropdown [options]="dropdownItems" optionLabel="name" [(ngModel)]="selectedState"></p-dropdown>
+        </div>
+        <div class="field col-12 md:col-3">
+          <label htmlFor="zip">Zip</label>
+          <input pInputText id="zip" type="text" />
+        </div>
+      </div>
     </div>
   </div>
 </body>

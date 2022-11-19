@@ -32,6 +32,8 @@ import { ViewStudentInformationComponent } from './components/view-student-infor
 import { ExamTryComponent } from './components/exam-try/exam-try.component';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {TabMenuModule} from "primeng/tabmenu";
+import {StepsModule} from "primeng/steps";
 
 @NgModule({
   declarations: [
@@ -51,7 +53,6 @@ import {MatGridListModule} from "@angular/material/grid-list";
     ViewDocumentComponent,
     PendingFilesComponent,
     ViewStudentsComponent,
-    ViewStudentInformationComponent,
     ExamTryComponent
   ],
   imports: [
@@ -68,7 +69,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     MatButtonToggleModule,
     CoreModule,
     MatStepperModule,
-    MatGridListModule
+    MatGridListModule,
+    TabMenuModule,
+    StepsModule
   ],
   providers: [
     CookieService
