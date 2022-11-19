@@ -21,6 +21,7 @@ const routes: Routes = [
       {path: AppRoutes.PENDING_FILES, component: PendingFilesComponent},
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
       {path: AppRoutes.VIEW_STUDENT_INFORMATION, component: ViewStudentInformationComponent},
+
     ]
   }
 ];

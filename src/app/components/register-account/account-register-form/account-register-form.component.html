@@ -40,17 +40,17 @@
       <label> User </label>
     </div>
 
-    <input class="mat-form-field" type="number" name="docNumber" formControlName="docNumber">
+    <input class='mat-form-field' formControlName='docNumber' name='docNumber' type='number'>
 
-    <div class="typeDocument">
-      <input type="radio" value="CC" name="docType" formControlName="docType" checked> CC
-      <input type="radio" value="TI" name="docType" formControlName="docType"> TI
-      <input type="radio" value="CE" name="docType" formControlName="docType"> CE
-      <input type="radio" value="OTHER" name="docType" formControlName="docType"> OTHER
+    <div class='typeDocument'>
+      <input checked formControlName='docType' name='docType' type='radio' value='CC'> CC
+      <input formControlName='docType' name='docType' type='radio' value='TI'> TI
+      <input formControlName='docType' name='docType' type='radio' value='CE'> CE
+      <input formControlName='docType' name='docType' type='radio' value='OTHER'> OTHER
     </div>
-    <input class="mat-form-field" type="text" name="text" formControlName="password">
-    <input class="mat-form-field" type="text" name="text"
-           formControlName="confirmPassword">
+    <input class='mat-form-field' formControlName='password' name='text' type='text'>
+    <input class='mat-form-field' formControlName='confirmPassword' name='text'
+           type='text'>
 
   </div>
   <div class="button">

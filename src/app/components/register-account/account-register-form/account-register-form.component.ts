@@ -1,11 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ApiAccessService} from "../../../modules/access/services/api-access.service";
-import {AccountService} from "../../services/account.service";
-import {HttpService} from "../../../core/services/http/http.service";
-import {AppRoutes} from "../../../core/services/app-routes";
-import {NotificationService} from "../../../core/services/notification/notification.service";
-import {Account} from "../../../models/account";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiAccessService } from '../../../modules/access/services/api-access.service';
+import { AccountService } from '../../services/account.service';
+import { NotificationService } from '../../../core/services/notification/notification.service';
+import { Account } from '../../../models/account';
 
 
 @Component({
@@ -25,7 +23,7 @@ export class AccountRegisterFormComponent implements OnInit {
     private fb: FormBuilder,
     private apiAccessService: ApiAccessService,
     private serviceAccount: AccountService,
-    private notification: NotificationService,
+    private notification: NotificationService
   ) {
     if (this.apiAccessService.userAccessData) {//user logged
 
@@ -43,7 +41,7 @@ export class AccountRegisterFormComponent implements OnInit {
         accountType: ['', Validators.required],
         email: ['', Validators.required],
         password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
       }
     );
 
@@ -54,24 +52,27 @@ export class AccountRegisterFormComponent implements OnInit {
 
   registerAccount() {
     const formRegister: Account = this.form.value;
-    formRegister.docNumber = String(formRegister.docNumber);
-    console.log(typeof formRegister.docNumber);
-    console.log(formRegister)
-    this.serviceAccount.addAccount(formRegister).subscribe({
-      next: (res) => {
-        if (res) {
-          this.notification.showsSuccess(res.message)
-        } else {
-          this.notification.showsInfo(res)
+    if ((this.form.get('password')?.value) == (this.form.get('confirmPassword')?.value)) {
+      formRegister.docNumber = String(formRegister.docNumber);
+      this.serviceAccount.addAccount(formRegister).subscribe({
+        next: (res) => {
+          if (res) {
+            this.notification.showsSuccess(res.message);
+          } else {
+            this.notification.showsInfo(res);
+          }
+        },
+        error: err => {
+          if (err.status === 401 || err.status === 403 || err.status === 400) {
+            this.notification.showsError(err.error.message);
+          }
         }
-      },
-      error: err => {
-        if (err.status === 401 || err.status === 403 || err.status === 400) {
-          this.notification.showsError(err.error.message);
-        }
-      }
 
-    });
+      });
+    } else {
+      this.notification.showsError('Passwords dont match');
+    }
+
   }
 
 
