@@ -32,22 +32,14 @@ const COLUMNS_SCHEMA = [
   selector: 'app-view-student-information',
   templateUrl: './view-student-information.component.html',
   styleUrls: ['./view-student-information.component.css',
-    '../../../../node_modules/primeflex/primeflex.css']
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class ViewStudentInformationComponent implements OnInit {
 
-  columnsSchema: any = COLUMNS_SCHEMA;
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
   dataSource = new MatTableDataSource<Student>(this.studentList);
-
-  selectedState: any = null;
-
-  dropdownItems = [
-    { name: 'Option 1', code: 'Option 1' },
-    { name: 'Option 2', code: 'Option 2' },
-    { name: 'Option 3', code: 'Option 3' }
-  ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 

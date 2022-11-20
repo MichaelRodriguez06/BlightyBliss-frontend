@@ -32,6 +32,8 @@ import {RadioButtonModule} from "primeng/radiobutton";
 import {InputNumberModule} from "primeng/inputnumber";
 import {DialogModule} from "primeng/dialog";
 import { StepsModule } from "primeng/steps";
+import {TabViewModule} from "primeng/tabview";
+import {PanelModule} from "primeng/panel";
 
 @NgModule({
   declarations: [],
@@ -74,7 +76,9 @@ import { StepsModule } from "primeng/steps";
     RadioButtonModule,
     InputNumberModule,
     DialogModule,
-    StepsModule
+    StepsModule,
+    TabViewModule,
+    PanelModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -109,7 +113,9 @@ import { StepsModule } from "primeng/steps";
     RadioButtonModule,
     InputNumberModule,
     DialogModule,
-    StepsModule
+    StepsModule,
+    TabViewModule,
+    PanelModule
   ]
 })
 export class SharedModule { }

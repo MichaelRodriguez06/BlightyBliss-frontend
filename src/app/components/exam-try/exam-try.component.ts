@@ -7,7 +7,9 @@ import {ViewStudentsComponent} from "../view-students/view-students.component";
 @Component({
   selector: 'app-exam-try',
   templateUrl: './exam-try.component.html',
-  styleUrls: ['./exam-try.component.css']
+  styleUrls: ['./exam-try.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 
 export class ExamTryComponent implements OnInit {

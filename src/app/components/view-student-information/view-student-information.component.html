@@ -1,83 +1,130 @@
-<body>
-<!--
+  <body>
   <div class="container">
-    <div class="name">
-      <mat-form-field id="name" appearance="fill">
-        <span class="custom-control">name :</span>
-        <span> asassa</span>
-      </mat-form-field>
-    </div>
-    <mat-form-field id="Document_type" appearance="fill">
-      <span class="custom-control">Document type:</span>
-    </mat-form-field>
-    <mat-form-field id="Document_number" appearance="fill">
-      <span class="custom-control">Document number:</span>
-    </mat-form-field>
-    <mat-form-field id="first_name" appearance="fill">
-      <span class="custom-control">Name :</span>
-    </mat-form-field>
-    <mat-form-field id="last_name" appearance="fill">
-      <span class="custom-control">Last name :</span>
-    </mat-form-field>
-    <mat-form-field id="gender" appearance="fill">
-      <span class="custom-control">Gender :</span>
-    </mat-form-field>
-    <mat-form-field id="marital_status" appearance="fill">
-      <span class="custom-control">Marital Status :</span>
-    </mat-form-field>
-    <mat-form-field id="birth_date" appearance="fill">
-      <span class="custom-control">Birth date :</span>
-    </mat-form-field>
-    <mat-form-field id="address" appearance="fill">
-      <span class="custom-control">address :</span>
-    </mat-form-field>
-    <mat-form-field id="email" appearance="fill">
-      <span class="custom-control">email :</span>
-    </mat-form-field>
-    <mat-form-field id="ocupation" appearance="fill">
-      <span class="custom-control">ocupation :</span>
-    </mat-form-field>
-    <mat-form-field id="blood_type" appearance="fill">
-      <span class="custom-control">blood_type :</span>
-    </mat-form-field>
-    <mat-form-field id="vulnerable_population" appearance="fill">
-      <span class="custom-control">vulnerable population :</span>
-    </mat-form-field>
-    <div class="buttons">
-      <button class="buttonCancel" mat-raised-button (click)="createExamTryPanel()" color="warn">intento de examen</button>
-      <button class="buttonCancel" mat-raised-button (click)="close()" color="warn">X</button>
-    </div>
-  </div>
-  -->
-  <div class="col-12">
     <div class="card">
-      <h5>Advanced</h5>
-      <div class="p-fluid p-formgrid grid">
-        <div class="field col-12 md:col-6">
-          <label htmlFor="firstname2">Firstname</label>
-          <input pInputText id="firstname2" type="text" />
-        </div>
-        <div class="field col-12 md:col-6">
-          <label htmlFor="lastname2">Lastname</label>
-          <input pInputText id="lastname2" type="text" />
-        </div>
-        <div class="field col-12">
-          <label htmlFor="address">Address</label>
-          <input pInputTextarea id="address" rows="4" />
-        </div>
-        <div class="field col-12 md:col-6">
-          <label htmlFor="city">City</label>
-          <input pInputText id="city" type="text" />
-        </div>
-        <div class="field col-12 md:col-3">
-          <label htmlFor="state">State</label>
-          <p-dropdown [options]="dropdownItems" optionLabel="name" [(ngModel)]="selectedState"></p-dropdown>
-        </div>
-        <div class="field col-12 md:col-3">
-          <label htmlFor="zip">Zip</label>
-          <input pInputText id="zip" type="text" />
-        </div>
-      </div>
+      <p-tabView orientation="left">
+        <p-tabPanel header="Student" class="line-height-3 m-0">
+          <div class="col-12">
+            <div class="card">
+              <p>Student information</p>
+              <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-6">
+                  <label >Complete name</label>
+                  <input pInputText id="Student_Name" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-2">
+                  <label >Document Type</label>
+                  <input pInputText id="Student_Document_Type" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Document number</label>
+                  <input pInputText id="Student_Document_Number" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-2">
+                  <label >Gender</label>
+                  <input pInputText id="Student_Gender" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-2">
+                  <label>Marital status</label>
+                  <input pInputText id="Student_marital_status" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-2">
+                  <label>Birth Date</label>
+                  <input pInputText id="Student_birth_date" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>address</label>
+                  <input pInputText id="Student_address" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>Email</label>
+                  <input pInputText id="Student_email" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>ocupation</label>
+                  <input pInputText id="Student_ocupation" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-1">
+                  <label>Rh</label>
+                  <input pInputText id="Student_blood_type" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>Vulnerable population</label>
+                  <input pInputText id="Student_vulnerable_population" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-2">
+                  <label>Disability</label>
+                  <input pInputText id="Student_Disability" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>Insitution</label>
+                  <input pInputText id="Student_Insitution" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>EPS</label>
+                  <input pInputText id="Student_EPS" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>Academic Training</label>
+                  <input pInputText id="Student_Academic_Training" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>Born Place</label>
+                  <input pInputText id="Student_Born_Place" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-3">
+                  <label>City</label>
+                  <input pInputText id="Student_City" type="text" readonly/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Attendant" class="line-height-3 m-0">
+          <div class="col-12">
+            <div class="card">
+              <p>Attendant information</p>
+              <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-12">
+                  <label>Complete name</label>
+                  <input pInputText id="Attendant_Name" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Address</label>
+                  <input pInputText id="Attendant_Address" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Email</label>
+                  <input pInputText id="Attendant_Email" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Phone Number</label>
+                  <input pInputText id="Attendant_Phone_Number" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-12">
+                <p>Laboral Information</p>
+                </div>
+
+                <div class="field col-12 md:col-4">
+                  <label>Company Name</label>
+                  <input pInputText id="Attendant_Company_name" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Company Charge</label>
+                  <input pInputText id="Attendant_Charge" type="text" readonly/>
+                </div>
+                <div class="field col-12 md:col-4">
+                  <label>Company Place</label>
+                  <input pInputText id="Attendant_Company_Place" type="text" readonly/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+    <div class="buttons">
+      <button pButton pRipple label="ExamTry" (click)="createExamTryPanel()" ></button>
+      <button pButton pRipple label="Close" (click)="close()" ></button>
     </div>
   </div>
 </body>
