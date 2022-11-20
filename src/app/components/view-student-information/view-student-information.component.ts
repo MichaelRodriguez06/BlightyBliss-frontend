@@ -98,7 +98,7 @@ export class ViewStudentInformationComponent implements OnInit {
     this.dataSource.data = this.studentList;
   }
 
-  close() {
+  disable() {
 
   }
 
