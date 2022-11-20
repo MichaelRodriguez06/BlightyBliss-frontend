@@ -53,10 +53,12 @@ export class PendingFilesComponent implements OnInit {
   }
 
   updateDocumentPanel() {
-    const dialogRef = this.dialog.open(CreateFilesComponent, {
+    let component = CreateFilesComponent;
+    const dialogRef = this.dialog.open(component, {
       width: '55%',
       height: '55%',
       data: {edit: false}
     });
+
   }
 }

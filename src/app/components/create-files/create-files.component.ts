@@ -1,6 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { TypeDocument } from '../../models/typeDocument';
+import { UpdateDocumentService } from '../services/update-document.service';
 
 @Component({
   selector: 'app-create-files',
@@ -9,15 +11,18 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class CreateFilesComponent implements OnInit {
 
-  filesForm:FormGroup;
+  filesForm: FormGroup;
   public editMode: boolean;
+  typesDocuments!: TypeDocument[];
 
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateFilesComponent>,//Referencia al dialog usado
-    @Inject(MAT_DIALOG_DATA) public data: { edit: boolean, file:File }//Datos del dialog
+    @Inject(MAT_DIALOG_DATA) public data: { edit: boolean, file: File }, //Datos del dialog
+    private serviceUpdateDocument: UpdateDocumentService
   ) {
-    this.editMode = data.edit
+    this.loadTypeDocument();
+    this.editMode = data.edit;
     //Crea el formulario de la carpeta
     this.filesForm = fb.group({
       idFile: ['', Validators.required],
@@ -26,8 +31,8 @@ export class CreateFilesComponent implements OnInit {
       idLocationFolder: ['', Validators.required],
       name: ['', Validators.required],
       alphabet: ['', Validators.required],
-      years: ['', Validators.required],
-    })
+      years: ['', Validators.required]
+    });
     //Setea los valores que se pasen por data  al form
     this.filesForm.patchValue(data.file)
     if (!this.editMode){
@@ -39,13 +44,20 @@ export class CreateFilesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  create(): void{
+  create(): void {
     //Obtiene los datos del formulario
     const file: File = this.filesForm.value;
-    this.dialogRef.close(file)
+    this.dialogRef.close(file);
   }
 
-  close(){
+  loadTypeDocument() {
+    this.serviceUpdateDocument.getTypesDocument().subscribe(data => {
+      this.typesDocuments = data.data;
+      console.log(data.data);
+    });
+  }
+
+  close() {
     this.dialogRef.close();
   }
 

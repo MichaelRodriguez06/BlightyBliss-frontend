@@ -21,7 +21,10 @@
 
       <mat-form-field appearance="fill" class="listOptions" [(ngModel)]="this.filesForm">
         <mat-label>type of file</mat-label>
-        <mat-select required>
+        <mat-select  required>
+          <mat-option *ngFor='let item of typesDocuments' [value]='item.name'>
+            {{item.name}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -32,6 +35,3 @@
   </div>
 
 </div>
-
-
-
