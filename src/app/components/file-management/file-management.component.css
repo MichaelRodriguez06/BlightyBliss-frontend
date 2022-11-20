@@ -23,7 +23,16 @@ body{
   margin:0 auto 0 auto;
   display: table;
   align-content: center;
-
+}
+.agrermentList{
+  margin:0 auto 0 auto;
+  display: table;
+  align-content: center;
+}
+.ProgramList{
+  margin:0 auto 0 auto;
+  display: table;
+  align-content: center;
 }
 p{
   font-size: 25px;
