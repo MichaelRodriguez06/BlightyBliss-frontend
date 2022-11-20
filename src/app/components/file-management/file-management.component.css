@@ -1,6 +1,6 @@
 body{
   position: absolute;
-  left: 300px;
+  left: 17%;
   top: 0;
   right: 0;
 
@@ -10,11 +10,13 @@ body{
   align-items: center;
   letter-spacing: -0.015em;
   margin-bottom: 16px;
+  background:#eff3f8;
 }
 .container{
   flex-direction: column;
-  height: 100%;
-  margin: 0 0 0 224px;
+  height: 99%;
+  width:98%;
+  margin: 1% 0 1% 1%;
   text-align:center;
 }
 .fileTypeList{
@@ -38,3 +40,17 @@ ng-container{
 mat-form-field{
   height: 70px;
 }
+.p-inputgroup{
+ margin-bottom: 1%;
+}
+.card{
+  margin: 0 0 0 0;
+
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 0.5rem;
+  min-height: 90%;
+}
+

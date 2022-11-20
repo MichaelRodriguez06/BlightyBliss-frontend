@@ -37,11 +37,7 @@ export class SideNavigationBarComponent implements OnInit {
     }]
   }, {
     title: "Options", icon: "", subMenu: [{
-      subtitle: "Agreements", icon: ""
-    }, {
-      subtitle: "Programs", icon: ""
-    }, {
-      subtitle: "Files", icon: "",Direction:AppRoutes.FILE_MANAGEMENT
+      subtitle: "CRUD", icon: "",Direction:AppRoutes.FILE_MANAGEMENT
     }]
   }, {
     title: "Reports", icon: "", subMenu: [{

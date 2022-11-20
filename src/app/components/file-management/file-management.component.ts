@@ -1,23 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CreateFolderComponent} from "../create-folder/create-folder.component";
-import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-file-management',
   templateUrl: './file-management.component.html',
-  styleUrls: ['./file-management.component.css']
+  styleUrls: ['./file-management.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class FileManagementComponent implements OnInit {
 
-  form: FormGroup;
+  filesTypeForm: FormGroup;
+  agreementForm: FormGroup;
+  programsForm: FormGroup;
 
-  constructor(private fb:FormBuilder,private dialog: MatDialog) {
-    this.form = this.fb.group({
+  constructor(private Filesfb:FormBuilder,private Agreementfb:FormBuilder,private Programsfb:FormBuilder) {
+    this.filesTypeForm = this.Filesfb.group({
       name: [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20)],
-      fileTypes: this.fb.array([])
+      fileTypes: this.Filesfb.array([])
+    });
+    this.agreementForm = this.Agreementfb.group({
+      name: [Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(20)],
+      agreement: this.Agreementfb.array([])
+    });
+    this.programsForm = this.Programsfb.group({
+      name: [Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(20)],
+      programs: this.Programsfb.array([])
     });
   }
 
@@ -25,30 +39,89 @@ export class FileManagementComponent implements OnInit {
   }
 
   get fileTypes() {
-    return this.form.controls["fileTypes"] as FormArray;
+    return this.filesTypeForm.controls["fileTypes"] as FormArray;
   }
+  get agreement() {
+    return this.agreementForm.controls["agreement"] as FormArray;
+  }
+  get programs() {
+    return this.programsForm.controls["programs"] as FormArray;
+  }
+
 
 
   addFileType() {
-    const fileTypesForm = this.fb.group({
+    const filesTypeForm = this.Filesfb.group({
       title: ['', Validators.required],
     });
 
-    this.fileTypes.push(fileTypesForm);
+    this.fileTypes.push(filesTypeForm);
+  }
+
+  addAgreement() {
+    const agreementForm = this.Agreementfb.group({
+      title: ['', Validators.required],
+    });
+
+    this.agreement.push(agreementForm);
+  }
+
+  addPrograms() {
+    const programsForm = this.Programsfb.group({
+      title: ['', Validators.required],
+    });
+
+    this.programs.push(programsForm);
   }
 
   deleteFileType(fileTypesIndex: number) {
+    /*
     const dialogRef = this.dialog.open(CreateFolderComponent, {
       width: '45%',
       height: '55%',
       data: {edit: false}
     });
-    if(false){
+     */
+    if(true){
       this.fileTypes.removeAt(fileTypesIndex);
     }
   }
 
-  summitChanges() {
+  deleteAgreement(fileTypesIndex: number) {
+    /*
+    const dialogRef = this.dialog.open(CreateFolderComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
+     */
+    if(true){
+      this.agreement.removeAt(fileTypesIndex);
+    }
+  }
+
+  deletePrograms(fileTypesIndex: number) {
+    /*
+    const dialogRef = this.dialog.open(CreateFolderComponent, {
+      width: '45%',
+      height: '55%',
+      data: {edit: false}
+    });
+     */
+    if(true){
+      this.programs.removeAt(fileTypesIndex);
+    }
+  }
+
+  summitChangesFileTypes() {
+
+  }
+
+  summitChangesAgreement() {
+
+  }
+
+  summitChangesPrograms() {
 
   }
 }

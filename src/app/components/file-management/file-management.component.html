@@ -1,25 +1,70 @@
 <body>
   <div class="container">
-    <p>File types in system</p>
-    <div class="fileTypeList" [formGroup]="form">
-      <ng-container  >
-        <ng-container *ngFor="let fileTypeForm of fileTypes.controls; let i = index">
-          <div class="lesson-form-row">
-            <mat-form-field appearance="fill">
-              <input matInput
-                     placeholder="File type">
-            </mat-form-field>
-            <mat-icon class="delete-btn" (click)="deleteFileType(i)">
-              delete_forever</mat-icon>
+    <div class="grid">
+      <div class="col-12 lg:col-4">
+        <div class="card">
+          <p>Agreement in system</p>
+          <div class="agreementList" [formGroup]="agreementForm">
+            <ng-container  >
+              <ng-container *ngFor="let agreementForm of agreement.controls; let i = index">
+                <div class="formgroup-inline">
+                  <div class="p-inputgroup">
+                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteAgreement(i)"></button>
+                    <input type="text" pInputText placeholder="Agreement">
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
           </div>
-        </ng-container>
-      </ng-container>
-    </div>
-      <div class="buttons">
-        <button color="warn" mat-mini-fab (click)="addFileType()">
-          <mat-icon  class="add-course-btn">add</mat-icon>
-        </button>
-        <button class="buttonEdit" mat-raised-button  color="warn" (click)="summitChanges()">Summit changes</button>
+          <div class="buttons">
+            <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addAgreement()"></button>
+            <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesAgreement()"></button>
+          </div>
+        </div>
       </div>
+      <div class="col-12 lg:col-4">
+        <div class="card">
+          <p>File types in system</p>
+          <div class="fileTypeList" [formGroup]="filesTypeForm">
+            <ng-container  >
+              <ng-container *ngFor="let fileTypeForm of fileTypes.controls; let i = index">
+                <div class="formgroup-inline">
+                  <div class="p-inputgroup">
+                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteFileType(i)"></button>
+                    <input type="text" pInputText placeholder="File type">
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div class="buttons">
+            <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addFileType()"></button>
+            <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesFileTypes()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 lg:col-4">
+        <div class="card">
+          <p>Programs in system</p>
+          <div class="fileTypeList" [formGroup]="filesTypeForm">
+            <ng-container  >
+              <ng-container *ngFor="let programsForm of programs.controls; let i = index">
+                <div class="formgroup-inline">
+                  <div class="p-inputgroup">
+                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deletePrograms(i)"></button>
+                    <input type="text" pInputText placeholder="Program">
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+          <div class="buttons">
+            <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addPrograms()"></button>
+            <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesPrograms()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </body>

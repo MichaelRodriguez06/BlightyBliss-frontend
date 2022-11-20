@@ -19,7 +19,7 @@ body{
   align-items: baseline;
 }
 .container{
-  background: #E0E0E0;
+  background:#eff3f8;
   display: flex;
   flex-direction: column;
   height: 100%;
