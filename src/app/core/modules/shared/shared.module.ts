@@ -34,6 +34,11 @@ import {DialogModule} from "primeng/dialog";
 import { StepsModule } from "primeng/steps";
 import {TabViewModule} from "primeng/tabview";
 import {PanelModule} from "primeng/panel";
+import  {SelectButtonModule} from "primeng/selectbutton";
+import {CalendarModule} from "primeng/calendar";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {TabMenuModule} from "primeng/tabmenu";
 
 @NgModule({
   declarations: [],
@@ -78,7 +83,12 @@ import {PanelModule} from "primeng/panel";
     DialogModule,
     StepsModule,
     TabViewModule,
-    PanelModule
+    PanelModule,
+    SelectButtonModule,
+    CalendarModule,
+    MatStepperModule,
+    MatGridListModule,
+    TabMenuModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -115,7 +125,12 @@ import {PanelModule} from "primeng/panel";
     DialogModule,
     StepsModule,
     TabViewModule,
-    PanelModule
+    PanelModule,
+    SelectButtonModule,
+    CalendarModule,
+    MatStepperModule,
+    MatGridListModule,
+    TabMenuModule
   ]
 })
 export class SharedModule { }

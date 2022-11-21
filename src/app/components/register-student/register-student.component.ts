@@ -1,22 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/user";
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-register-student',
   templateUrl: './register-student.component.html',
-  styleUrls: ['./register-student.component.css']
+  styleUrls: ['./register-student.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class RegisterStudentComponent implements OnInit {
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
 
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+
+  isLinear = false;
   studentForm:FormGroup;
   public editMode: boolean;
+  val: number = 0;
+  celphoneNumber: number = 0;
+  gendersList: any[];
+  identification: number=0;
+  documentTypesList: any[];
+  bloodTypeList: any[];
+  cityList: any[];
+  vulnerablePopulationList: any[];
+  socioEconomicStateList: any[];
+  agreementList: any[];
+  discapacityList: any[];
+  minDateValue: Date;
+  maxDateValue: Date;
 
 
-  constructor(private fb: FormBuilder,) {
+
+  constructor(private _formBuilder: FormBuilder) {
+    let date: Date = new Date();
     this.editMode = true
     //Crea el formulario de usuario
-    this.studentForm = fb.group({
+    this.studentForm = _formBuilder.group({
       id: [''],
       document: ['', Validators.required],
       full_name: ['', Validators.required],
@@ -27,6 +53,16 @@ export class RegisterStudentComponent implements OnInit {
       address: ['', Validators.required],
       phone_number: ['', Validators.required]
     })
+    this.gendersList=[];
+    this.documentTypesList=[{name:'1'},{name:'2'}];
+    this.bloodTypeList =[];
+    this.cityList =[];
+    this.vulnerablePopulationList =[];
+    this.socioEconomicStateList=[];
+    this.agreementList=[];
+    this.discapacityList=[];
+    this.minDateValue= new Date("1900-01-01");
+    this.maxDateValue= new Date();
   }
 
   ngOnInit(): void {

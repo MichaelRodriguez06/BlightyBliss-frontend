@@ -6,6 +6,7 @@ import {StudentService} from "../../modules/Students/services/student.service";
 import {Student} from "../../modules/Students/models/student";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {Table} from "primeng/table";
+import {RegisterStudentComponent} from "../register-student/register-student.component";
 
 export interface FolderItem {
   name: string,
@@ -29,10 +30,14 @@ const COLUMNS_SCHEMA = [
 @Component({
   selector: 'app-view-students',
   templateUrl: './view-students.component.html',
-  styleUrls: ['./view-students.component.css']
+  styleUrls: ['./view-students.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class ViewStudentsComponent implements OnInit {
 
+  stateOptions: any[];
+  value1: string = "Id";
   columnsSchema: any = COLUMNS_SCHEMA;
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
@@ -46,11 +51,15 @@ export class ViewStudentsComponent implements OnInit {
     private studentService: StudentService,
     private notification: NotificationService
   ) {
+    this.stateOptions = [{label: 'Name', value: 'name '}, {label: 'Id', value: 'Id'}];
+    /*
     this.studentService.getStudentList(1).subscribe((response) => {
       this.studentList = response.data;
       console.log(this.studentList);
       this.dataSource.data = this.studentList;
+
     });
+    */
   }
 
   ngAfterViewInit() {
@@ -62,9 +71,9 @@ export class ViewStudentsComponent implements OnInit {
   }
 
   createStudentPanel() {
-    const dialogRef = this.dialog.open(ViewStudentsComponent, {
-      width: '45%',
-      height: '60%',
+    const dialogRef = this.dialog.open(RegisterStudentComponent, {
+      width: '90%',
+      height: '76%',
       data: {edit: false}
     });
 
