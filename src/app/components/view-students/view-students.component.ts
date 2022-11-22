@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {StudentService} from "../../modules/Students/services/student.service";
-import {Student} from "../../modules/Students/models/student";
-import {NotificationService} from "../../core/services/notification/notification.service";
-import {Table} from "primeng/table";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { StudentService } from '../../modules/Students/services/student.service';
+import { Student } from '../../modules/Students/models/student';
+import { NotificationService } from '../../core/services/notification/notification.service';
+import { Table } from 'primeng/table';
 
 export interface FolderItem {
   name: string,
@@ -15,7 +15,7 @@ export interface FolderItem {
 
 const COLUMNS_SCHEMA = [
   {
-    field: "first_name",
+    field: 'first_name',
     header: "name"
   }, {
     field: "document_type",
@@ -67,7 +67,6 @@ export class ViewStudentsComponent implements OnInit {
       height: '60%',
       data: {edit: false}
     });
-
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result)
       if (result) {
