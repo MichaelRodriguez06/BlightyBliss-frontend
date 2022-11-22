@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForderViewComponent } from './forder-view.component';
+import { FolderViewComponent } from './folder-view.component';
 
 describe('FileManagementComponent', () => {
-  let component: ForderViewComponent;
-  let fixture: ComponentFixture<ForderViewComponent>;
+  let component: FolderViewComponent;
+  let fixture: ComponentFixture<FolderViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForderViewComponent ]
+      declarations: [ FolderViewComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ForderViewComponent);
+    fixture = TestBed.createComponent(FolderViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

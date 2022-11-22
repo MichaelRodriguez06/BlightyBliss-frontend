@@ -33,10 +33,10 @@ const COLUMNS_SCHEMA = [
 
 @Component({
   selector: 'app-forder-view',
-  templateUrl: './forder-view.component.html',
-  styleUrls: ['./forder-view.component.css']
+  templateUrl: './folder-view.component.html',
+  styleUrls: ['./folder-view.component.css']
 })
-export class ForderViewComponent implements OnInit, AfterViewInit {
+export class FolderViewComponent implements OnInit, AfterViewInit {
 
   columnsSchema: any = COLUMNS_SCHEMA;
   folderList: Folder[] = [];
