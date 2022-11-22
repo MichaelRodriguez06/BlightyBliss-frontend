@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/user";
 import { SelectItem } from 'primeng/api';
+import {CreateFilesComponent} from "../create-files/create-files.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register-student',
@@ -17,6 +19,10 @@ export class RegisterStudentComponent implements OnInit {
 
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
+  });
+
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
   });
 
   isLinear = false;
@@ -35,10 +41,12 @@ export class RegisterStudentComponent implements OnInit {
   discapacityList: any[];
   minDateValue: Date;
   maxDateValue: Date;
+  programList: any[];
+  levelList: any[];
 
 
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder,private dialog: MatDialog) {
     let date: Date = new Date();
     this.editMode = true
     //Crea el formulario de usuario
@@ -61,6 +69,8 @@ export class RegisterStudentComponent implements OnInit {
     this.socioEconomicStateList=[];
     this.agreementList=[];
     this.discapacityList=[];
+    this.programList=[];
+    this.levelList=[];
     this.minDateValue= new Date("1900-01-01");
     this.maxDateValue= new Date();
   }
@@ -90,5 +100,14 @@ export class RegisterStudentComponent implements OnInit {
       address
     };
 
+  }
+
+  updateDocumentPanel() {
+    let component = CreateFilesComponent;
+    const dialogRef = this.dialog.open(component, {
+      width: '55%',
+      height: '55%',
+      data: {edit: false}
+    });
   }
 }
