@@ -1,4 +1,4 @@
-<div class="container">
+<div class="card container">
   <div class="tittle">
     <p>Create File</p>
   </div>
@@ -19,9 +19,8 @@
       <input matInput placeholder="2019-20-21-22" required formControlName="years">
     </mat-form-field>
     <div class="buttons">
-        <button class="buttonCancel" mat-raised-button (click)="close()">Cancel</button>
-      <button class="buttonSend" mat-raised-button
-              type="submit" [disabled]="folderForm.invalid" color="warn">Create</button>
+      <button class="buttonCancel p-button-help"  icon="pi pi-times" pButton pRipple label=" Cancel" (click)="close()"></button>
+      <button class="buttonSend p-button-help"  icon="pi pi-check" type="submit" [disabled]="folderForm.invalid" pButton pRipple label=" Create"></button>
     </div>
   </form>
 </div>

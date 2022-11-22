@@ -18,8 +18,6 @@ export class SideNavigationBarComponent implements OnInit {
     }], icon: ""
   }, {
     title: "Students", icon: "", subMenu: [{
-        subtitle: "Add students", icon: "",Direction:AppRoutes.REGISTER_STUDENT
-      },{
       subtitle: "Shows students", icon: "", Direction:AppRoutes.VIEW_STUDENTS
     }, {
       subtitle: "Certificates", icon: ""

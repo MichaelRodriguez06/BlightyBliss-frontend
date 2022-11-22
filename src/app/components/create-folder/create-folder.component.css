@@ -1,5 +1,5 @@
 .container{
-  background: #75b7ff;
+  background:#eff3f8;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -8,8 +8,8 @@
   min-height: 300px;
 }
 .tittle{
-  box-shadow: 0 0 1px black;
   font-size: 25px;
+  font-weight: bold;
 }
 p{
   margin-left: 2%;
@@ -34,7 +34,6 @@ p{
   display:flex;
   justify-content: right;
   align-items: center;
-  box-shadow: 0 0 1px black;
 }
 .buttonCancel{
   margin-right: 2%;

@@ -10,7 +10,9 @@ import { NotificationService } from '../../core/services/notification/notificati
 @Component({
   selector: 'app-create-files',
   templateUrl: './create-files.component.html',
-  styleUrls: ['./create-files.component.css']
+  styleUrls: ['./create-files.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class CreateFilesComponent implements OnInit {
 

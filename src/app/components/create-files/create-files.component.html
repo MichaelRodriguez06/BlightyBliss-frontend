@@ -1,24 +1,23 @@
-<div class='container'>
+<div class='card container'>
 
   <div class='tittle'>
     <p>Upload File</p>
   </div>
-  <form class='fields' [formGroup]='filesForm' (ngSubmit)='create()'>
-    <div class='uploadFile'>
-      <!--<mat-form-field appearance='fill' class='nameUpdatedFile'>
-        <input matInput placeholder='Name file' id='Name' formControlName='Namereadonly' readonly='readonly'>
-      </mat-form-field>-->
-      <input class='nameUpdatedFile' #file placeholder='Choose file' name='pdf' type='file' id='FileContent'
-           formControlName='FileContent' accept='application/pdf' (change)="setFile(file.files)" multiple/>
-    </div>
+  <form [formGroup]='filesForm' (ngSubmit)='create()'>
     <div class='fields'>
 
       <mat-form-field appearance='fill' class='nameField'>
         <mat-label>Enter name File</mat-label>
         <input matInput placeholder='Name file' formControlName='Name' required>
       </mat-form-field>
-
-      <mat-form-field appearance='fill' class='listOptions' [(ngModel)]='this.filesForm'>
+      <div class='uploadFile'>
+        <!--<mat-form-field appearance='fill' class='nameUpdatedFile'>
+          <input matInput placeholder='Name file' id='Name' formControlName='Namereadonly' readonly='readonly'>
+        </mat-form-field>-->
+        <input class='nameUpdatedFile' #file placeholder='Choose file' name='pdf' type='file' id='FileContent'
+               formControlName='FileContent' accept='application/pdf' (change)="setFile(file.files)" multiple/>
+      </div>
+            <mat-form-field appearance='fill' class='listOptions' [(ngModel)]='this.filesForm'>
         <mat-label>type of file</mat-label>
         <mat-select id='IdTypeFile' formControlName='IdTypeFile' required>
           <mat-option *ngFor='let item of typesDocuments'
@@ -30,8 +29,8 @@
     </div>
   </form>
   <div class="buttons">
-    <button class="buttonCancel" mat-raised-button  (click)="delete()">Cancel</button>
-    <button class='buttonSend' mat-raised-button color='warn' (click)='upload()'>Update</button>
+    <button type="buttonCancel" pButton pRipple icon="pi pi-times" class="buttonCancel p-button-help" label="Cancel" (click)="delete()"></button>
+    <button type="buttonSend" pButton pRipple icon="pi pi-upload" class="buttonSend p-button-help" label="Update" (click)='upload()'></button>
   </div>
 
 </div>

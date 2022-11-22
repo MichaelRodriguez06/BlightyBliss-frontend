@@ -6,7 +6,9 @@ import {Folder} from "../../modules/Folders/models/folder";
 @Component({
   selector: 'app-create-folder',
   templateUrl: './create-folder.component.html',
-  styleUrls: ['./create-folder.component.css']
+  styleUrls: ['./create-folder.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class CreateFolderComponent implements OnInit {
 

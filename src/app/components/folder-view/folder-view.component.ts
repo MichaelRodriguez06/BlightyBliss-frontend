@@ -34,7 +34,9 @@ const COLUMNS_SCHEMA = [
 @Component({
   selector: 'app-folder-view',
   templateUrl: './folder-view.component.html',
-  styleUrls: ['./folder-view.component.css']
+  styleUrls: ['./folder-view.component.css',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class FolderViewComponent implements OnInit, AfterViewInit {
 
@@ -69,7 +71,7 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
   createFolderPanel() {
     const dialogRef = this.dialog.open(CreateFolderComponent, {
       width: '45%',
-      height: '60%',
+      height: '64%',
       data: {edit: false}
     });
 
