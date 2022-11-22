@@ -15,7 +15,7 @@ import { RegisterStudentComponent } from './components/register-student/register
 import { ErrorPageComponent } from './components/ErrorPages/error-page/error-page.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { CreateFilesComponent } from './components/create-files/create-files.component';
-import { ForderViewComponent } from './components/forder-view/forder-view.component';
+import { FolderViewComponent } from './components/folder-view/folder-view.component';
 import { CreateFolderComponent } from './components/create-folder/create-folder.component';
 import { CookieService } from "ngx-cookie-service";
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -45,7 +45,7 @@ import { ExamTryComponent } from './components/exam-try/exam-try.component';
     ErrorPageComponent,
     RecoverPasswordComponent,
     CreateFilesComponent,
-    ForderViewComponent,
+    FolderViewComponent,
     OptionsManagementComponent,
     CreateFolderComponent,
     ViewDocumentComponent,

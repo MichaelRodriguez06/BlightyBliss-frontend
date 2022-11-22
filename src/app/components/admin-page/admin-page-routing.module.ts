@@ -4,7 +4,7 @@ import {AdminPageComponent} from "./admin-page.component";
 import {RegisterAccountComponent} from "../register-account/register-account.component";
 import {AppRoutes} from "../../core/services/app-routes";
 import {RegisterStudentComponent} from "../register-student/register-student.component";
-import {ForderViewComponent} from "../forder-view/forder-view.component";
+import {FolderViewComponent} from "../folder-view/folder-view.component";
 import {OptionsManagementComponent} from "../options-management/options-management.component";
 import {PendingFilesComponent} from "../pending-files/pending-files.component";
 import {ViewStudentsComponent} from "../view-students/view-students.component";
@@ -16,7 +16,7 @@ const routes: Routes = [
       {path: '', component: RegisterAccountComponent},
       {path: AppRoutes.REGISTER_ACCOUNT, component: RegisterAccountComponent},
       {path: AppRoutes.REGISTER_STUDENT, component: RegisterStudentComponent},
-      {path: AppRoutes.FOLDER_VIEW, component: ForderViewComponent},
+      {path: AppRoutes.FOLDER_VIEW, component: FolderViewComponent},
       {path: AppRoutes.FILE_MANAGEMENT , component: OptionsManagementComponent},
       {path: AppRoutes.PENDING_FILES, component: PendingFilesComponent},
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
