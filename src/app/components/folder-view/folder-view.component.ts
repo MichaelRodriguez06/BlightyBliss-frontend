@@ -32,7 +32,7 @@ const COLUMNS_SCHEMA = [
 ]
 
 @Component({
-  selector: 'app-forder-view',
+  selector: 'app-folder-view',
   templateUrl: './folder-view.component.html',
   styleUrls: ['./folder-view.component.css']
 })
