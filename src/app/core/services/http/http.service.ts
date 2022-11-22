@@ -35,11 +35,11 @@ export class HttpService<T> {
     );
   }
 
-  post(path: string, body: Object = {}): Observable<HttpApiResponse<T>> {
+  post(path: string, body: Object = {}, options = httpOptions): Observable<HttpApiResponse<T>> {
     return this.http.post<HttpApiResponse<T>>(
       `${this.url}/${path}`,
       JSON.stringify(body),
-      httpOptions
+      options
     );
   }
 
@@ -47,6 +47,16 @@ export class HttpService<T> {
     return this.http.patch<HttpApiResponse<T>>(
       `${this.url}/${path}`,
       JSON.stringify(body)
+    )
+  }
+
+  postFile(path: string, form: Object = {}): Observable<HttpApiResponse<T>> {
+    return this.http.post<HttpApiResponse<T>>(
+      `${this.url}/${path}`,
+      form,
+      {
+        reportProgress: true
+      }
     )
   }
 }

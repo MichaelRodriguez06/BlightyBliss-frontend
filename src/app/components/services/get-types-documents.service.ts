@@ -7,7 +7,7 @@ import { TypeDocument } from '../../models/typeDocument';
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateDocumentService {
+export class GetTypesDocuments {
 
   url = `Access/login`;
 

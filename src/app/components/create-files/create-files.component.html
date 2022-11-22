@@ -1,28 +1,28 @@
-<div class="container">
+<div class='container'>
 
-  <div class="tittle">
+  <div class='tittle'>
     <p>Upload File</p>
   </div>
-  <form class="fields" [formGroup]="filesForm" (ngSubmit)="create()">
-    <div class="uploadFile">
-      <mat-form-field appearance="fill" class="nameUpdatedFile">
-        <input matInput placeholder="Name file" readonly="readonly">
-      </mat-form-field>
-
-      <input class="nameUpdatedFile" name="pdf" type="file" accept="application/pdf " />
-
+  <form class='fields' [formGroup]='filesForm' (ngSubmit)='create()'>
+    <div class='uploadFile'>
+      <!--<mat-form-field appearance='fill' class='nameUpdatedFile'>
+        <input matInput placeholder='Name file' id='Name' formControlName='Namereadonly' readonly='readonly'>
+      </mat-form-field>-->
+      <input class='nameUpdatedFile' #file placeholder='Choose file' name='pdf' type='file' id='FileContent'
+           formControlName='FileContent' accept='application/pdf' (change)="setFile(file.files)" multiple/>
     </div>
-    <div class="fields">
+    <div class='fields'>
 
-      <mat-form-field appearance="fill" class="nameField">
+      <mat-form-field appearance='fill' class='nameField'>
         <mat-label>Enter name File</mat-label>
-        <input matInput placeholder="Name file" required>
+        <input matInput placeholder='Name file' formControlName='Name' required>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="listOptions" [(ngModel)]="this.filesForm">
+      <mat-form-field appearance='fill' class='listOptions' [(ngModel)]='this.filesForm'>
         <mat-label>type of file</mat-label>
-        <mat-select  required>
-          <mat-option *ngFor='let item of typesDocuments' [value]='item.name'>
+        <mat-select id='IdTypeFile' formControlName='IdTypeFile' required>
+          <mat-option *ngFor='let item of typesDocuments'
+                      [value]='item.idFileType'>
             {{item.name}}
           </mat-option>
         </mat-select>
@@ -31,7 +31,7 @@
   </form>
   <div class="buttons">
     <button class="buttonCancel" mat-raised-button  (click)="delete()">Cancel</button>
-    <button class="buttonSend" mat-raised-button color="warn">Update</button>
+    <button class='buttonSend' mat-raised-button color='warn' (click)='upload()'>Update</button>
   </div>
 
 </div>

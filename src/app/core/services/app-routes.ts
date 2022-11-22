@@ -6,10 +6,9 @@ export abstract class AppRoutes {
   static readonly INTERNAL_SERVER_ERROR_PAGE: string = 'internal-server-error';
   static readonly UNKNOWN_ERROR_PAGE: string = 'unknown-error';
   static readonly REGISTER_STUDENT: string = 'regist-student';
-  static readonly FOLDER_VIEW: string = 'forder-view';
+  static readonly FOLDER_VIEW: string = 'folder-view';
   static readonly FILE_MANAGEMENT: string = 'file-management';
   static readonly PENDING_FILES: string = 'pending-files';
-  static readonly NEW_USER: string = 'api/Access/newUser';
   static readonly VIEW_STUDENTS: string = 'view-students';
   static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
 }
