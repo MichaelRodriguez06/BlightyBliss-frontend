@@ -3,6 +3,7 @@ import { HttpService } from '../../core/services/http/http.service';
 import { Observable } from 'rxjs';
 import { HttpApiResponse } from '../../core/models/http-api-response';
 import { TypeDocument } from '../../models/typeDocument';
+import { AppRoutes } from '../../core/services/app-routes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GetTypesDocuments {
   }
 
   getTypesDocument(): Observable<HttpApiResponse<TypeDocument[]>> {
-    return this.server.get(`FileType/false`);
+    return this.server.get(AppRoutes.GET_TYPE_FILES);
   }
 
   updateDocument(formData: FormData) {

@@ -4,6 +4,8 @@ import { TemplateFile } from '../../models/TemplateFile';
 import { Observable } from 'rxjs';
 import { HttpApiResponse } from '../../core/models/http-api-response';
 import { HttpHeaders } from '@angular/common/http';
+import { ROUTES } from '@angular/router';
+import { AppRoutes } from '../../core/services/app-routes';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class UploadFileServiceService {
         'reportProgress': 'true'
       })
     };
-    return this.server.postFile(`Files/upload`, file);
+    return this.server.postFile(AppRoutes.UPLOAD_FILE, file);
   }
 
 }

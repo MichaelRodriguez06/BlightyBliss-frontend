@@ -3,6 +3,7 @@ import { Account } from '../../models/account';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../core/services/http/http.service';
 import { HttpApiResponse } from '../../core/models/http-api-response';
+import { AppRoutes } from '../../core/services/app-routes';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,6 @@ export class AccountService {
   }
 
   addAccount(accountNew: Account): Observable<HttpApiResponse<Account>> {
-    return this.server.post(`Access/newUser`, accountNew);
+    return this.server.post(AppRoutes.CREATE_USER, accountNew);
   }
 }

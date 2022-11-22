@@ -41,7 +41,6 @@ export class CreateFilesComponent implements OnInit {
     });
     this.filesForm.patchValue(data.file);
     if (!this.editMode) {
-      //si no esta en edición no es requerido
       this.filesForm.removeControl('idFile');
     }
     // this.selectedFiles[0] = this.form.value('FileContent');
@@ -79,7 +78,7 @@ export class CreateFilesComponent implements OnInit {
     if (this.file != null) {
       const formData = new FormData();
       let formUpload: TemplateFile = this.filesForm.value;
-      formUpload.IdFolder = 1;
+      formUpload.IdFolder = 4;
       formUpload.IdFileType = Number(this.filesForm.get('IdTypeFile')?.value);
       formData.append('FileContent', this.file, this.file.name);
       formData.append('IdFolder', formUpload.IdFolder.toString());
