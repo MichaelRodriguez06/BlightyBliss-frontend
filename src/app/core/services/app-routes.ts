@@ -14,5 +14,6 @@ export abstract class AppRoutes {
   static readonly UPLOAD_FILE: string = `Files/upload`;
   static readonly GET_TYPE_FILES: string = `FileType/false`;
   static readonly CREATE_USER: string = `Access/newUser`;
+  static readonly POST_TYPE_FILE: string = `FileType/`;
 
 }

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AppRoutes} from "../../core/services/app-routes";
+import { Component, OnInit } from '@angular/core';
+import { AppRoutes } from '../../core/services/app-routes';
 
 @Component({
   selector: 'app-side-navigation-bar',
@@ -9,7 +9,7 @@ import {AppRoutes} from "../../core/services/app-routes";
 export class SideNavigationBarComponent implements OnInit {
 
   items = [{
-    title: "Profile", subMenu: [{
+    title: 'Profile', subMenu: [{
       subtitle: "Show users", icon: 'assets/account.svg'
     }, {
       subtitle: "Add user", icon: "", Direction:AppRoutes.REGISTER_ACCOUNT
@@ -37,7 +37,7 @@ export class SideNavigationBarComponent implements OnInit {
     }]
   }, {
     title: "Options", icon: "", subMenu: [{
-      subtitle: "CRUD", icon: "",Direction:AppRoutes.FILE_MANAGEMENT
+      subtitle: 'Options', icon: '', Direction: AppRoutes.FILE_MANAGEMENT
     }]
   }, {
     title: "Reports", icon: "", subMenu: [{

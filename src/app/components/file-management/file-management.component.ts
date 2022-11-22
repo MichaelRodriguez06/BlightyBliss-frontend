@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TypeFiles } from '../services/get-types-documents.service';
+import { TypeFile } from '../../models/typeFile';
 
 @Component({
   selector: 'app-file-management',
@@ -14,9 +16,13 @@ export class FileManagementComponent implements OnInit {
   agreementForm: FormGroup;
   programsForm: FormGroup;
 
-  constructor(private Filesfb:FormBuilder,private Agreementfb:FormBuilder,private Programsfb:FormBuilder) {
+  constructor(private Filesfb:FormBuilder,
+              private Agreementfb:FormBuilder,
+              private Programsfb:FormBuilder,
+              private serviceTypeFiles: TypeFiles
+  ) {
     this.filesTypeForm = this.Filesfb.group({
-      name: [Validators.required,
+      nameTypeFile: [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20)],
       fileTypes: this.Filesfb.array([])
@@ -52,10 +58,11 @@ export class FileManagementComponent implements OnInit {
 
   addFileType() {
     const filesTypeForm = this.Filesfb.group({
-      title: ['', Validators.required],
+      nameTypeFile: ['', Validators.required],
     });
 
     this.fileTypes.push(filesTypeForm);
+
   }
 
   addAgreement() {
@@ -114,7 +121,7 @@ export class FileManagementComponent implements OnInit {
   }
 
   summitChangesFileTypes() {
-
+    console.log(this.filesTypeForm.value);
   }
 
   summitChangesAgreement() {

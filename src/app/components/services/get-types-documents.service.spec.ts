@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetTypesDocuments } from './get-types-documents.service';
+import { TypeFiles } from './get-types-documents.service';
 
 describe('UpdateDocumentService', () => {
-  let service: GetTypesDocuments;
+  let service: TypeFiles;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetTypesDocuments);
+    service = TestBed.inject(TypeFiles);
   });
 
   it('should be created', () => {

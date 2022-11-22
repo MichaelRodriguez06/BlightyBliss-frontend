@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TypeDocument } from '../../models/typeDocument';
-import { GetTypesDocuments } from '../services/get-types-documents.service';
+import { TypeFile } from '../../models/typeFile';
+import { TypeFiles } from '../services/get-types-documents.service';
 import { UploadFileServiceService } from '../services/upload-file-service.service';
 import { TemplateFile } from '../../models/TemplateFile';
 import { NotificationService } from '../../core/services/notification/notification.service';
@@ -16,7 +16,7 @@ export class CreateFilesComponent implements OnInit {
 
   filesForm: FormGroup;
   public editMode: boolean;
-  typesDocuments!: TypeDocument[];
+  typesDocuments!: TypeFile[];
   progress?: number;
   message?: string;
   @Output() public onUploadFinished = new EventEmitter();
@@ -27,7 +27,7 @@ export class CreateFilesComponent implements OnInit {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateFilesComponent>,//Referencia al dialog usado
     @Inject(MAT_DIALOG_DATA) public data: { edit: boolean, file: File }, //Datos del dialog
-    private serviceGetTypesDocument: GetTypesDocuments,
+    private serviceGetTypesDocument: TypeFiles,
     private serviceUploadFile: UploadFileServiceService,
     private notificationService: NotificationService
   ) {
@@ -43,7 +43,6 @@ export class CreateFilesComponent implements OnInit {
     if (!this.editMode) {
       this.filesForm.removeControl('idFile');
     }
-    // this.selectedFiles[0] = this.form.value('FileContent');
   }
 
 

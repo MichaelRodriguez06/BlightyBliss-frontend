@@ -8,7 +8,7 @@
             <ng-container  >
               <ng-container *ngFor="let agreementForm of agreement.controls; let i = index">
                 <div class="formgroup-inline">
-                  <div class="p-inputgroup">
+                  <div class="p-inputgroup" formControlName='name'>
                     <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteAgreement(i)"></button>
                     <input type="text" pInputText placeholder="Agreement">
                   </div>
@@ -31,7 +31,7 @@
                 <div class="formgroup-inline">
                   <div class="p-inputgroup">
                     <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteFileType(i)"></button>
-                    <input type="text" pInputText placeholder="File type">
+                    <input type="text" pInputText placeholder="File type" formControlName='nameTypeFile' id='nameTypeFile'>
                   </div>
                 </div>
               </ng-container>
