@@ -4,13 +4,13 @@ import { TypeFiles } from '../services/get-types-documents.service';
 import { TypeFile } from '../../models/typeFile';
 
 @Component({
-  selector: 'app-file-management',
-  templateUrl: './file-management.component.html',
-  styleUrls: ['./file-management.component.css',
+  selector: 'app-options-management',
+  templateUrl: './options-management.component.html',
+  styleUrls: ['./options-management.component.css',
     '../../../../node_modules/primeflex/primeflex.css',
     '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
-export class FileManagementComponent implements OnInit {
+export class OptionsManagementComponent implements OnInit {
 
   filesTypeForm: FormGroup;
   agreementForm: FormGroup;
