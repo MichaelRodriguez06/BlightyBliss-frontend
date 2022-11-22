@@ -73,7 +73,7 @@ export class ViewStudentsComponent implements OnInit {
   createStudentPanel() {
     const dialogRef = this.dialog.open(RegisterStudentComponent, {
       width: '90%',
-      height: '76%',
+      height: '81%',
       data: {edit: false}
     });
 

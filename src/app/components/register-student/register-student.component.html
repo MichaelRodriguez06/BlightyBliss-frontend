@@ -73,31 +73,85 @@
                <p-dropdown [options]="discapacityList" placeholder="Discapacity" [showClear]="true"></p-dropdown>
              </div>
            </div>
-           <div class="flex flex-row-reverse">
-            <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
-           </div>
+         </div>
+         <div class="flex flex-row-reverse">
+           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
          </div>
        </form>
      </mat-step>
-     <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+     <mat-step [stepControl]="secondFormGroup" label="Attendants">
        <form [formGroup]="secondFormGroup">
-         <mat-form-field appearance="fill">
-           <mat-label>Address</mat-label>
-           <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                  required>
-         </mat-form-field>
+         <p>Attendant information</p>
+         <div class="p-fluid p-formgrid grid">
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Attendant name">
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Company where works">
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Curret company address">
+           </div>
+           <div class="field col-12 md:col-4">
+             <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+             </p-inputNumber>
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Ocupation">
+           </div>
+           <div class="field col-12 md:col-4">
+             <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+           </div>
+         </div>
+         <div class="p-fluid p-formgrid grid">
+           <div class="card field col-12 md:col-6">
+             <p>Father information</p>
+             <div class="p-fluid p-formgrid grid">
+               <div class="field col-12 md:col-5">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Name">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Resident address">
+               </div>
+               <div class="field col-12 md:col-3">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Email">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+                 </p-inputNumber>
+               </div>
+               <div class="field col-12 md:col-3">
+                 <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+               </div>
+             </div>
+           </div>
+           <div class="card field col-12 md:col-6">
+             <p>Mother information</p>
+             <div class="p-fluid p-formgrid grid">
+               <div class="field col-12 md:col-5">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Name">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Resident address">
+               </div>
+               <div class="field col-12 md:col-3">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Email">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+                 </p-inputNumber>
+               </div>
+               <div class="field col-12 md:col-3">
+                 <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+               </div>
+             </div>
+           </div>
+         </div>
          <div class="flex flex-row-reverse">
            <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
            <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
          </div>
        </form>
-     </mat-step>
-     <mat-step>
-       <ng-template matStepLabel>Done</ng-template>
-       <p>You are now done.</p>
-       <div class="flex flex-row-reverse">
-         <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
-       </div>
      </mat-step>
    </mat-stepper>
  </div>
