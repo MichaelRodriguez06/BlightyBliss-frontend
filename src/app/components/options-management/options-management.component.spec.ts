@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FileManagementComponent } from './file-management.component';
+import { OptionsManagementComponent } from './options-management.component';
 
 describe('FileManagementComponent', () => {
-  let component: FileManagementComponent;
-  let fixture: ComponentFixture<FileManagementComponent>;
+  let component: OptionsManagementComponent;
+  let fixture: ComponentFixture<OptionsManagementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FileManagementComponent ]
+      declarations: [ OptionsManagementComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FileManagementComponent);
+    fixture = TestBed.createComponent(OptionsManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

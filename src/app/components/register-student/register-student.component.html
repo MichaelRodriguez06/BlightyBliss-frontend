@@ -1,129 +1,158 @@
 <body>
-  <div mat-dialog-content class="main">
-    <div class="right">
-      <div class="background">
-        <div class="col-md-12">
-          <form [formGroup]="studentForm" (ngSubmit)="saveUser()">
-            <legend *ngIf="!editMode"><span class="principal">1</span> Escribe tu información básica</legend>
-            <div>
-              <label for="name">Complete name:</label>
-              <input type="text" id="name" name="name" formControlName="full_name">
-            </div>
-            <ul>
-              <li>
-                <label for="gender">gender:</label>
-                <select id="gender" name="studentGender" formControlName="gender_type">
-                  <option value="F">Femenine</option>
-                  <option value="M">Masculine</option>
-                  <option value="O">Other</option>
-                </select>
-              </li>
-              <li>
-                <label for="id">Identification:</label>
-                <input type="text" id="id" name="id" formControlName="document">
-              </li>
-              <li>
-                <label for="typedoc">Document Type:</label>
-                <select id="typedoc" name="typedoc" formControlName="document_type">
-                  <option value="CC">Cédula de Ciudadanía</option>
-                  <option value="CE">Cédula de Extranjería</option>
-                  <option value="PA">Tarjeta de identidad</option>
-                </select>
-              </li>
-              <li>
-                <label for="BloodType">BloodType:</label>
-                <select id="BloodType" name="StudentBloodType" formControlName="Blood_type">
-                  <option value="A+">A+</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B-">B-</option>
-                  <option value="O+">O+</option>
-                  <option value="O-">O-</option>
-                  <option value="AB+">AB+</option>
-                  <option value="AB-">AB-</option>
-                </select>
-              </li>
-              <li>
-                <label for="CellPhone_Number">CellPhone Number:</label>
-                <input type="Text" id="CellPhone_Number" name="CellPhone_Number_Student" formControlName="credentialId">
-              </li>
-              <li>
-                <label for="Marital_status">Marital status:</label>
-                <input type="Text" id="Marital_status" name="Marital_status_student" formControlName="password">
-              </li>
-              <li>
-                <label for="Birth_date">Birth date:</label>
-                <input type="text" id="Birth_date" formControlName="Birth_date_student">
-              </li>
-              <li>
-                <label for="Collage_or_institution">Collage or institution:</label>
-                <input type="text" id="Collage_or_institution" formControlName="Collage_or_institution_Student">
-              </li>
-              <li>
-                <label for="addres_and_neigborhood">addres and neigborhood:</label>
-                <input type="text" id="addres_and_neigborhood" formControlName="addres_and_neigborhood_student">
-              </li>
-              <li>
-                <label for="LivePlace">LivePlace:</label>
-                <select id="LivePlace" name="LivePlace" formControlName="LivePlace_student">
-                  <option value="CoBoTu">Colombia,Boyaca,Tunja</option>
-                  <option value="CoBoVe">Colombia,Boyaca,Ventaquemada</option>
-                  <option value="CoBoDu">Colombia,Boyaca,Duitama</option>
-                  <option value="CoBoSo">Colombia,Boyaca,Sogamoso</option>
-                  <option value="CoBoPa">Colombia,Boyaca,Paipa</option>
-                </select>
-              </li>
-              <li>
-                <label for="Email">Email:</label>
-                <input type="text" id="Email" formControlName="Email_student">
-              </li>
-              <li>
-                <label for="Vulnerable_population">Vulnerable population:</label>
-                <select id="Vulnerable_population" name="Vulnerable_population" formControlName="Vulnerable_population_student">
-                  <option value="Poblacion Indigena">Poblacion Indigena</option>
-                  <option value="Afrodecendiente">Afrodecendiente</option>
-                  <option value="Comuninades negras">Comuninades negras</option>
-                  <option value="RROM">RROM</option>
-                </select>
-              </li>
-              <li>
-                <label for="Resident_five_years">Resident in last five years:</label>
-                <input type="text" id="Resident_five_years" formControlName="Resident_five_years_student">
-              </li>
-              <li>
-                <label for="Ocupation">Ocupation:</label>
-                <input type="text" id="Ocupation" formControlName="Ocupation_student">
-              </li>
-              <li>
-                <label for="Schedule">Schedule to take classes:</label>
-                <input type="text" id="Schedule" formControlName="Schedule_student">
-              </li>
-              <li>
-                <label for="Socioeconomic_status">Socioeconomic status:</label>
-                <input type="text" id="Socioeconomic_status" formControlName="Socioeconomic_status_student">
-              </li>
-              <li>
-                <label for="Agreement">Agreement:</label>
-                <input type="text" id="Agreement" formControlName="Agreement_student">
-              </li>
-              <li>
-                <label for="EPS_subsidized_company">EPS or subsidized company:</label>
-                <input type="text" id="EPS_subsidized_company" formControlName="EPS_subsidized_company_student">
-              </li>
-              <li>
-                <label for="Academic_training_level">Academic training level:</label>
-                <input type="text" id="Academic_training_level" formControlName="Academic_training_level_student">
-              </li>
-              <li>
-                <label for="Disability">Disability:</label>
-                <input type="text" id="Disability" formControlName="Disability_student">
-              </li>
-              <button mat-raised-button *ngIf="!editMode" type="submit" [disabled]="studentForm.invalid">Crear usuario</button>
-              <button mat-raised-button *ngIf="editMode" type="submit" [disabled]="studentForm.invalid">Editar usuario</button>
-            </ul>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div>
+   <mat-stepper [linear]="isLinear" #stepper>
+     <mat-step [stepControl]="firstFormGroup">
+       <form [formGroup]="firstFormGroup">
+         <ng-template matStepLabel>Student Information</ng-template>
+         <div class="card">
+           <div class="p-fluid p-formgrid grid">
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me  " placeholder="First name">
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Last name">
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-calendar [showIcon]="true" inputId="icon" placeholder="Date birth" [minDate]="minDateValue"></p-calendar>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-inputNumber [(ngModel)]="identification" mode="decimal" inputId="withoutgrouping" placeholder="identification document" [useGrouping]="false">
+               </p-inputNumber>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown inputId="dropdown" placeholder="Select Document type" [autoDisplayFirst]="false" [options]="documentTypesList" optionLabel="name"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown inputId="dropdown" placeholder="Select Blood Type" [autoDisplayFirst]="false" [options]="bloodTypeList" optionLabel="name"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-inputNumber [(ngModel)]="identification" mode="decimal" inputId="withoutgrouping" placeholder="identification document" [useGrouping]="false">
+               </p-inputNumber>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-inputNumber [(ngModel)]="celphoneNumber" mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+               </p-inputNumber>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown [options]="gendersList" placeholder="Select gender" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Current institution">
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Current address">
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Email">
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown [options]="vulnerablePopulationList" placeholder="Vulnerable Population" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Resident in last five years">
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Ocupation">
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown [options]="socioEconomicStateList" placeholder="Socioeconomic state" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-2">
+               <p-dropdown [options]="agreementList" placeholder="Agreement" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-1">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="EPS">
+             </div>
+             <div class="field col-12 md:col-3">
+               <input type="text" pInputText class="p-inputtext-me" placeholder="Academic Traning Level">
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown [options]="discapacityList" placeholder="Discapacity" [showClear]="true"></p-dropdown>
+             </div>
+           </div>
+         </div>
+         <div class="flex flex-row-reverse">
+           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
+         </div>
+       </form>
+     </mat-step>
+     <mat-step [stepControl]="secondFormGroup" label="Attendants">
+       <form [formGroup]="secondFormGroup">
+         <p>Attendant information</p>
+         <div class="p-fluid p-formgrid grid">
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Attendant name">
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Company where works">
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Curret company address">
+           </div>
+           <div class="field col-12 md:col-4">
+             <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+             </p-inputNumber>
+           </div>
+           <div class="field col-12 md:col-4">
+             <input type="text" pInputText class="p-inputtext-me" placeholder="Ocupation">
+           </div>
+           <div class="field col-12 md:col-4">
+             <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+           </div>
+         </div>
+         <div class="p-fluid p-formgrid grid">
+           <div class="card field col-12 md:col-6">
+             <p>Father information</p>
+             <div class="p-fluid p-formgrid grid">
+               <div class="field col-12 md:col-5">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Name">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Resident address">
+               </div>
+               <div class="field col-12 md:col-3">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Email">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+                 </p-inputNumber>
+               </div>
+               <div class="field col-12 md:col-3">
+                 <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+               </div>
+             </div>
+           </div>
+           <div class="card field col-12 md:col-6">
+             <p>Mother information</p>
+             <div class="p-fluid p-formgrid grid">
+               <div class="field col-12 md:col-5">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Name">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Resident address">
+               </div>
+               <div class="field col-12 md:col-3">
+                 <input type="text" pInputText class="p-inputtext-me" placeholder="Email">
+               </div>
+               <div class="field col-12 md:col-4">
+                 <p-inputNumber mode="decimal" inputId="withoutgrouping" placeholder="cellphone Number" [useGrouping]="false">
+                 </p-inputNumber>
+               </div>
+               <div class="field col-12 md:col-3">
+                 <p-dropdown [options]="cityList" placeholder="City" [showClear]="true"></p-dropdown>
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class="flex flex-row-reverse">
+           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
+           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
+         </div>
+       </form>
+     </mat-step>
+   </mat-stepper>
+ </div>
 </body>
