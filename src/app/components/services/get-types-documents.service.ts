@@ -2,26 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../../core/services/http/http.service';
 import { Observable } from 'rxjs';
 import { HttpApiResponse } from '../../core/models/http-api-response';
-import { TypeDocument } from '../../models/typeDocument';
+import { TypeFile } from '../../models/typeFile';
 import { AppRoutes } from '../../core/services/app-routes';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetTypesDocuments {
+export class TypeFiles {
 
   url = `Access/login`;
 
-  constructor(private server: HttpService<TypeDocument[]>) {
+  constructor(private server: HttpService<TypeFile[]>) {
 
   }
 
-  getTypesDocument(): Observable<HttpApiResponse<TypeDocument[]>> {
+
+  getTypesDocument(): Observable<HttpApiResponse<TypeFile[]>> {
     return this.server.get(AppRoutes.GET_TYPE_FILES);
   }
 
-  updateDocument(formData: FormData) {
-    // this.server.ge
+  addTypeFile(newTypeFile: TypeFile[]) {
+    for (let i = 0; i < newTypeFile.length; i++) {
+      this.addTypFile(newTypeFile[i].name);
+    }
+
+  }
+
+  private addTypFile(name: string) {
+    return this.server.post(AppRoutes.POST_TYPE_FILE, name);
   }
 
 }
