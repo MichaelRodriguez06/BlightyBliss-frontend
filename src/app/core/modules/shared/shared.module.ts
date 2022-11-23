@@ -39,6 +39,7 @@ import {CalendarModule} from "primeng/calendar";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {TabMenuModule} from "primeng/tabmenu";
+import {ChipsModule} from "primeng/chips";
 
 @NgModule({
   declarations: [],
@@ -88,7 +89,8 @@ import {TabMenuModule} from "primeng/tabmenu";
     CalendarModule,
     MatStepperModule,
     MatGridListModule,
-    TabMenuModule
+    TabMenuModule,
+    ChipsModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -130,7 +132,8 @@ import {TabMenuModule} from "primeng/tabmenu";
     CalendarModule,
     MatStepperModule,
     MatGridListModule,
-    TabMenuModule
+    TabMenuModule,
+    ChipsModule
   ]
 })
 export class SharedModule { }

@@ -4,6 +4,7 @@ import {User} from "../../models/user";
 import { SelectItem } from 'primeng/api';
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ExamTryComponent} from "../exam-try/exam-try.component";
 
 @Component({
   selector: 'app-register-student',
@@ -19,6 +20,7 @@ export class RegisterStudentComponent implements OnInit {
 
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
+    attendantCelphoneNumber: ['',Validators.required]
   });
 
   thirdFormGroup = this._formBuilder.group({
@@ -29,9 +31,9 @@ export class RegisterStudentComponent implements OnInit {
   studentForm:FormGroup;
   public editMode: boolean;
   val: number = 0;
-  celphoneNumber: number = 0;
+  studentCelphoneNumber: number[];
   gendersList: any[];
-  identification: number=0;
+  identification: number | undefined;
   documentTypesList: any[];
   bloodTypeList: any[];
   cityList: any[];
@@ -39,15 +41,21 @@ export class RegisterStudentComponent implements OnInit {
   socioEconomicStateList: any[];
   agreementList: any[];
   discapacityList: any[];
+  maritalStatusList: any[];
   minDateValue: Date;
   maxDateValue: Date;
+  DefaultDate: Date;
   programList: any[];
   levelList: any[];
+  studentTypeList: any[];
+  attendantCellphoneNumber: any[];
+  attendantLandline: any[];
+  motherCellphoneNumber: any[];
+  fatherCellphoneNumber: any[];
 
 
 
   constructor(private _formBuilder: FormBuilder,private dialog: MatDialog) {
-    let date: Date = new Date();
     this.editMode = true
     //Crea el formulario de usuario
     this.studentForm = _formBuilder.group({
@@ -71,8 +79,16 @@ export class RegisterStudentComponent implements OnInit {
     this.discapacityList=[];
     this.programList=[];
     this.levelList=[];
-    this.minDateValue= new Date("1900-01-01");
+    this.studentTypeList=[];
+    this.studentCelphoneNumber=[];
+    this.attendantCellphoneNumber=[];
+    this.attendantLandline=[];
+    this.maritalStatusList=[];
+    this.fatherCellphoneNumber=[];
+    this.motherCellphoneNumber=[];
+    this.minDateValue= new Date("1920-01-01");
     this.maxDateValue= new Date();
+    this.DefaultDate= new Date("2010-01-01")
   }
 
   ngOnInit(): void {
@@ -109,5 +125,17 @@ export class RegisterStudentComponent implements OnInit {
       height: '55%',
       data: {edit: false}
     });
+  }
+
+  updateExamTry() {
+    const dialogRef = this.dialog.open(ExamTryComponent, {
+      width: '55%',
+      height: '55%',
+      data: {edit: false}
+    });
+  }
+
+  registStudent() {
+
   }
 }
