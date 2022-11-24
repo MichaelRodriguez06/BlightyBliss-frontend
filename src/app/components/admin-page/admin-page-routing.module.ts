@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AdminPageComponent} from "./admin-page.component";
-import {RegisterAccountComponent} from "../register-account/register-account.component";
 import {AppRoutes} from "../../core/services/app-routes";
 import {RegisterStudentComponent} from "../register-student/register-student.component";
 import {FolderViewComponent} from "../folder-view/folder-view.component";
@@ -9,19 +8,19 @@ import {OptionsManagementComponent} from "../options-management/options-manageme
 import {PendingFilesComponent} from "../pending-files/pending-files.component";
 import {ViewStudentsComponent} from "../view-students/view-students.component";
 import {ViewStudentInformationComponent} from "../view-student-information/view-student-information.component";
+import {ViewAccountListComponent} from "../view-account-list/view-account-list.component";
 
 const routes: Routes = [
   {
     path: '', component: AdminPageComponent, children: [
-      {path: '', component: RegisterAccountComponent},
-      {path: AppRoutes.REGISTER_ACCOUNT, component: RegisterAccountComponent},
+      {path: '', component: ViewAccountListComponent},
       {path: AppRoutes.REGISTER_STUDENT, component: RegisterStudentComponent},
       {path: AppRoutes.FOLDER_VIEW, component: FolderViewComponent},
       {path: AppRoutes.FILE_MANAGEMENT , component: OptionsManagementComponent},
       {path: AppRoutes.PENDING_FILES, component: PendingFilesComponent},
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
       {path: AppRoutes.VIEW_STUDENT_INFORMATION, component: ViewStudentInformationComponent},
-
+      {path: AppRoutes.VIEW_ACCOUNT_LIST, component: ViewAccountListComponent},
     ]
   }
 ];

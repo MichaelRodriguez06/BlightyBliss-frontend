@@ -10,10 +10,8 @@ export class SideNavigationBarComponent implements OnInit {
 
   items = [{
     title: 'Profile', subMenu: [{
-      subtitle: "Show users", icon: 'assets/account.svg'
-    }, {
-      subtitle: "Add user", icon: "", Direction:AppRoutes.REGISTER_ACCOUNT
-    }, {
+      subtitle: "Show users", icon: 'assets/account.svg', Direction:AppRoutes.VIEW_ACCOUNT_LIST
+    },{
       subtitle: "User", icon: ""
     }], icon: ""
   }, {
