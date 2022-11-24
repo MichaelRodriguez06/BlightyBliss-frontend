@@ -5,17 +5,19 @@
   <form action="" [formGroup]="form">
 
     <div class="p-fluid p-formgrid grid">
-      <div class="field col-12 md:col-3">
+      <div class="field col-12 md:col-4">
         <input placeholder="First name" type="text" id="name" formControlName="name" pInputText class="p-inputtext-me" >
       </div>
-      <div class="field col-12 md:col-3">
+      <div class="field col-12 md:col-4">
         <input placeholder="Last name" type="text" id="lastname" formControlName="lastName" pInputText class="p-inputtext-me" >
       </div>
-      <div class="field col-12 md:col-3">
-        <input placeholder="Last name" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co" pInputText class="p-inputtext-me" >
+      <div class="field col-12 md:col-4">
+        <input placeholder="Email" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co" pInputText class="p-inputtext-me" >
       </div>
-      <div class="field col-12 md:col-3 myLimiterHeigt">
-        <p-selectButton class="Option" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+      <div class="field col-12 md:col-12 myLimiterHeigt">
+        <div class="field col-12 md:col-2 myLimiterHeigt">
+          <p-selectButton class="Option" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+        </div>
       </div>
       <div class="field col-12 md:col-3">
         <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="value1" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
