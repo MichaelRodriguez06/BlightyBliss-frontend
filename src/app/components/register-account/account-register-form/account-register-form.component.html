@@ -1,62 +1,40 @@
 <body>
-<h4 class="title">Account registration form</h4>
-<form action="" [formGroup]="form">
+<div class="card container">
+  <h4 class="title">Account registration form</h4>
 
-  <div class="labels">
-    <label>Name:</label>
-    <label>Lastname:</label>
-    <label>Mail:</label>
-    <label>User type:</label>
-    <label>Person type:</label>
-    <label>N. Document:</label>
-    <label>Document type:</label>
-    <label>Password:</label>
-    <label>Confirm password:</label>
-  </div>
+  <form action="" [formGroup]="form">
 
-
-  <div class="inputs">
-    <input class="mat-form-field" type="text" id="name" formControlName="name">
-    <input class="mat-form-field" type="text" id="lastname" formControlName="lastName">
-    <input class="mat-form-field" type="email" id="email" formControlName="email"
-           pattern=".+@blightybliss.edu.co">
-    <br>
-    <div class="userType">
-      <input type="radio" value="ADMIN" formControlName="accountType" name="accountType" checked>
-      <label> Admin </label>
-      <input type="radio" value="USER" formControlName="accountType" name="accountType">
-      <label> User </label>
-    </div>
-    <br>
-
-    <div class="personType">
-      <input type="radio" value="STUDENT" name="personType" formControlName="personType" checked>
-      <label> Student </label>
-      <input type="radio" value="TEACHER" name="personType" formControlName="personType">
-      <label> Teacher </label>
-      <input type="radio" value="ADMIN" name="personType" formControlName="personType">
-      <label> Administrador </label>
-      <input type="radio" value="USER" name="personType" formControlName="personType">
-      <label> User </label>
+    <div class="p-fluid p-formgrid grid">
+      <div class="field col-12 md:col-3">
+        <input placeholder="First name" type="text" id="name" formControlName="name" pInputText class="p-inputtext-me" >
+      </div>
+      <div class="field col-12 md:col-3">
+        <input placeholder="Last name" type="text" id="lastname" formControlName="lastName" pInputText class="p-inputtext-me" >
+      </div>
+      <div class="field col-12 md:col-3">
+        <input placeholder="Last name" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co" pInputText class="p-inputtext-me" >
+      </div>
+      <div class="field col-12 md:col-3 myLimiterHeigt">
+        <p-selectButton class="Option" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+      </div>
+      <div class="field col-12 md:col-3">
+        <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="value1" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+        </p-inputNumber>
+      </div>
+      <div class="field col-12 md:col-3">
+        <p-password [(ngModel)]="passsword" [toggleMask]="true" [ngModelOptions]="{standalone: true}" ></p-password>
+      </div>
+      <div class="field col-12 md:col-6">
+        <p-password [(ngModel)]="passwordConfirmation" [toggleMask]="true" [ngModelOptions]="{standalone: true}" ></p-password>
+      </div>
+      <div class="field col-12 md:col-3">
+        <div *ngFor="let category of categories" >
+          <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"  [ngModelOptions]="{standalone: true}"></p-radioButton>
+          <label  [for]="category.key">{{category.name}}</label>
+        </div>
+      </div>
     </div>
 
-    <input class='mat-form-field' formControlName='docNumber' name='docNumber' type='number'>
-
-    <div class='typeDocument'>
-      <input checked formControlName='docType' name='docType' type='radio' value='CC'> CC
-      <input formControlName='docType' name='docType' type='radio' value='TI'> TI
-      <input formControlName='docType' name='docType' type='radio' value='CE'> CE
-      <input formControlName='docType' name='docType' type='radio' value='OTHER'> OTHER
-    </div>
-    <input class='mat-form-field' formControlName='password' name='text' type='text'>
-    <input class='mat-form-field' formControlName='confirmPassword' name='text'
-           type='text'>
-
-  </div>
-  <div class="button">
-    <button class="buttonCreateFolder" mat-raised-button color="warn" (click)="registerAccount()">Confirm register
-    </button>
-  </div>
-
-</form>
+  </form>
+</div>
 </body>

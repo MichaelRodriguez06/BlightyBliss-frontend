@@ -9,7 +9,9 @@ import { Account } from '../../../models/account';
 @Component({
   selector: 'app-account-register-form',
   templateUrl: './account-register-form.component.html',
-  styleUrls: ['./account-register-form.component.css']
+  styleUrls: ['./account-register-form.component.css',
+    '../../../../../node_modules/primeflex/primeflex.css',
+    '../../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 export class AccountRegisterFormComponent implements OnInit {
 
@@ -17,6 +19,13 @@ export class AccountRegisterFormComponent implements OnInit {
   typeAccount: FormGroup;
   personType: FormGroup;
   docType: FormGroup;
+  value1: number| undefined;
+  stateOptions: any[];
+  userType: string= "";
+  passsword:string="";
+  passwordConfirmation:string="";
+  selectedCategory: any = null;
+  categories: any[] = [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}];
 
 
   constructor(
@@ -25,6 +34,8 @@ export class AccountRegisterFormComponent implements OnInit {
     private serviceAccount: AccountService,
     private notification: NotificationService
   ) {
+      this.stateOptions = [{label: 'Admin', value: 'admin '}, {label: 'User', value: 'user'}];
+
     if (this.apiAccessService.userAccessData) {//user logged
 
     }
@@ -48,6 +59,7 @@ export class AccountRegisterFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.selectedCategory = this.categories[1];
   }
 
   registerAccount() {
