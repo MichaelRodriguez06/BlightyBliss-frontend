@@ -28,13 +28,16 @@ const COLUMNS_SCHEMA = [
   }, {
     field: "years",
     header: "Years"
+  }, {
+    field: "physicalStatus",
+    header: "Status"
   }
 ]
 
 @Component({
   selector: 'app-folder-view',
   templateUrl: './folder-view.component.html',
-  styleUrls: ['./folder-view.component.css',
+  styleUrls: ['./folder-view.component.scss',
     '../../../../node_modules/primeflex/primeflex.css',
     '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
@@ -42,7 +45,7 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
 
   columnsSchema: any = COLUMNS_SCHEMA;
   folderList: Folder[] = [];
-  folder: Folder = {alphabet: "", idFolder: 0, idLocationFolder: 0, name: "", years: ""}
+  folder: Folder = {alphabet: "", idFolder: 0, idLocationFolder: 0, name: "", years: "", physicalStatus:""}
   dataSource = new MatTableDataSource<Folder>(this.folderList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -108,5 +111,12 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
 
   private updateView(){
     this.dataSource.data = this.folderList;
+  }
+
+  public getStatusName(folder: Folder): string{
+    if (folder.physicalStatus == 'A'){
+      return 'Available';
+    }
+    return 'Full';
   }
 }

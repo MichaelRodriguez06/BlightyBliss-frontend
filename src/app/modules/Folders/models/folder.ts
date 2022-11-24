@@ -3,5 +3,6 @@ export interface Folder {
   idLocationFolder: number,
   name: string,
   alphabet: string,
-  years: string
+  years: string,
+  physicalStatus: string
 }

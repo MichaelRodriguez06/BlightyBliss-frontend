@@ -44,6 +44,9 @@
           <span class="p-column-title">Years</span>
           {{folder.years}}
         </td>
+        <td style="width:14%; min-width: 10rem;"><span class="p-column-title">Status</span>
+          <span [class]="'folder status-' + (folder.physicalStatus.toUpperCase())">{{getStatusName(folder)}}</span>
+        </td>
         <td>
           <div class="flex">
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
