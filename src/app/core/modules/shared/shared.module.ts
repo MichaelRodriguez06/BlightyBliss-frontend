@@ -40,6 +40,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {TabMenuModule} from "primeng/tabmenu";
 import {ChipsModule} from "primeng/chips";
+import {PasswordModule} from "primeng/password";
 
 @NgModule({
   declarations: [],
@@ -90,7 +91,8 @@ import {ChipsModule} from "primeng/chips";
     MatStepperModule,
     MatGridListModule,
     TabMenuModule,
-    ChipsModule
+    ChipsModule,
+    PasswordModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -133,7 +135,8 @@ import {ChipsModule} from "primeng/chips";
     MatStepperModule,
     MatGridListModule,
     TabMenuModule,
-    ChipsModule
+    ChipsModule,
+    PasswordModule
   ]
 })
 export class SharedModule { }
