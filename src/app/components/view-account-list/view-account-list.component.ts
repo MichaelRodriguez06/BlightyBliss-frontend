@@ -50,8 +50,8 @@ export class ViewAccountListComponent implements OnInit {
 
   createAccountPanel() {
     const dialogRef = this.dialog.open(RegisterAccountComponent, {
-      width: '90%',
-      height: '81%',
+      width: '50%',
+      height: '55%',
       data: {edit: false}
     });
 

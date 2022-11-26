@@ -25,7 +25,7 @@ export class AccountRegisterFormComponent implements OnInit {
   passsword:string="";
   passwordConfirmation:string="";
   selectedCategory: any = null;
-  categories: any[] = [{name: 'Accounting', key: 'A'}, {name: 'Marketing', key: 'M'}, {name: 'Production', key: 'P'}, {name: 'Research', key: 'R'}];
+  categories: any[] = [{name: 'CC', key: 'CC'}, {name: 'TI', key: 'TI'}, {name: 'CE', key: 'CE'}];
 
 
   constructor(
@@ -86,6 +86,4 @@ export class AccountRegisterFormComponent implements OnInit {
     }
 
   }
-
-
 }
