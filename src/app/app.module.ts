@@ -30,7 +30,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ViewStudentsComponent } from './components/view-students/view-students.component';
 import { ViewStudentInformationComponent } from './components/view-student-information/view-student-information.component';
 import { ExamTryComponent } from './components/exam-try/exam-try.component';
-import { ViewAccountListComponent } from './components/view-account-list/view-account-list.component';
+import { ViewUserListComponent } from './components/view-user-list/view-user-list.component';
 
 
 
@@ -53,7 +53,7 @@ import { ViewAccountListComponent } from './components/view-account-list/view-ac
     PendingFilesComponent,
     ViewStudentsComponent,
     ExamTryComponent,
-    ViewAccountListComponent
+    ViewUserListComponent
   ],
   imports: [
     BrowserModule,

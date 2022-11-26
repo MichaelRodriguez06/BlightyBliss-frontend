@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewAccountListComponent } from './view-account-list.component';
+import { ViewUserListComponent } from './view-user-list.component';
 
 describe('ViewAccountListComponent', () => {
-  let component: ViewAccountListComponent;
-  let fixture: ComponentFixture<ViewAccountListComponent>;
+  let component: ViewUserListComponent;
+  let fixture: ComponentFixture<ViewUserListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewAccountListComponent ]
+      declarations: [ ViewUserListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewAccountListComponent);
+    fixture = TestBed.createComponent(ViewUserListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

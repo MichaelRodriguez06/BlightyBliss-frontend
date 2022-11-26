@@ -5,9 +5,9 @@
            [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
     <ng-template pTemplate="caption">
-      <h3 class="m-0">Manage Account</h3>
+      <h3 class="m-0">User Account</h3>
       <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-        <button pButton pRipple label="New account" icon="pi pi-plus" class="p-button-success mr-2" (click)="createAccountPanel()"></button>
+        <button pButton pRipple label="New User" icon="pi pi-plus" class="p-button-success mr-2" (click)="createUserPanel()"></button>
         <div class="formgroup-inline">
           <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
