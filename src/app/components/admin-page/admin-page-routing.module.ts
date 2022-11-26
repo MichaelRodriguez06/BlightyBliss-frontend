@@ -8,19 +8,19 @@ import {OptionsManagementComponent} from "../options-management/options-manageme
 import {PendingFilesComponent} from "../pending-files/pending-files.component";
 import {ViewStudentsComponent} from "../view-students/view-students.component";
 import {ViewStudentInformationComponent} from "../view-student-information/view-student-information.component";
-import {ViewAccountListComponent} from "../view-account-list/view-account-list.component";
+import {ViewUserListComponent} from "../view-user-list/view-user-list.component";
 
 const routes: Routes = [
   {
     path: '', component: AdminPageComponent, children: [
-      {path: '', component: ViewAccountListComponent},
+      {path: '', component: ViewUserListComponent},
       {path: AppRoutes.REGISTER_STUDENT, component: RegisterStudentComponent},
       {path: AppRoutes.FOLDER_VIEW, component: FolderViewComponent},
       {path: AppRoutes.FILE_MANAGEMENT , component: OptionsManagementComponent},
       {path: AppRoutes.PENDING_FILES, component: PendingFilesComponent},
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
       {path: AppRoutes.VIEW_STUDENT_INFORMATION, component: ViewStudentInformationComponent},
-      {path: AppRoutes.VIEW_ACCOUNT_LIST, component: ViewAccountListComponent},
+      {path: AppRoutes.VIEW_ACCOUNT_LIST, component: ViewUserListComponent},
     ]
   }
 ];

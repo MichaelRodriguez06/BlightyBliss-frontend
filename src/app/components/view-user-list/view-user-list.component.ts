@@ -25,13 +25,13 @@ const COLUMNS_SCHEMA = [
 ]
 
 @Component({
-  selector: 'app-view-account-list',
-  templateUrl: './view-account-list.component.html',
-  styleUrls: ['./view-account-list.component.css',
+  selector: 'app-view-user-list',
+  templateUrl: './view-user-list.component.html',
+  styleUrls: ['./view-user-list.component.css',
     '../../../../node_modules/primeflex/primeflex.css',
     '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
-export class ViewAccountListComponent implements OnInit {
+export class ViewUserListComponent implements OnInit {
 
   value1: string = "Id";
   columnsSchema: any = COLUMNS_SCHEMA;
@@ -48,7 +48,7 @@ export class ViewAccountListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createAccountPanel() {
+  createUserPanel() {
     const dialogRef = this.dialog.open(RegisterAccountComponent, {
       width: '50%',
       height: '55%',
