@@ -6,20 +6,25 @@ import {ViewDocumentComponent} from "../view-document/view-document.component";
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {PendingFileAsignationComponent} from "../pending-file-asignation/pending-file-asignation.component";
 import {GetPendingFilesService} from "../services/PendingFilesService/get-pending-files.service";
+import {FilePending} from "../../models/FilePending";
+import {NotificationService} from "../../core/services/notification/notification.service";
+import {Table} from "primeng/table";
+import {Folder} from "../../modules/Folders/models/folder";
 
 export interface foldersMatrix {
   name: string;
   direction: string;
-};
+  typeFile: string
+}
 
 const ELEMENT_DATA: foldersMatrix[] = [
-  {name: "1", direction: 'Hydrogen'},
-  {name: "2", direction: 'Hydrogen'},
-  {name: "3", direction: 'Hydrogen'},
-  {name: "4", direction: 'Hydrogen'},
-  {name: "5", direction: 'Hydrogen'},
-  {name: "6", direction: 'Hydrogen'},
-  {name: "7", direction: 'Hydrogen'},
+  {name: "1", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "2", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "3", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "4", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "5", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "6", direction: 'Hydrogen', typeFile: 'dsa'},
+  {name: "7", direction: 'Hydrogen', typeFile: 'dsa'},
 ];
 
 @Component({
@@ -29,8 +34,18 @@ const ELEMENT_DATA: foldersMatrix[] = [
 })
 export class PendingFilesComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'direction'];
-  dataSource = new MatTableDataSource<foldersMatrix>(ELEMENT_DATA);
+  pendingFiles: FilePending[] = []
+  pendingFile: FilePending = {
+    email: '',
+    idAccount: 0,
+    idPerson: 0,
+    personName: "",
+    personDocument: '',
+    status: '',
+    type: ''
+  }
+  displayedColumns: string[] = ['Name', 'Direction', 'Type File'];
+  dataSource = new MatTableDataSource<FilePending>(this.pendingFiles);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
@@ -40,12 +55,32 @@ export class PendingFilesComponent implements OnInit {
   }
 
   constructor(private dialog: MatDialog,
+              private notificationService: NotificationService,
               private serviceGetPendingFiles: GetPendingFilesService) {
     this.loadPendingFiles();
+    this.serviceGetPendingFiles.getPendingFiles().subscribe(data => {
+      this.pendingFiles = data.data;
+      this.dataSource.data = this.pendingFiles;
+    });
 
   }
 
   ngOnInit(): void {
+  }
+
+  onGlobalFilter(table: Table, event: Event) {
+    table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+  }
+
+  private updateView() {
+    this.dataSource.data = this.pendingFiles;
+  }
+
+  public getStatusName(folder: FilePending): string {
+    if (folder.status == 'A') {
+      return 'Available';
+    }
+    return 'Full';
   }
 
   seeDocument() {
