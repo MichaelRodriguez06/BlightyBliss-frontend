@@ -52,6 +52,8 @@ export class RegisterStudentComponent implements OnInit {
   attendantLandline: any[];
   motherCellphoneNumber: any[];
   fatherCellphoneNumber: any[];
+  regionList: any[];
+  countryList: any[];
 
 
 
@@ -73,6 +75,8 @@ export class RegisterStudentComponent implements OnInit {
     this.documentTypesList=[{name:'1'},{name:'2'}];
     this.bloodTypeList =[];
     this.cityList =[];
+    this.regionList =[];
+    this.countryList=[];
     this.vulnerablePopulationList =[];
     this.socioEconomicStateList=[];
     this.agreementList=[];
