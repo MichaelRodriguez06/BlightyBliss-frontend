@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ViewDocumentComponent} from "../view-document/view-document.component";
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {PendingFileAsignationComponent} from "../pending-file-asignation/pending-file-asignation.component";
+import {GetPendingFilesService} from "../services/PendingFilesService/get-pending-files.service";
 
 export interface foldersMatrix {
   name: string;
@@ -38,7 +39,9 @@ export class PendingFilesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private serviceGetPendingFiles: GetPendingFilesService) {
+    this.loadPendingFiles();
 
   }
 
@@ -51,6 +54,12 @@ export class PendingFilesComponent implements OnInit {
       height: '90%',
       data: {edit: false}
     });
+  }
+
+  loadPendingFiles() {
+    this.serviceGetPendingFiles.getPendingFiles().subscribe(data => {
+      console.log(data.data)
+    })
   }
 
   updateDocumentPanel() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiAccessService } from '../../../modules/access/services/api-access.service';
-import { AccountService } from '../../services/account.service';
+import { AccountService } from '../../services/AccountService/account.service';
 import { NotificationService } from '../../../core/services/notification/notification.service';
 import { Account } from '../../../models/account';
 

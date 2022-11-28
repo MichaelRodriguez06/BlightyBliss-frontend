@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '../../core/services/http/http.service';
+import { HttpService } from '../../../core/services/http/http.service';
 import { Observable } from 'rxjs';
-import { HttpApiResponse } from '../../core/models/http-api-response';
-import { TypeFile } from '../../models/typeFile';
-import { AppRoutes } from '../../core/services/app-routes';
+import { HttpApiResponse } from '../../../core/models/http-api-response';
+import { TypeFile } from '../../../models/typeFile';
+import { AppRoutes } from '../../../core/services/app-routes';
 
 @Injectable({
   providedIn: 'root'
