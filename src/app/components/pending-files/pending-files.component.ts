@@ -4,6 +4,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatDialog} from "@angular/material/dialog";
 import {ViewDocumentComponent} from "../view-document/view-document.component";
 import {CreateFilesComponent} from "../create-files/create-files.component";
+import {PendingFileAsignationComponent} from "../pending-file-asignation/pending-file-asignation.component";
 
 export interface foldersMatrix {
   name: string;
@@ -54,6 +55,16 @@ export class PendingFilesComponent implements OnInit {
 
   updateDocumentPanel() {
     let component = CreateFilesComponent;
+    const dialogRef = this.dialog.open(component, {
+      width: '55%',
+      height: '55%',
+      data: {edit: false}
+    });
+
+  }
+
+  asingPendingFile() {
+    let component = PendingFileAsignationComponent;
     const dialogRef = this.dialog.open(component, {
       width: '55%',
       height: '55%',
