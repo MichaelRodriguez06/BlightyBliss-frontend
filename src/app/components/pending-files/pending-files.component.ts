@@ -11,6 +11,8 @@ import {FileUpload} from "primeng/fileupload";
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {GetPendingFilesService} from "../services/PendingFilesService/get-pending-files.service";
 import {FilePending} from "../../models/FilePending";
+import {TypeFiles} from "../services/GetTypesFile/get-types-documents.service";
+import {UploadFileServiceService} from "../services/UploadFileService/upload-file-service.service";
 
 const COLUMNS_SCHEMA = [
   {
@@ -54,7 +56,9 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
   constructor(
     private dialog: MatDialog,
     private pendingFilesService: GetPendingFilesService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private serviceGetTypesDocument: TypeFiles,
+    private serviceUploadFile: UploadFileServiceService,
   ) {
     this.pendingFilesService.getPendingFiles().subscribe(response => {
       console.log(response.data)
@@ -79,7 +83,26 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
       height: '64%',
       data: {edit: false}
     });
+
+
   }
+
+ /* dialogRef.afterClosed().subscribe((result) => {
+  console.log(result)
+  if (result) {
+    console.log("Result")
+    this.folderService.createFolder(result).subscribe({
+      next: res => {
+        console.log(res.message)
+        this.folderList.push(res.data);
+        this.updateView();
+      },
+      error: err => {
+        this.notification.showsError(err.error.message);
+      }
+    });
+  }
+});*/
 
 
   createEditPanel() {

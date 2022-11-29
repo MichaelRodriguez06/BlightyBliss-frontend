@@ -59,7 +59,7 @@
       </div>
       <div class="field col-12 md:col-6 flex justify-content-center flex-wrap card-container ">
         <div *ngFor="let category of categories" class="flex align-items-center justify-content-center w-4rem h-4rem">
-          <p-radioButton formControlName="docType" [inputId]="category.key" name="category" [value]="category.key"
+          <p-radioButton formControlName="docType" [inputId]="category.key" name="docType" [value]="category.key"
                          [(ngModel)]="selectedCategory"
           ></p-radioButton>
           <label [for]="category.key">{{category.name}}</label>
