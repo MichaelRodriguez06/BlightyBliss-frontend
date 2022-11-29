@@ -1,7 +1,7 @@
 <body>
 <div class="card px-6 py-6">
   <p-table #dt [value]="accountList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="5"
-           [globalFilterFields]="['name','mail','type','status']" [paginator]="true"
+           [globalFilterFields]="['personName','mail','personDocument','status']" [paginator]="true"
            [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
     <ng-template pTemplate="caption">
