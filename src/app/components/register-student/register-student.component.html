@@ -45,7 +45,13 @@
                <p-dropdown placeholder="Marital status" [options]="maritalStatusList" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born place" [options]="cityList" [showClear]="true"></p-dropdown>
+               <p-dropdown  placeholder="Born city" [options]="cityList" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown  placeholder="Born region" [options]="regionList" [showClear]="true"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown  placeholder="Born country" [options]="countryList" [showClear]="true"></p-dropdown>
              </div>
            </div>
          </div>
@@ -126,7 +132,13 @@
              <input placeholder="Ocupation" type="text" pInputText class="p-inputtext-me">
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown placeholder="Company City" [options]="cityList"  [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company city" [options]="cityList" [showClear]="true"></p-dropdown>
+           </div>
+           <div class="field col-12 md:col-3">
+             <p-dropdown  placeholder="company region" [options]="regionList" [showClear]="true"></p-dropdown>
+           </div>
+           <div class="field col-12 md:col-3">
+             <p-dropdown  placeholder="company country" [options]="countryList" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-6">
              <p-chips [(ngModel)]="attendantCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -152,7 +164,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown placeholder="Resident City" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+               </div>
+               <div class="field col-12 md:col-6">
+                 <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
+               </div>
+               <div class="field col-12 md:col-6">
+                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="motherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -175,7 +193,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown placeholder="Resident City" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+               </div>
+               <div class="field col-12 md:col-6">
+                 <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
+               </div>
+               <div class="field col-12 md:col-6">
+                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="fatherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>

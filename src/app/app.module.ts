@@ -31,6 +31,7 @@ import { ViewStudentsComponent } from './components/view-students/view-students.
 import { ViewStudentInformationComponent } from './components/view-student-information/view-student-information.component';
 import { ExamTryComponent } from './components/exam-try/exam-try.component';
 import { ViewUserListComponent } from './components/view-user-list/view-user-list.component';
+import { PendingFileAsignationComponent } from './components/pending-file-asignation/pending-file-asignation.component';
 
 
 
@@ -53,7 +54,8 @@ import { ViewUserListComponent } from './components/view-user-list/view-user-lis
     PendingFilesComponent,
     ViewStudentsComponent,
     ExamTryComponent,
-    ViewUserListComponent
+    ViewUserListComponent,
+    PendingFileAsignationComponent
   ],
   imports: [
     BrowserModule,

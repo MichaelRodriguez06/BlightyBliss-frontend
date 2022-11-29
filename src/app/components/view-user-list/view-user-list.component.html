@@ -1,13 +1,14 @@
 <body>
 <div class="card px-6 py-6">
   <p-table #dt [value]="accountList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="5"
-           [globalFilterFields]="['name','mail','type','status']" [paginator]="true"
+           [globalFilterFields]="['personName','mail','personDocument','status']" [paginator]="true"
            [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
     <ng-template pTemplate="caption">
-      <h3 class="m-0">User Account</h3>
+      <h3 class="m-0">Users Accounts</h3>
       <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-        <button pButton pRipple label="New User" icon="pi pi-plus" class="p-button-success mr-2" (click)="createUserPanel()"></button>
+        <button pButton pRipple label="New User" icon="pi pi-plus" class="p-button-success mr-2"
+                (click)="createUserPanel()"></button>
         <div class="formgroup-inline">
           <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
@@ -20,7 +21,6 @@
 
     <ng-template pTemplate="header">
       <tr>
-        <th></th>
         <th *ngFor="let col of columnsSchema" pSortableColumn="{{col.field}}">{{col.header}}
           <p-sortIcon field="{{col.field}}"></p-sortIcon>
         </th>
@@ -28,23 +28,35 @@
     </ng-template>
     <ng-template pTemplate="body" let-account>
       <tr>
-        <td style="width:2rem">
+        <!--<td style="width:2rem">
           <i class="pi pi-student-open" style="font-size: 2rem"></i>
-        </td>
+        </td>-->
         <td style="width:14%; min-width:10rem;"><span class="p-column-title">name</span>
-          {{account.complete_name}}
+          {{account.personName}}
         </td>
         <td style="width:14%; min-width:10rem;">
           <span class="p-column-title">mail</span>
-          {{account.account_mail}}
+          {{account.email}}
         </td>
         <td style="width:14%; min-width:8rem;">
-          <span class="p-column-title">type</span>
-          {{account.account_type}}
+          <span class="   p-column-title">type</span>
+          {{account.personDocument}}
+        </td>
+        <td style="width:14%; min-width:8rem;">
+          <span class="   p-column-title">type</span>
+          {{account.type}}
         </td>
         <td style="width:14%; min-width:8rem;">
           <span class="p-column-title">status</span>
-          {{account.account_status}}
+          {{account.status}}
+        </td>
+        <td>
+          <div class="flex">
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                    (click)="createUserPanel()"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    (click)="createEditPanel()"></button>
+          </div>
         </td>
       </tr>
     </ng-template>

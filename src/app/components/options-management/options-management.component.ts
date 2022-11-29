@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TypeFiles } from '../services/get-types-documents.service';
+import { TypeFiles } from '../services/GetTypesFile/get-types-documents.service';
 import { TypeFile } from '../../models/typeFile';
 
 @Component({
@@ -25,6 +25,7 @@ export class OptionsManagementComponent implements OnInit {
       nameTypeFile: [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20)],
+
       fileTypes: this.Filesfb.array([])
     });
     this.agreementForm = this.Agreementfb.group({

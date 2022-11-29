@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {StudentService} from "../../modules/Students/services/student.service";
 import {NotificationService} from "../../core/services/notification/notification.service";
@@ -6,21 +6,30 @@ import {MatTableDataSource} from "@angular/material/table";
 import {Table} from "primeng/table";
 import {RegisterAccountComponent} from "../register-account/register-account.component";
 import {Account} from "../../models/account";
+import {AccountService} from "../services/AccountService/account.service";
+import {GetAccountsService} from "../services/GetAccounts/get-accounts.service";
+import {MatPaginator} from "@angular/material/paginator";
+import {AccountTemplate} from "../../models/AccountTemplate";
 
 const COLUMNS_SCHEMA = [
   {
-    field: "complete_name",
-    header: "name"
+    field: "personName",
+    header: "Name"
   }, {
-    field: "account_mail",
-    header: "mail"
+    field: "mail",
+    header: "Mail"
   }, {
-    field: "account_type",
-    header: "type"
-  },
-  {
+    field: "personDocument",
+    header: "Identification"
+  }, {
+    field: "type",
+    header: "Type"
+  }, {
     field: "account_status",
-    header: "status"
+    header: "Status"
+  }, {
+    field: "options",
+    header: "Options"
   }
 ]
 
@@ -35,18 +44,29 @@ export class ViewUserListComponent implements OnInit {
 
   value1: string = "Id";
   columnsSchema: any = COLUMNS_SCHEMA;
-  accountList: Account[] = [];
-  account: { account_type: number; complete_name: string; account_mail: number;account_status:string } = {complete_name: "", account_mail: 0, account_type: 0,account_status: ""}
-  dataSource = new MatTableDataSource<Account>(this.accountList);
+  accountList: AccountTemplate[] = [];
+  account: AccountTemplate = {
+    idAccount: 0, email: '', idPerson: 0, personDocument: '', personName: '', status: '', type: ''
+  }
+  dataSource = new MatTableDataSource<AccountTemplate>(this.accountList);
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   constructor(private dialog: MatDialog,
-              private studentService: StudentService,
+              private getAccountsService: GetAccountsService,
               private notification: NotificationService
   ) {
+    this.getAccountsService.getAccounts().subscribe(data => {
+      this.accountList = data.data
+      console.log(data.message);
+      this.dataSource.data = this.accountList;
+      this.updateView();
+    })
+
   }
 
   ngOnInit(): void {
   }
+
 
   createUserPanel() {
     const dialogRef = this.dialog.open(RegisterAccountComponent, {
@@ -70,7 +90,7 @@ export class ViewUserListComponent implements OnInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
-  private updateView(){
+  private updateView() {
     this.dataSource.data = this.accountList;
   }
 

@@ -45,7 +45,7 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
 
   columnsSchema: any = COLUMNS_SCHEMA;
   folderList: Folder[] = [];
-  folder: Folder = {alphabet: "", idFolder: 0, idLocationFolder: 0, name: "", years: "", physicalStatus:""}
+  folder: Folder = {alphabet: "", idFolder: 0, idLocationFolder: 0, name: "", years: "", physicalStatus: ""}
   dataSource = new MatTableDataSource<Folder>(this.folderList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -109,12 +109,12 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
-  private updateView(){
+  private updateView() {
     this.dataSource.data = this.folderList;
   }
 
-  public getStatusName(folder: Folder): string{
-    if (folder.physicalStatus == 'A'){
+  public getStatusName(folder: Folder): string {
+    if (folder.physicalStatus == 'A') {
       return 'Available';
     }
     return 'Full';
