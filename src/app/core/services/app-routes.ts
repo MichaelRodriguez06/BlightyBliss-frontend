@@ -11,7 +11,7 @@ export abstract class AppRoutes {
   static readonly PENDING_FILES: string = 'pending-files';
   static readonly VIEW_STUDENTS: string = 'view-students';
   static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
-  static readonly UPLOAD_FILE: string = `Files/upload`;
+  static readonly UPLOAD_PENDING_FILE: string = `Files/uploadpending`;
   static readonly GET_TYPE_FILES: string = `FileType/false`;
   static readonly CREATE_USER: string = `Access/newUser`;
   static readonly POST_TYPE_FILE: string = `FileType/`;

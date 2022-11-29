@@ -21,20 +21,11 @@ export interface FolderItem {
 
 const COLUMNS_SCHEMA = [
   {
-    field: "idFolder",
-    header: "Id"
-  }, {
     field: "name",
     header: "Name"
   }, {
-    field: "alphabet",
-    header: "Alphabet"
-  }, {
-    field: "years",
-    header: "Years"
-  }, {
-    field: "physicalStatus",
-    header: "Status"
+    field: "fileTypeName",
+    header: "File Type"
   }
 ]
 

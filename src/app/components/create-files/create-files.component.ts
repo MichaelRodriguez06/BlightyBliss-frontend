@@ -6,6 +6,7 @@ import { TypeFiles } from '../services/GetTypesFile/get-types-documents.service'
 import { UploadFileServiceService } from '../services/UploadFileService/upload-file-service.service';
 import { TemplateFile } from '../../models/TemplateFile';
 import { NotificationService } from '../../core/services/notification/notification.service';
+import {PendingFilesComponent} from "../pending-files/pending-files.component";
 
 @Component({
   selector: 'app-create-files',
@@ -91,6 +92,7 @@ export class CreateFilesComponent implements OnInit {
           if (res) {
             this.notificationService.showsSuccess(res.message);
             console.log(res.data);
+            this.dialogRef.close();
           } else {
             this.notificationService.showsInfo(res);
           }

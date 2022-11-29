@@ -21,7 +21,7 @@ export class UploadFileServiceService {
         'reportProgress': 'true'
       })
     };
-    return this.server.postFile(AppRoutes.UPLOAD_FILE, file);
+    return this.server.postFile(AppRoutes.UPLOAD_PENDING_FILE, file);
   }
 
 }
