@@ -17,14 +17,14 @@ export class Constraints {
   ]
 
   static readonly BLOOD_TYPE: Constraint[] = [
-    {name: "A_POSITIVE", value: "A+"},
-    {name: "A_NEGATIVE", value: "A-"},
-    {name: "B_POSITIVE", value: "B+"},
-    {name: "B_NEGATIVE", value: "B-"},
-    {name: "O_POSITIVE", value: "O+"},
-    {name: "O_NEGATIVE", value: "O-"},
-    {name: "AB_POSITIVE", value: "AB+"},
-    {name: "AB_NEGATIVE", value: "AB-"},
+    {name: "A POSITIVE", value: "A+"},
+    {name: "A NEGATIVE", value: "A-"},
+    {name: "B POSITIVE", value: "B+"},
+    {name: "B NEGATIVE", value: "B-"},
+    {name: "O POSITIVE", value: "O+"},
+    {name: "O NEGATIVE", value: "O-"},
+    {name: "AB POSITIVE", value: "AB+"},
+    {name: "AB NEGATIVE", value: "AB-"},
   ]
 
   static readonly VULNERABLE_POPULATION: Constraint[] = [

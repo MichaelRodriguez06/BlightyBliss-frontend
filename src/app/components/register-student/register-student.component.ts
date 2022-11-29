@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/user";
-import { SelectItem } from 'primeng/api';
+import {SelectItem} from 'primeng/api';
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
 import {Constraints} from "../../models/constraints/constraints";
+import {DisabilitiesService} from "../services/disablilities-service/disabilities.service";
 
 @Component({
   selector: 'app-register-student',
@@ -21,7 +22,7 @@ export class RegisterStudentComponent implements OnInit {
 
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
-    attendantCelphoneNumber: ['',Validators.required]
+    attendantCelphoneNumber: ['', Validators.required]
   });
 
   thirdFormGroup = this._formBuilder.group({
@@ -29,7 +30,7 @@ export class RegisterStudentComponent implements OnInit {
   });
 
   isLinear = false;
-  studentForm:FormGroup;
+  studentForm: FormGroup;
   public editMode: boolean;
   val: number = 0;
   studentCelphoneNumber: number[];
@@ -41,7 +42,7 @@ export class RegisterStudentComponent implements OnInit {
   vulnerablePopulationList: any[];
   socioEconomicStateList: any[];
   agreementList: any[];
-  discapacityList: any[];
+  discapacityList: any[] = [];
   maritalStatusList: any[];
   minDateValue: Date;
   maxDateValue: Date;
@@ -57,49 +58,63 @@ export class RegisterStudentComponent implements OnInit {
   countryList: any[];
 
 
-
-  constructor(private _formBuilder: FormBuilder,private dialog: MatDialog) {
+  constructor(private _formBuilder: FormBuilder,
+              private dialog: MatDialog,
+              private _disabilities: DisabilitiesService) {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentForm = _formBuilder.group({
       id: [''],
       document: ['', Validators.required],
       full_name: ['', Validators.required],
-      document_type: ['',  Validators.required],
+      document_type: ['', Validators.required],
       credentialId: ['', Validators.required],
       password: ['', Validators.required],
       city: ['', Validators.required],
       address: ['', Validators.required],
       phone_number: ['', Validators.required]
     })
-    this.gendersList= Constraints.GENDER;
-    this.documentTypesList= Constraints.DOCUMENT_TYPE;
+
+    this.gendersList = Constraints.GENDER;
+    this.documentTypesList = Constraints.DOCUMENT_TYPE;
     this.bloodTypeList = Constraints.BLOOD_TYPE;
-    this.cityList =[];
-    this.regionList =[];
-    this.countryList=[];
+    this.cityList = [];
+    this.regionList = [];
+    this.countryList = [];
     this.vulnerablePopulationList = Constraints.VULNERABLE_POPULATION;
-    this.socioEconomicStateList= Constraints.SOCIOECONOMIC_STRATUM;
-    this.agreementList=[];
-    this.discapacityList=[];
-    this.programList=[];
-    this.levelList=[];
-    this.studentTypeList=[];
-    this.studentCelphoneNumber=[];
-    this.attendantCellphoneNumber=[];
-    this.attendantLandline=[];
-    this.maritalStatusList=[];
-    this.fatherCellphoneNumber=[];
-    this.motherCellphoneNumber=[];
-    this.minDateValue= new Date("1920-01-01");
-    this.maxDateValue= new Date();
-    this.DefaultDate= new Date("2010-01-01")
+    this.socioEconomicStateList = Constraints.SOCIOECONOMIC_STRATUM;
+    this.agreementList = [];
+    _disabilities.requestDisabilities().subscribe({
+        next: res => {
+          this.discapacityList = res.data;
+        },
+        error: err => {
+          console.log(err.error.message)
+        }
+      }
+    )
+    this.maritalStatusList = Constraints.MARITAL_STATUS;
+    this.programList = [];
+    this.levelList = [];
+    this.studentTypeList = [];
+    this.studentCelphoneNumber = [];
+    this.attendantCellphoneNumber = [];
+    this.attendantLandline = [];
+    this.fatherCellphoneNumber = [];
+    this.motherCellphoneNumber = [];
+    this.minDateValue = new Date("1920-01-01");
+    this.maxDateValue = new Date();
+    this.DefaultDate = new Date("2010-01-01")
   }
 
-  ngOnInit(): void {
+  ngOnInit()
+    :
+    void {
   }
 
-  saveUser(): void {
+  saveUser()
+    :
+    void {
     const id = this.studentForm.get('id')?.value;
     const document = this.studentForm.get('document')?.value;
     const full_name = this.studentForm.get('full_name')?.value;
@@ -109,7 +124,9 @@ export class RegisterStudentComponent implements OnInit {
     const city = this.studentForm.get('city')?.value;
     const phone_number = this.studentForm.get('phone_number')?.value;
     const address = this.studentForm.get('address')?.value;
-    const user: User = {
+    const user
+      :
+      User = {
       id: parseInt(id),
       document: document.toString(),
       full_name,
