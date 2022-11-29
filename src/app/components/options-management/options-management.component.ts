@@ -25,6 +25,7 @@ export class OptionsManagementComponent implements OnInit {
       nameTypeFile: [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20)],
+
       fileTypes: this.Filesfb.array([])
     });
     this.agreementForm = this.Agreementfb.group({

@@ -21,6 +21,7 @@ export class TypeFiles {
     return this.server.get(AppRoutes.GET_TYPE_FILES);
   }
 
+
   addTypeFile(newTypeFile: TypeFile[]) {
     for (let i = 0; i < newTypeFile.length; i++) {
       this.addTypFile(newTypeFile[i].name);
