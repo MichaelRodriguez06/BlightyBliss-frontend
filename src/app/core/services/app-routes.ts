@@ -17,5 +17,6 @@ export abstract class AppRoutes {
   static readonly POST_TYPE_FILE: string = `FileType/`;
   static readonly VIEW_ACCOUNT_LIST: string = `account-list`;
   static readonly GET_PENDING_FILE: string = `files/pending`;
+  static readonly GET_LIST_ACCOUNTS: string = `Access`;
 
 }

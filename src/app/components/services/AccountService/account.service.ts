@@ -15,6 +15,12 @@ export class AccountService {
   constructor(private server: HttpService<Account>) {
 
   }
+/*
+
+  getAccounts(): Observable<HttpApiResponse<Account[]>>{
+    return this.server.get('access');
+  }
+*/
 
   addAccount(accountNew: Account): Observable<HttpApiResponse<Account>> {
     return this.server.post(AppRoutes.CREATE_USER, accountNew);

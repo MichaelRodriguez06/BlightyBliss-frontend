@@ -24,10 +24,6 @@ export class SideNavigationBarComponent implements OnInit {
   }, {
     title: "Folders", icon: "", subMenu: [{
       subtitle: "Show folders", icon: "", Direction: AppRoutes.FOLDER_VIEW
-    },{
-      subtitle: "Update document", icon: ""
-    }, {
-      subtitle: "Create folder", icon: ""
     }, {
       subtitle: "Pending files", icon: "",Direction:AppRoutes.PENDING_FILES
     }]
