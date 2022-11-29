@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TypeFile } from '../../models/typeFile';
-import { TypeFiles } from '../services/GetTypesFile/get-types-documents.service';
-import { UploadFileServiceService } from '../services/UploadFileService/upload-file-service.service';
-import { TemplateFile } from '../../models/TemplateFile';
-import { NotificationService } from '../../core/services/notification/notification.service';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {TypeFile} from '../../models/typeFile';
+import {TypeFiles} from '../services/GetTypesFile/get-types-documents.service';
+import {UploadFileServiceService} from '../services/UploadFileService/upload-file-service.service';
+import {TemplateFile} from '../../models/TemplateFile';
+import {NotificationService} from '../../core/services/notification/notification.service';
 import {PendingFilesComponent} from "../pending-files/pending-files.component";
 
 @Component({
