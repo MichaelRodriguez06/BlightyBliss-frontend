@@ -21,7 +21,7 @@ export class TypeFiles {
     return this.server.getList(AppRoutes.GET_TYPE_FILES);
   }
 
-  private addTypFile(name: string) {
+  private addTypFile(name: TypeFile) {
     return this.server.post(AppRoutes.POST_TYPE_FILE, name);
   }
 

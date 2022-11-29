@@ -18,5 +18,10 @@ export abstract class AppRoutes {
   static readonly VIEW_ACCOUNT_LIST: string = `account-list`;
   static readonly GET_PENDING_FILE: string = `files/pending`;
   static readonly GET_LIST_ACCOUNTS: string = `Access`;
+  static readonly GET_PROGRAMS: string = `Agreements/false`;
+  static readonly ADD_PROGRAM: string = `Agreements`;
+  static readonly GET_AGREEMENTS: string = `Agreements/false`;
+  static readonly ADD_AGREEMENT: string = `Agreements`;
+
 
 }
