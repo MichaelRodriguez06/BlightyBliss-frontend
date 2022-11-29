@@ -8,7 +8,7 @@
 
       <mat-form-field appearance='fill' class='nameField'>
         <mat-label>Enter name File</mat-label>
-        <input matInput placeholder='Name file' formControlName='Name' required>
+        <input matInput placeholder='Name file'  formControlName='Name' required>
       </mat-form-field>
       <div class='uploadFile'>
         <!--<mat-form-field appearance='fill' class='nameUpdatedFile'>
@@ -17,7 +17,9 @@
         <input class='nameUpdatedFile' #file placeholder='Choose file' name='pdf' type='file' id='FileContent'
                formControlName='FileContent' accept='application/pdf' (change)="setFile(file.files)" multiple/>
       </div>
-            <mat-form-field appearance='fill' class='listOptions' [(ngModel)]='this.filesForm'>
+      <mat-form-field appearance='fill' class='listOptions'
+
+                      [formGroup]='this.filesForm'>
         <mat-label>type of file</mat-label>
         <mat-select id='IdTypeFile' formControlName='IdTypeFile' required>
           <mat-option *ngFor='let item of typesDocuments'
@@ -29,8 +31,10 @@
     </div>
   </form>
   <div class="buttons">
-    <button type="buttonCancel" pButton pRipple icon="pi pi-times" class="buttonCancel p-button-help" label="Cancel" (click)="delete()"></button>
-    <button type="buttonSend" pButton pRipple icon="pi pi-upload" class="buttonSend p-button-help" label="Update" (click)='upload()'></button>
+    <button type="buttonCancel" pButton pRipple icon="pi pi-times" class="buttonCancel p-button-help" label="Cancel"
+            (click)="delete()"></button>
+    <button type="buttonSend" pButton pRipple icon="pi pi-upload" class="buttonSend p-button-help" label="Update"
+            (click)='upload()'></button>
   </div>
 
 </div>

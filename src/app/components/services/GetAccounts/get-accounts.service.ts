@@ -10,12 +10,12 @@ import {AccountTemplate} from "../../../models/AccountTemplate";
 })
 export class GetAccountsService {
 
-  constructor(private server: HttpService<AccountTemplate[]>) {
+  constructor(private server: HttpService<AccountTemplate>) {
 
   }
 
   getAccounts(): Observable<HttpApiResponse<AccountTemplate[]>> {
-    return this.server.get(AppRoutes.GET_LIST_ACCOUNTS);
+    return this.server.getList(AppRoutes.GET_LIST_ACCOUNTS);
   }
 
 }
