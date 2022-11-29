@@ -51,7 +51,7 @@ export class ViewUserListComponent implements OnInit {
   createUserPanel() {
     const dialogRef = this.dialog.open(RegisterAccountComponent, {
       width: '50%',
-      height: '55%',
+      height: '95%',
       data: {edit: false}
     });
 

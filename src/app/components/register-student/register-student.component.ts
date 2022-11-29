@@ -5,6 +5,7 @@ import { SelectItem } from 'primeng/api';
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
+import {Constraints} from "../../models/constraints/constraints";
 
 @Component({
   selector: 'app-register-student',
@@ -69,12 +70,12 @@ export class RegisterStudentComponent implements OnInit {
       address: ['', Validators.required],
       phone_number: ['', Validators.required]
     })
-    this.gendersList=[];
-    this.documentTypesList=[{name:'1'},{name:'2'}];
-    this.bloodTypeList =[];
+    this.gendersList= Constraints.GENDER;
+    this.documentTypesList= Constraints.DOCUMENT_TYPE;
+    this.bloodTypeList = Constraints.BLOOD_TYPE;
     this.cityList =[];
-    this.vulnerablePopulationList =[];
-    this.socioEconomicStateList=[];
+    this.vulnerablePopulationList = Constraints.VULNERABLE_POPULATION;
+    this.socioEconomicStateList= Constraints.SOCIOECONOMIC_STRATUM;
     this.agreementList=[];
     this.discapacityList=[];
     this.programList=[];
