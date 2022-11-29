@@ -59,7 +59,7 @@ export class ViewUserListComponent implements OnInit {
       this.accountList = data.data
       console.log(data.message);
       this.dataSource.data = this.accountList;
-      console.log("Esta dataaaa: " + this.accountList)
+      this.updateView();
     })
 
   }

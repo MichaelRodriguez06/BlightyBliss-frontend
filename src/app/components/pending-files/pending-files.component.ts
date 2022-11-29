@@ -61,6 +61,7 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
       this.pendingFileList = response.data;
       console.log(this.pendingFileList);
       this.dataSource.data = this.pendingFileList;
+      this.updateView();
     });
   }
 
