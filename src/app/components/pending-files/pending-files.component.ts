@@ -12,13 +12,6 @@ import {CreateFilesComponent} from "../create-files/create-files.component";
 import {GetPendingFilesService} from "../services/PendingFilesService/get-pending-files.service";
 import {FilePending} from "../../models/FilePending";
 
-export interface FolderItem {
-  idFolder: number,
-  name: string,
-  alphabet: string,
-  years: string
-}
-
 const COLUMNS_SCHEMA = [
   {
     field: "name",
@@ -26,6 +19,9 @@ const COLUMNS_SCHEMA = [
   }, {
     field: "fileTypeName",
     header: "File Type"
+  }, {
+    field: "link",
+    header: "Link"
   }
 ]
 
@@ -47,7 +43,8 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
     idPerson: 0,
     personName: '',
     email: '',
-    idAccount: 0
+    idAccount: 0,
+    link: 'https://docs.google.com/document/d/1396WtOSSqwr04eRmpPYo-SlDZnymM-nEOuomNg6eqOI/edit?usp=sharing'
   }
   dataSource = new MatTableDataSource<FilePending>(this.pendingFileList);
 
@@ -96,14 +93,14 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
-  private updateView() {
-    this.dataSource.data = this.pendingFileList;
-  }
-
   public getStatusName(folder: Folder): string {
     if (folder.physicalStatus == 'A') {
       return 'Available';
     }
     return 'Full';
+  }
+
+  private updateView() {
+    this.dataSource.data = this.pendingFileList;
   }
 }

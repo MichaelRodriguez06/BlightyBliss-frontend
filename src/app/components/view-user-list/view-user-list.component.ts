@@ -19,12 +19,17 @@ const COLUMNS_SCHEMA = [
     field: "mail",
     header: "Mail"
   }, {
+    field: "personDocument",
+    header: "Identification"
+  }, {
     field: "type",
     header: "Type"
-  },
-  {
+  }, {
     field: "account_status",
     header: "Status"
+  }, {
+    field: "options",
+    header: "Options"
   }
 ]
 
