@@ -36,7 +36,6 @@ const COLUMNS_SCHEMA = [
 })
 export class ViewStudentsComponent implements OnInit {
 
-  stateOptions: any[];
   value1: string = "Id";
   columnsSchema: any = COLUMNS_SCHEMA;
   studentList: Student[] = [];
@@ -51,7 +50,6 @@ export class ViewStudentsComponent implements OnInit {
     private studentService: StudentService,
     private notification: NotificationService
   ) {
-    this.stateOptions = [{label: 'Name', value: 'name '}, {label: 'Id', value: 'Id'}];
     /*
     this.studentService.getStudentList(1).subscribe((response) => {
       this.studentList = response.data;
