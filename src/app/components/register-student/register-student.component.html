@@ -20,11 +20,11 @@
                  <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="identification" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
                </p-inputNumber>
              </div>
-             <div class="field col-12 md:col-3 myCalendar">
-               <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
-             </div>
              <div class="field col-12 md:col-3">
                <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="bloodTypeList" optionLabel="name"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3 myCalendar">
+               <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
                  <p-dropdown placeholder="Student type" [options]="studentTypeList" optionLabel="name" [showClear]="true"></p-dropdown>
@@ -244,11 +244,19 @@
      </mat-step>
      <mat-step >
        <form>
+         <ng-template matStepLabel>Documents</ng-template>
+         <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
+                       [multiple]="true" accept="image/*,.pdf, .docx" >
+           <ng-template pTemplate="content">
+             <ul *ngIf="uploadedFiles.length">
+               <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+             </ul>
+           </ng-template>
+         </p-fileUpload>
          <div class="flex flex-row-reverse">
-           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
            <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
-           <button type="button" pButton pRipple icon="pi pi-upload" class="p-button-help" label=" Update documents" (click)="updateDocumentPanel()"></button>
-           <button type="button" pButton pRipple icon="pi pi-upload" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+           <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
          </div>
        </form>
      </mat-step>
