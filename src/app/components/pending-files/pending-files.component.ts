@@ -13,6 +13,7 @@ import {GetPendingFilesService} from "../services/PendingFilesService/get-pendin
 import {FilePending} from "../../models/FilePending";
 import {TypeFiles} from "../services/GetTypesFile/get-types-documents.service";
 import {UploadFileServiceService} from "../services/UploadFileService/upload-file-service.service";
+import {PendingFileAsignationComponent} from "../pending-file-asignation/pending-file-asignation.component";
 
 const COLUMNS_SCHEMA = [
   {
@@ -80,7 +81,7 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
   createUploadPendingFile() {
     const dialogRef = this.dialog.open(CreateFilesComponent, {
       width: '45%',
-      height: '64%',
+      height: '50%',
       data: {edit: false}
     });
 
@@ -126,5 +127,13 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
 
   private updateView() {
     this.dataSource.data = this.pendingFileList;
+  }
+
+  createAsignationPanel() {
+    const dialogRef = this.dialog.open(PendingFileAsignationComponent, {
+      width: '45%',
+      height: '50%',
+      data: {edit: false}
+    });
   }
 }

@@ -1,12 +1,29 @@
 <div class="card">
   <p>Pending file asignation</p>
   <div class="p-fluid p-formgrid grid">
-    <div class="field col-12 md:col-8">
-      <input placeholder="First name" type="text" pInputText class="p-inputtext-me  ">
+    <div class="field col-12 md:col-6">
+      <label>File type</label>
     </div>
-    <div class="field col-12 md:col-8">
-      <input placeholder="First name" type="text" pInputText class="p-inputtext-me  ">
+    <div class="field col-12 md:col-6">
+      <p-dropdown placeholder="Select Document type" inputId="dropdown" [autoDisplayFirst]="false" optionLabel="name"></p-dropdown>
+    </div>
+    <div class="field col-12 md:col-6">
+      <label>Student</label>
+    </div>
+    <div class="field col-12 md:col-6">
+      <!--
+      <p-autoComplete placehorder="Student name" [(ngModel)]="selectedCountryAdvanced" [suggestions]="filteredCountries" (completeMethod)="filterStudent($event)" [dropdown]="true">
+        <ng-template let-country pTemplate="item">
+          <div class="country-item">
+            <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+            <div>{{country.name}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+      -->
     </div>
   </div>
-  <button type="button" pButton pRipple icon="pi pi-upload" class="p-button-help" label=" Update asignation" (click)="updateFileAsignation()"></button>
+  <div class="flex flex-row-reverse">
+    <button type="button" pButton pRipple icon="pi pi-save" class="p-button-help" label="Save asignation" (click)="updateFileAsignation()"></button>
+  </div>
 </div>

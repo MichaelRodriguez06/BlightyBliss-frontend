@@ -41,6 +41,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {TabMenuModule} from "primeng/tabmenu";
 import {ChipsModule} from "primeng/chips";
 import {PasswordModule} from "primeng/password";
+import {AutoCompleteModule} from "primeng/autocomplete";
 
 @NgModule({
   declarations: [],
@@ -92,7 +93,8 @@ import {PasswordModule} from "primeng/password";
     MatGridListModule,
     TabMenuModule,
     ChipsModule,
-    PasswordModule
+    PasswordModule,
+    AutoCompleteModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -136,7 +138,8 @@ import {PasswordModule} from "primeng/password";
     MatGridListModule,
     TabMenuModule,
     ChipsModule,
-    PasswordModule
+    PasswordModule,
+    AutoCompleteModule
   ]
 })
 export class SharedModule { }
