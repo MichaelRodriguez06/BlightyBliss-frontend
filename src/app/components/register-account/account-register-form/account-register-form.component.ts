@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiAccessService } from '../../../modules/access/services/api-access.service';
-import { AccountService } from '../../services/account.service';
-import { NotificationService } from '../../../core/services/notification/notification.service';
-import { Account } from '../../../models/account';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ApiAccessService} from '../../../modules/access/services/api-access.service';
+import {AccountService} from '../../services/AccountService/account.service';
+import {NotificationService} from '../../../core/services/notification/notification.service';
+import {Account} from '../../../models/account';
+import {MatDialogRef} from "@angular/material/dialog";
 
 
 @Component({
@@ -19,11 +20,9 @@ export class AccountRegisterFormComponent implements OnInit {
   typeAccount: FormGroup;
   personType: FormGroup;
   docType: FormGroup;
-  value1: number| undefined;
+  value1: number | undefined;
   stateOptions: any[];
-  userType: string= "";
-  passsword:string="";
-  passwordConfirmation:string="";
+  passwordConfirmation: string = "";
   selectedCategory: any = null;
   categories: any[] = [{name: 'CC', key: 'CC'}, {name: 'TI', key: 'TI'}, {name: 'CE', key: 'CE'}];
 
@@ -32,9 +31,10 @@ export class AccountRegisterFormComponent implements OnInit {
     private fb: FormBuilder,
     private apiAccessService: ApiAccessService,
     private serviceAccount: AccountService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    public dialogRef: MatDialogRef<AccountRegisterFormComponent>
   ) {
-      this.stateOptions = [{label: 'Admin', value: 'admin '}, {label: 'User', value: 'user'}];
+    this.stateOptions = [{label: 'Admin', value: 'ADMIN'}, {label: 'User', value: 'USER'}];
 
     if (this.apiAccessService.userAccessData) {//user logged
 
@@ -52,7 +52,7 @@ export class AccountRegisterFormComponent implements OnInit {
         accountType: ['', Validators.required],
         email: ['', Validators.required],
         password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+        confirmPassword: ['', Validators.required]
       }
     );
 
@@ -66,10 +66,13 @@ export class AccountRegisterFormComponent implements OnInit {
     const formRegister: Account = this.form.value;
     if ((this.form.get('password')?.value) == (this.form.get('confirmPassword')?.value)) {
       formRegister.docNumber = String(formRegister.docNumber);
+      formRegister.personType = 'STUDENT';
+      console.log(formRegister);
       this.serviceAccount.addAccount(formRegister).subscribe({
         next: (res) => {
           if (res) {
             this.notification.showsSuccess(res.message);
+            this.dialogRef.close();
           } else {
             this.notification.showsInfo(res);
           }
@@ -85,5 +88,9 @@ export class AccountRegisterFormComponent implements OnInit {
       this.notification.showsError('Passwords dont match');
     }
 
+  }
+
+  cancel() {
+    this.dialogRef.close();
   }
 }

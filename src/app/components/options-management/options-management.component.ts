@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TypeFiles } from '../services/get-types-documents.service';
-import { TypeFile } from '../../models/typeFile';
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {TypeFiles} from '../services/GetTypesFile/get-types-documents.service';
+import {TypeFile} from '../../models/typeFile';
+import {ProgramsService} from "../services/programsServices/programs.service";
+import {AgreementService} from "../services/agreementService/agreement.service";
 
 @Component({
   selector: 'app-options-management',
@@ -16,15 +18,27 @@ export class OptionsManagementComponent implements OnInit {
   agreementForm: FormGroup;
   programsForm: FormGroup;
 
-  constructor(private Filesfb:FormBuilder,
-              private Agreementfb:FormBuilder,
-              private Programsfb:FormBuilder,
-              private serviceTypeFiles: TypeFiles
+  constructor(private Filesfb: FormBuilder,
+              private Agreementfb: FormBuilder,
+              private Programsfb: FormBuilder,
+              private serviceTypeFiles: TypeFiles,
+              private servicePrograms: ProgramsService,
+              private serviceAgreements: AgreementService,
   ) {
+    servicePrograms.getPrograms().subscribe(data => {
+      console.log(data.data)
+    });
+    serviceTypeFiles.getTypesDocument().subscribe(data => {
+      console.log(data.data)
+    });
+    serviceAgreements.getAgreements().subscribe(data => {
+      console.log(data.data)
+    });
     this.filesTypeForm = this.Filesfb.group({
       nameTypeFile: [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(20)],
+
       fileTypes: this.Filesfb.array([])
     });
     this.agreementForm = this.Agreementfb.group({
@@ -41,20 +55,20 @@ export class OptionsManagementComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   get fileTypes() {
     return this.filesTypeForm.controls["fileTypes"] as FormArray;
   }
+
   get agreement() {
     return this.agreementForm.controls["agreement"] as FormArray;
   }
+
   get programs() {
     return this.programsForm.controls["programs"] as FormArray;
   }
 
-
+  ngOnInit(): void {
+  }
 
   addFileType() {
     const filesTypeForm = this.Filesfb.group({
@@ -89,7 +103,7 @@ export class OptionsManagementComponent implements OnInit {
       data: {edit: false}
     });
      */
-    if(true){
+    if (true) {
       this.fileTypes.removeAt(fileTypesIndex);
     }
   }
@@ -102,7 +116,7 @@ export class OptionsManagementComponent implements OnInit {
       data: {edit: false}
     });
      */
-    if(true){
+    if (true) {
       this.agreement.removeAt(fileTypesIndex);
     }
   }
@@ -115,7 +129,7 @@ export class OptionsManagementComponent implements OnInit {
       data: {edit: false}
     });
      */
-    if(true){
+    if (true) {
       this.programs.removeAt(fileTypesIndex);
     }
   }

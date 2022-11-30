@@ -11,10 +11,17 @@ export abstract class AppRoutes {
   static readonly PENDING_FILES: string = 'pending-files';
   static readonly VIEW_STUDENTS: string = 'view-students';
   static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
-  static readonly UPLOAD_FILE: string = `Files/upload`;
+  static readonly UPLOAD_PENDING_FILE: string = `Files/uploadpending`;
   static readonly GET_TYPE_FILES: string = `FileType/false`;
   static readonly CREATE_USER: string = `Access/newUser`;
   static readonly POST_TYPE_FILE: string = `FileType/`;
   static readonly VIEW_ACCOUNT_LIST: string = `account-list`;
+  static readonly GET_PENDING_FILE: string = `files/pending`;
+  static readonly GET_LIST_ACCOUNTS: string = `Access`;
+  static readonly GET_PROGRAMS: string = `Agreements/false`;
+  static readonly ADD_PROGRAM: string = `Agreements`;
+  static readonly GET_AGREEMENTS: string = `Agreements/false`;
+  static readonly ADD_AGREEMENT: string = `Agreements`;
+
 
 }

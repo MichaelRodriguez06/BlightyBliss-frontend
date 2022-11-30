@@ -10,57 +10,65 @@
         <label>Name</label>
       </div>
       <div class="field col-12 md:col-6">
-        <input placeholder="First name" type="text" id="name" formControlName="name" pInputText class="p-inputtext-me" >
+        <input placeholder="First name" type="text" id="name" formControlName="name" pInputText class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
         <label>Last name</label>
       </div>
       <div class="field col-12 md:col-6">
-        <input placeholder="Last name" type="text" id="lastname" formControlName="lastName" pInputText class="p-inputtext-me" >
+        <input placeholder="Last name" type="text" id="lastname" formControlName="lastName" pInputText
+               class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
         <label>Email</label>
       </div>
       <div class="field col-12 md:col-6">
-        <input placeholder="Email" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co" pInputText class="p-inputtext-me" >
+        <input placeholder="Email" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co"
+               pInputText class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
         <label>User type</label>
       </div>
       <div class="field col-12 md:col-6 myLimiterHeigt">
-          <p-selectButton class="Option" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
+        <p-selectButton class="Option" [options]="stateOptions" formControlName="accountType" optionLabel="label"
+                        optionValue="value"></p-selectButton>
       </div>
       <div class="field col-12 md:col-6">
         <label>Identification document</label>
       </div>
       <div class="field col-12 md:col-6">
-        <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="value1" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+        <p-inputNumber placeholder="Identification document" formControlName="docNumber" [(ngModel)]="value1"
+                       mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
         </p-inputNumber>
       </div>
       <div class="field col-12 md:col-6">
         <label>Password</label>
       </div>
       <div class="field col-12 md:col-6">
-        <p-password [(ngModel)]="passsword" [toggleMask]="true" [ngModelOptions]="{standalone: true}" ></p-password>
+        <p-password formControlName="password" [toggleMask]="true"></p-password>
       </div>
       <div class="field col-12 md:col-6">
         <label>Confirm password</label>
       </div>
       <div class="field col-12 md:col-6">
-        <p-password [(ngModel)]="passwordConfirmation" [toggleMask]="true" [ngModelOptions]="{standalone: true}" ></p-password>
+        <p-password [(ngModel)]="passwordConfirmation" formControlName="confirmPassword"
+                    [toggleMask]="true"></p-password>
       </div>
       <div class="field col-12 md:col-6">
         <label>Document type</label>
       </div>
       <div class="field col-12 md:col-6 flex justify-content-center flex-wrap card-container ">
         <div *ngFor="let category of categories" class="flex align-items-center justify-content-center w-4rem h-4rem">
-          <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"  [ngModelOptions]="{standalone: true}"></p-radioButton>
-          <label  [for]="category.key">{{category.name}}</label>
+          <p-radioButton formControlName="docType" [inputId]="category.key" name="docType" [value]="category.key"
+                         [(ngModel)]="selectedCategory"
+          ></p-radioButton>
+          <label [for]="category.key">{{category.name}}</label>
         </div>
       </div>
     </div>
     <div class="flex flex-row-reverse">
-      <button class="buttonCreateFolder p-button-help"  icon="pi pi-send" pButton pRipple label="Regist account" (click)="registerAccount()" ></button>
+      <button class="buttonCreateFolder p-button-help" icon="pi pi-send" pButton pRipple label="Register account"
+              (click)="registerAccount()"></button>
     </div>
   </form>
 </div>

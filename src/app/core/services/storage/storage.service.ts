@@ -4,6 +4,9 @@ import {CookieService} from "ngx-cookie-service";
 @Injectable({
   providedIn: 'root'
 })
+/**
+ Servicio encarado del almacenamiento en cookies
+ */
 export class StorageService {
 
   constructor(private cookieService:CookieService) {
