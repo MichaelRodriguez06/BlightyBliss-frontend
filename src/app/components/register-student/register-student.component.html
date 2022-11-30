@@ -107,7 +107,7 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
+         <div class="flex justify-content-end flex-wrap">
            <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
          </div>
        </form>
@@ -207,9 +207,9 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
-           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
+         <div class="flex justify-content-end flex-wrap">
            <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
+           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
          </div>
        </form>
      </mat-step>
@@ -236,27 +236,31 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
-           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
-           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
-         </div>
        </form>
+       <div class="flex justify-content-end flex-wrap">
+         <button type="button" pButton pRipple icon="pi pi-chevron-left" class="buttonPrevius p-button-help" matStepperPrevious></button>
+         <button type="button" pButton pRipple icon="pi pi-chevron-right" class="buttonNext p-button-help" matStepperNext></button>
+       </div>
      </mat-step>
      <mat-step >
        <form>
-         <ng-template matStepLabel>Documents</ng-template>
-         <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
-                       [multiple]="true" accept="image/*,.pdf, .docx" >
-           <ng-template pTemplate="content">
-             <ul *ngIf="uploadedFiles.length">
-               <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-             </ul>
-           </ng-template>
-         </p-fileUpload>
-         <div class="flex flex-row-reverse">
-           <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
-           <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
-           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
+         <div class="card">
+           <ng-template matStepLabel>Documents</ng-template>
+           <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
+                         [multiple]="true" accept="image/*,.pdf, .docx" >
+             <ng-template pTemplate="content">
+               <ul *ngIf="uploadedFiles.length">
+                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+               </ul>
+             </ng-template>
+           </p-fileUpload>
+           <div class="flex justify-content-end flex-wrap">
+            <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+           </div>
+         </div>
+         <div class="flex justify-content-end flex-wrap align-items-stretch ">
+           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class=" align-self-end p-button-help" matStepperPrevious></button>
          </div>
        </form>
      </mat-step>
