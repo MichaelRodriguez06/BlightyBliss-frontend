@@ -9,6 +9,8 @@ import {Constraints} from "../../models/constraints/constraints";
 import {DisabilitiesService} from "../services/disablilities-service/disabilities.service";
 import {StudentService} from "../../modules/Students/services/student.service";
 import {LevelsService} from "../services/levels-service/levels.service";
+import {AgreementService} from "../services/agreementService/agreement.service";
+import {ProgramsService} from "../services/programsServices/programs.service";
 
 @Component({
   selector: 'app-register-student',
@@ -43,13 +45,13 @@ export class RegisterStudentComponent implements OnInit {
   cityList: any[];
   vulnerablePopulationList: any[];
   socioeconomicStateList: any[];
-  agreementList: any[];
+  agreementList: any[] = [];
   disabilityList: any[] = [];
   maritalStatusList: any[];
   minDateValue: Date;
   maxDateValue: Date;
   DefaultDate: Date;
-  programList: any[];
+  programList: any[] = [];
   levelList: any[] = [];
   studentTypeList: any[] = [];
   attendantCellphoneNumber: any[];
@@ -64,7 +66,9 @@ export class RegisterStudentComponent implements OnInit {
               private dialog: MatDialog,
               private _disabilities: DisabilitiesService,
               private _students: StudentService,
-              private _levels: LevelsService) {
+              private _levels: LevelsService,
+              private _agreements: AgreementService,
+              private _programs: ProgramsService) {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentForm = _formBuilder.group({
@@ -87,7 +91,15 @@ export class RegisterStudentComponent implements OnInit {
     this.countryList = [];
     this.vulnerablePopulationList = Constraints.VULNERABLE_POPULATION;
     this.socioeconomicStateList = Constraints.SOCIOECONOMIC_STRATUM;
-    this.agreementList = [];
+    _agreements.getAgreements().subscribe({
+        next: res => {
+          this.agreementList = res.data;
+        },
+        error: err => {
+          console.log(err.error.message)
+        }
+      }
+    )
     _disabilities.requestDisabilities().subscribe({
         next: res => {
           this.disabilityList = res.data;
@@ -98,7 +110,15 @@ export class RegisterStudentComponent implements OnInit {
       }
     )
     this.maritalStatusList = Constraints.MARITAL_STATUS;
-    this.programList = [];
+    this._programs.getPrograms().subscribe({
+        next: res => {
+          this.programList = res.data;
+        },
+        error: err => {
+          console.log(err.error.message)
+        }
+      }
+    )
     this._levels.getLevels().subscribe({
       next: res => {
         this.levelList = res.data;
