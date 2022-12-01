@@ -20,11 +20,11 @@
                  <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="identification" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
                </p-inputNumber>
              </div>
-             <div class="field col-12 md:col-3 myCalendar">
-               <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
-             </div>
              <div class="field col-12 md:col-3">
                <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="bloodTypeList" optionLabel="name"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3 myCalendar">
+               <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
                  <p-dropdown placeholder="Student type" [options]="studentTypeList" optionLabel="name" [showClear]="true"></p-dropdown>
@@ -107,7 +107,7 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
+         <div class="flex justify-content-end flex-wrap">
            <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
          </div>
        </form>
@@ -132,13 +132,13 @@
              <input placeholder="Ocupation" type="text" pInputText class="p-inputtext-me">
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown  placeholder="company city" [options]="cityList" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company country" [options]="countryList" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-3">
              <p-dropdown  placeholder="company region" [options]="regionList" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown  placeholder="company country" [options]="countryList" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company city" [options]="cityList" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-6">
              <p-chips [(ngModel)]="attendantCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -164,13 +164,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="motherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -193,13 +193,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="fatherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -207,9 +207,9 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
-           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
+         <div class="flex justify-content-end flex-wrap">
            <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
+           <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
          </div>
        </form>
      </mat-step>
@@ -236,13 +236,32 @@
              </div>
            </div>
          </div>
-         <div class="flex flex-row-reverse">
-           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class="p-button-help" matStepperPrevious></button>
-           <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
-           <button type="button" pButton pRipple icon="pi pi-upload" class="p-button-help" label=" Update documents" (click)="updateDocumentPanel()"></button>
-           <button type="button" pButton pRipple icon="pi pi-upload" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+       </form>
+       <div class="flex justify-content-end flex-wrap">
+         <button type="button" pButton pRipple icon="pi pi-chevron-left" class="buttonPrevius p-button-help" matStepperPrevious></button>
+         <button type="button" pButton pRipple icon="pi pi-chevron-right" class="buttonNext p-button-help" matStepperNext></button>
+       </div>
+     </mat-step>
+     <mat-step >
+       <form>
+         <div class="card">
+           <ng-template matStepLabel>Documents</ng-template>
+           <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
+                         [multiple]="true" accept="image/*,.pdf, .docx" >
+             <ng-template pTemplate="content">
+               <ul *ngIf="uploadedFiles.length">
+                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+               </ul>
+             </ng-template>
+           </p-fileUpload>
+           <div class="flex justify-content-end flex-wrap">
+            <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+           </div>
          </div>
-
+         <div class="flex justify-content-end flex-wrap align-items-stretch ">
+           <button type="buttonPrevius" pButton pRipple icon="pi pi-chevron-left" class=" align-self-end p-button-help" matStepperPrevious></button>
+         </div>
        </form>
      </mat-step>
    </mat-stepper>

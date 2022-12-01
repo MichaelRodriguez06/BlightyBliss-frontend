@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/user";
-import {SelectItem} from 'primeng/api';
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
@@ -60,6 +59,8 @@ export class RegisterStudentComponent implements OnInit {
   fatherCellphoneNumber: any[];
   regionList: any[];
   countryList: any[];
+  uploadedFiles: any[] = [];
+
 
 
   constructor(private _formBuilder: FormBuilder,
@@ -68,7 +69,8 @@ export class RegisterStudentComponent implements OnInit {
               private _students: StudentService,
               private _levels: LevelsService,
               private _agreements: AgreementService,
-              private _programs: ProgramsService) {
+              private _programs: ProgramsService
+              ) {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentForm = _formBuilder.group({
@@ -198,4 +200,11 @@ export class RegisterStudentComponent implements OnInit {
   registStudent() {
 
   }
+
+
+  onUpload(event: { files: any; }) {
+    for(let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+      }
 }
