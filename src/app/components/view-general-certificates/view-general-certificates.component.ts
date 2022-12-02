@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Certificate} from "../../models/certificate";
 import {Table} from "primeng/table";
-import {EditCertificateComponent} from "../edit-certificate/edit-certificate.component";
-import {MatDialog} from "@angular/material/dialog";
 
 export interface FolderItem {
   studentName: string,
@@ -43,9 +41,7 @@ const COLUMNS_SCHEMA = [
 @Component({
   selector: 'app-view-general-certificates',
   templateUrl: './view-general-certificates.component.html',
-  styleUrls: ['./view-general-certificates.component.scss',
-    '../../../../node_modules/primeflex/primeflex.css',
-    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
+  styleUrls: ['./view-general-certificates.component.scss']
 })
 export class ViewGeneralCertificatesComponent implements OnInit {
 
@@ -53,9 +49,7 @@ export class ViewGeneralCertificatesComponent implements OnInit {
   certificateList: Certificate[] = [];
   certificate: Certificate = {studentName: "", docnumber: 0, examLevel: "", certificateState: "", deliveredDate: "", act: "", fol: ""}
 
-  constructor(
-    private dialog: MatDialog,
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -71,13 +65,5 @@ export class ViewGeneralCertificatesComponent implements OnInit {
       return 'Ready';
     }
     return 'Delivered';
-  }
-
-  createEditCertificatePanel() {
-    const dialogRef = this.dialog.open(EditCertificateComponent, {
-      width: '60%',
-      height: '70%',
-      data: {edit: false}
-    });
   }
 }
