@@ -50,7 +50,7 @@ export class AccountRegisterFormComponent implements OnInit {
         docNumber: ['', Validators.required],
         personType: ['', Validators.required],
         accountType: ['', Validators.required],
-        email: ['', Validators.required],
+        email: ['', Validators.required,Validators.email],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required]
       }
