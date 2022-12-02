@@ -1,5 +1,5 @@
 <body>
-<div class="card px-6 py-6">
+<div class="card px-6 py-6 lessPadding">
   <p-table #dt [value]="studentList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="5"
            [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true"
            [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
@@ -53,4 +53,5 @@
     </ng-template>
   </p-table>
 </div>
+<a (click)="createExamTry()">Intento de examen</a>
 </body>
