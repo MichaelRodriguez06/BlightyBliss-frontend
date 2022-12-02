@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {MatDialogRef} from "@angular/material/dialog";
 import {MenuItem} from "primeng/api";
-import {ViewStudentsComponent} from "../view-students/view-students.component";
 
 @Component({
   selector: 'app-exam-try',
@@ -15,26 +14,40 @@ import {ViewStudentsComponent} from "../view-students/view-students.component";
 export class ExamTryComponent implements OnInit {
 
   items: MenuItem[] = [];
-  gfg: number=1;
-
+  isLinear = false;
+  minDateValue: Date;
+  maxDateValue: Date;
+  stateOptions: any[];
+  defaultButtonValue: string|undefined;
+  firstFormGroup = this._formBuilder.group({
+    evaluatorName: ['', Validators.required],
+    isAproved:['', Validators.required],
+    examStartDate:['', Validators.required],
+    examFinishtDate:['', Validators.required],
+    totalCorrectQuestion:['', Validators.required,Validators.max(999)],
+    totalQuestion:['', Validators.required,Validators.max(999)],
+    coments:['',Validators.maxLength(200)]
+  });
+  secondFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
 
   constructor(private _formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<ExamTryComponent>) { }
+              public dialogRef: MatDialogRef<ExamTryComponent>) {
+    this.stateOptions = [{label: 'Aproved', value: 'aproved'}, {label: 'Reprobate', value: 'Reprobate'}];
+    this.minDateValue = new Date("1920-01-01");
+    this.maxDateValue = new Date();
+  }
 
   ngOnInit() {
-    this.items = [
-      { label: "PrimeNG",routerLink: ViewStudentsComponent},
-      { label: "AngularJS",routerLink: ViewStudentsComponent },
-      { label: "ReactJS",routerLink: ViewStudentsComponent },
-      { label: "HTML",routerLink: ViewStudentsComponent },
-    ];
   }
 
-  chan() {
-    this.gfg += 1;
-  }
 
   close() {
     this.dialogRef.close();
+  }
+
+  summitExamTry() {
+
   }
 }

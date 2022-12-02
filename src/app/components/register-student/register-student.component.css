@@ -1,6 +1,17 @@
 .body {
   background:#eff3f8;
 }
+p{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
+  /*display: flex;*/
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
 button{
   margin-right: 1%;
   margin-top:1%;

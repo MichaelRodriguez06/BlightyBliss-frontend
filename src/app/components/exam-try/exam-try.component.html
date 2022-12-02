@@ -1,18 +1,153 @@
 <body>
-<div class="container">
-
-
-  <p-steps
-    [model]="[
-    { label: 'DSA' },
-    { label: 'Algorithm' },
-    { label: 'Web Tech' },
-    { label: 'Aptitude' }
-  ]"
-    [(activeIndex)]="gfg"
-    [readonly]="true">
-  </p-steps><br />
-  <button (click)="chan()">Next</button>
+<div>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form id="examInformation" [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>General Information</ng-template>
+        <div class="card">
+          <p>Exam try information</p>
+          <div class="p-fluid p-formgrid grid">
+            <div class="field col-12 md:col-6">
+              <label>Evaluator name*</label>
+            </div>
+            <div class="field col-12 md:col-6">
+              <input placeholder="Evaluator name" type="text" pInputText class="p-inputtext-me" ngModel required>
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Aproved*</label>
+            </div>
+            <div class="field col-12 md:col-6">
+              <p-selectButton formControlName="isAproved" [options]="stateOptions" [(ngModel)]="defaultButtonValue" optionLabel="label" optionValue="value" ></p-selectButton>
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Start date*</label>
+            </div>
+            <div class="field col-12 md:col-6 ">
+              <p-calendar appendTo="body" formControlName="examStartDate" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="maxDateValue"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Finish date*</label>
+            </div>
+            <div class="field col-12 md:col-6">
+              <p-calendar appendTo="body" formControlName="examFinishtDate" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="maxDateValue"></p-calendar>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Correct questions/Total questions*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber formControlName="totalCorrectQuestion"  class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber formControlName="totalQuestion" class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Comments</label>
+            </div>
+            <div class="field col-12 md:col-6">
+              <textarea formControlName="coments" rows="5" cols="30" pInputTextarea [autoResize]="true" maxlength="200"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="flex justify-content-end flex-wrap">
+        <button type="buttonNext" pButton pRipple icon="pi pi-chevron-right" class="p-button-help" matStepperNext></button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Score by area</ng-template>
+        <div class="card">
+          <div class="p-fluid p-formgrid grid">
+            <div class="field col-12 md:col-7">
+              <p>Result by area</p>
+            </div>
+            <div class="field col-12 md:col-5 flex align-items-stretch flex-wrap">
+              <h3 class="align-self-end flex">Correct Question / Total Question</h3>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>listening*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Writing*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber  class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Speaking*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Reading*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Grammar*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-7">
+              <label>Vocabulary*</label>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+            <div class="field col-12 md:col-1 flex align-items-center justify-content-center">
+              <h5>/</h5>
+            </div>
+            <div class="field col-12 md:col-2">
+              <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"> </p-inputNumber>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-content-end flex-wrap">
+          <button type="button" class="buttonPrevius p-button-help" pButton pRipple icon="pi pi-chevron-left" matStepperPrevious></button>
+          <button type="button" class="buttonSave p-button-help" pButton pRipple label="Save exam try" icon="pi pi-save" (click)="summitExamTry()"></button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
 </div>
 </body>
 
