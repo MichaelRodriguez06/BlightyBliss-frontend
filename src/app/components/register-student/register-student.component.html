@@ -24,7 +24,7 @@
                <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.bloodTypeList" optionLabel="name"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3 myCalendar">
-               <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
+               <p-calendar appendTo="body" placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
                  <p-dropdown placeholder="Student type" [options]="data.studentTypeList" optionLabel="name" [showClear]="true"></p-dropdown>
@@ -229,7 +229,7 @@
                <p-dropdown placeholder="English level" [options]="data.levelList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-calendar placeholder="Incription date" [showIcon]="true" inputId="icon" [minDate]="minDateValue"></p-calendar>
+               <p-calendar appendTo="body" placeholder="Inscription date" [showIcon]="true" inputId="icon" [minDate]="minDateValue"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
                <input placeholder="Study Schedule" type="text" pInputText class="p-inputtext-me">

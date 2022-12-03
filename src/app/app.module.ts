@@ -31,6 +31,7 @@ import { ExamTryComponent } from './components/exam-try/exam-try.component';
 import { ViewUserListComponent } from './components/view-user-list/view-user-list.component';
 import { PendingFileAsignationComponent } from './components/pending-file-asignation/pending-file-asignation.component';
 import { ViewGeneralCertificatesComponent } from './components/view-general-certificates/view-general-certificates.component';
+import { EditCertificateComponent } from './components/edit-certificate/edit-certificate.component';
 
 
 
@@ -55,7 +56,8 @@ import { ViewGeneralCertificatesComponent } from './components/view-general-cert
     ExamTryComponent,
     ViewUserListComponent,
     PendingFileAsignationComponent,
-    ViewGeneralCertificatesComponent
+    ViewGeneralCertificatesComponent,
+    EditCertificateComponent
   ],
   imports: [
     BrowserModule,

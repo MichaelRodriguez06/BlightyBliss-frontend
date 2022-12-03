@@ -1,0 +1,34 @@
+<div class="card">
+  <p>Edit certificate</p>
+  <form action="" [formGroup]="form">
+    <div class="p-fluid p-formgrid grid">
+      <div class="field col-12 md:col-6">
+        <label>Inscription*</label>
+      </div>
+      <div class="field col-12 md:col-6">
+        <p-dropdown placeholder="Select document/name" formControlName="documentOrName" inputId="dropdown" [autoDisplayFirst]="false" [options]="studentList" value="Studen.docnumber  student.name"></p-dropdown>
+      </div>
+      <div class="field col-12 md:col-6">
+        <label>Delivered Date</label>
+      </div>
+      <div class="field col-12 md:col-6">
+        <p-calendar appendTo="body" formControlName="deliveredDate" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="maxDateValue"></p-calendar>
+      </div>
+      <div class="field col-12 md:col-6">
+        <label>Fol number</label>
+      </div>
+      <div class="field col-12 md:col-6">
+        <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"  formControlName="folNumber"> </p-inputNumber>
+      </div>
+      <div class="field col-12 md:col-6">
+        <label>Pagine number</label>
+      </div>
+      <div class="field col-12 md:col-6">
+        <p-inputNumber class="p-inputtext-me" [maxlength]="3" mode="decimal" inputId="withoutgrouping"  formControlName="pagineNumber"> </p-inputNumber>
+      </div>
+    </div>
+  </form>
+  <div class="flex justify-content-end flex-wrap">
+    <button type="button" class="buttonSave p-button-help" pButton pRipple label="Save exam try" icon="pi pi-save" (click)="updateCertificateEdit()"></button>
+  </div>
+</div>
