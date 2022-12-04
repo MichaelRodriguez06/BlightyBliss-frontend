@@ -1,4 +1,5 @@
 export abstract class AppRoutes {
+  static readonly VIEW_INFO_USER: string = `user-information`;
   static readonly LOGIN_PAGE: string = 'login';
   static readonly ADMIN_PAGE: string = 'admin';
   static readonly REGISTER_ACCOUNT: string = 'register-account';
@@ -18,10 +19,11 @@ export abstract class AppRoutes {
   static readonly VIEW_ACCOUNT_LIST: string = `account-list`;
   static readonly GET_PENDING_FILE: string = `files/pending`;
   static readonly GET_LIST_ACCOUNTS: string = `Access`;
-  static readonly GET_PROGRAMS: string = `Agreements/false`;
-  static readonly ADD_PROGRAM: string = `Agreements`;
+  static readonly GET_PROGRAMS: string = `Programs/false`;
+  static readonly ADD_PROGRAM: string = `Programs`;
   static readonly GET_AGREEMENTS: string = `Agreements/false`;
   static readonly ADD_AGREEMENT: string = `Agreements`;
   static readonly GENERAL_CERTIFICATES: string = `general-certificates`;
+
 
 }
