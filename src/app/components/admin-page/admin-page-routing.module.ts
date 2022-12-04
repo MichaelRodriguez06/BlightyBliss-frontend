@@ -10,6 +10,7 @@ import {ViewStudentsComponent} from "../view-students/view-students.component";
 import {ViewStudentInformationComponent} from "../view-student-information/view-student-information.component";
 import {ViewUserListComponent} from "../view-user-list/view-user-list.component";
 import {ViewGeneralCertificatesComponent} from "../view-general-certificates/view-general-certificates.component";
+import {UserInformationComponent} from "../user-information/user-information.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
       {path: AppRoutes.VIEW_STUDENTS, component: ViewStudentsComponent},
       {path: AppRoutes.VIEW_STUDENT_INFORMATION, component: ViewStudentInformationComponent},
       {path: AppRoutes.VIEW_ACCOUNT_LIST, component: ViewUserListComponent},
+      {path: AppRoutes.VIEW_INFO_USER, component: UserInformationComponent},
       {path: AppRoutes.GENERAL_CERTIFICATES, component: ViewGeneralCertificatesComponent},
     ]
   }
