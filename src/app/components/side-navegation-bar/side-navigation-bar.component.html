@@ -3,12 +3,12 @@
   <mat-expansion-panel hideToggle *ngFor="let item of items">
     <mat-expansion-panel-header>
       <mat-panel-title>
-<!--        <img src="{{item.icon}}" alt="">-->
+        <!--        <img src="{{item.icon}}" alt="">-->
         {{item.title}}
 
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <a class="mat-action-row" [routerLink]="submenu.Direction" *ngFor="let submenu of item.subMenu">
+    <a class="mat-action-row"  *ngFor="let submenu of item.subMenu" [routerLink]="submenu.Direction">
       {{submenu.subtitle}}
     </a>
   </mat-expansion-panel>

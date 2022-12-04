@@ -32,6 +32,7 @@ import { ViewUserListComponent } from './components/view-user-list/view-user-lis
 import { PendingFileAsignationComponent } from './components/pending-file-asignation/pending-file-asignation.component';
 import { ViewGeneralCertificatesComponent } from './components/view-general-certificates/view-general-certificates.component';
 import { EditCertificateComponent } from './components/edit-certificate/edit-certificate.component';
+import { UserInformationComponent } from './components/user-information/user-information.component';
 
 
 
@@ -57,7 +58,8 @@ import { EditCertificateComponent } from './components/edit-certificate/edit-cer
     ViewUserListComponent,
     PendingFileAsignationComponent,
     ViewGeneralCertificatesComponent,
-    EditCertificateComponent
+    EditCertificateComponent,
+    UserInformationComponent
   ],
   imports: [
     BrowserModule,
