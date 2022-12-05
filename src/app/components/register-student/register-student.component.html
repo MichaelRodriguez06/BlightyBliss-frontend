@@ -8,7 +8,7 @@
            <p>Personal information</p>
            <div class="p-fluid p-formgrid grid">
              <div class="field col-12 md:col-3">
-               <input placeholder="First name" type="text" pInputText class="p-inputtext-me  ">
+               <input placeholder="First name" type="text" pInputText class="p-inputtext-me  " >
              </div>
              <div class="field col-12 md:col-3">
                <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" >
@@ -45,13 +45,13 @@
                <p-dropdown placeholder="Marital status" [options]="maritalStatusList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born country" [options]="countryList" [showClear]="true"></p-dropdown>
+               <p-dropdown  placeholder="Born country" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born region" [options]="regionList" [showClear]="true"></p-dropdown>
+               <p-dropdown  placeholder="Born region" [options]="regionList" (onClick)="setCountries()"  optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born city" [options]="cityList" [showClear]="true"></p-dropdown>
+               <p-dropdown  placeholder="Born city" [options]="cityList" optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
            </div>
          </div>

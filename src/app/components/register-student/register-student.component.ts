@@ -10,6 +10,13 @@ import {StudentService} from "../../modules/Students/services/student.service";
 import {LevelsService} from "../services/levels-service/levels.service";
 import {AgreementService} from "../services/agreementService/agreement.service";
 import {ProgramsService} from "../services/programsServices/programs.service";
+import {PlacesService} from "../services/places-service/places.service";
+import {AppRoutes} from "../../core/services/app-routes";
+import {NotificationService} from "../../core/services/notification/notification.service";
+import {Place} from "../../models/place";
+import {combineLatestAll, map} from "rxjs/operators";
+import {Observable} from "rxjs";
+import {HttpApiResponse} from "../../core/models/http-api-response";
 
 @Component({
   selector: 'app-register-student',
@@ -36,32 +43,30 @@ export class RegisterStudentComponent implements OnInit {
   studentForm: FormGroup;
   public editMode: boolean;
   val: number = 0;
-  studentCellphoneNumber: number[];
+  studentCellphoneNumber: number[] = [];
   gendersList: any[];
   identification: number | undefined;
   documentTypesList: any[];
   bloodTypeList: any[];
-  cityList: any[];
+  cityList: any[] = [];
   vulnerablePopulationList: any[];
   socioeconomicStateList: any[];
   agreementList: any[] = [];
   disabilityList: any[] = [];
-  maritalStatusList: any[];
-  minDateValue: Date;
-  maxDateValue: Date;
-  DefaultDate: Date;
+  maritalStatusList: any[] = [];
+  minDateValue: Date = new Date("1920-01-01");
+  maxDateValue: Date = new Date();
+  DefaultDate: Date = new Date();
   programList: any[] = [];
   levelList: any[] = [];
   studentTypeList: any[] = [];
-  attendantCellphoneNumber: any[];
-  attendantLandline: any[];
-  motherCellphoneNumber: any[];
-  fatherCellphoneNumber: any[];
-  regionList: any[];
-  countryList: any[];
+  attendantCellphoneNumber: any[] = [];
+  attendantLandline: any[] = [];
+  motherCellphoneNumber: any[] = [];
+  fatherCellphoneNumber: any[] = [];
+  regionList: any[] = [];
+  countryList: any[] = [];
   uploadedFiles: any[] = [];
-
-
 
   constructor(private _formBuilder: FormBuilder,
               private dialog: MatDialog,
@@ -69,8 +74,10 @@ export class RegisterStudentComponent implements OnInit {
               private _students: StudentService,
               private _levels: LevelsService,
               private _agreements: AgreementService,
-              private _programs: ProgramsService
-              ) {
+              private _programs: ProgramsService,
+              private _places: PlacesService,
+              private notification: NotificationService
+  ) {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentForm = _formBuilder.group({
@@ -84,16 +91,15 @@ export class RegisterStudentComponent implements OnInit {
       address: ['', Validators.required],
       phone_number: ['', Validators.required]
     })
-
     this.gendersList = Constraints.GENDER;
     this.documentTypesList = Constraints.DOCUMENT_TYPE;
     this.bloodTypeList = Constraints.BLOOD_TYPE;
-    this.cityList = [];
-    this.regionList = [];
-    this.countryList = [];
     this.vulnerablePopulationList = Constraints.VULNERABLE_POPULATION;
     this.socioeconomicStateList = Constraints.SOCIOECONOMIC_STRATUM;
-    _agreements.getAgreements().subscribe({
+  }
+
+  ngOnInit(): void {
+    this._agreements.getAgreements().subscribe({
         next: res => {
           this.agreementList = res.data;
         },
@@ -102,7 +108,7 @@ export class RegisterStudentComponent implements OnInit {
         }
       }
     )
-    _disabilities.requestDisabilities().subscribe({
+    this._disabilities.requestDisabilities().subscribe({
         next: res => {
           this.disabilityList = res.data;
         },
@@ -137,24 +143,54 @@ export class RegisterStudentComponent implements OnInit {
         console.log(err.error.message)
       }
     });
-    this.studentCellphoneNumber = [];
-    this.attendantCellphoneNumber = [];
-    this.attendantLandline = [];
-    this.fatherCellphoneNumber = [];
-    this.motherCellphoneNumber = [];
-    this.minDateValue = new Date("1920-01-01");
-    this.maxDateValue = new Date();
-    this.DefaultDate = new Date("2010-01-01")
+    this.setCountries();
   }
 
-  ngOnInit()
-    :
-    void {
+  setCountries(){
+    console.log("SETTING COUNTRIES")
+    this._places.getCountries().subscribe({
+      next: (res) => {
+        this.countryList = res.data;
+        const {idPlace, places} = res.data[0];
+        this.setRegions(idPlace);
+        if (places) {
+          console.log()
+          this.setCities(places[0].idPlace)
+        }
+      },
+      error: err => {
+        this.notification.showsError(err.error.message);
+      }
+    })
   }
 
-  saveUser()
-    :
-    void {
+  setRegions(idCountry: number){
+    this._places.getPlace(idCountry).subscribe({
+      next: (res) => {
+        if (res.data.places){
+          ({places: this.regionList} = res.data);
+        }
+      },
+      error: err => {
+        this.notification.showsError(err.error.message);
+      }
+    })
+  }
+
+  setCities(idRegion: number){
+    this._places.getPlace(idRegion).subscribe({
+      next: (res) => {
+        if (res.data.places){
+          ({places: this.cityList} = res.data);
+        }
+      },
+      error: err => {
+        this.notification.showsError(err.error.message);
+      }
+    })
+  }
+
+  saveUser(): void {
     const id = this.studentForm.get('id')?.value;
     const document = this.studentForm.get('document')?.value;
     const full_name = this.studentForm.get('full_name')?.value;
@@ -164,9 +200,7 @@ export class RegisterStudentComponent implements OnInit {
     const city = this.studentForm.get('city')?.value;
     const phone_number = this.studentForm.get('phone_number')?.value;
     const address = this.studentForm.get('address')?.value;
-    const user
-      :
-      User = {
+    const user: User = {
       id: parseInt(id),
       document: document.toString(),
       full_name,
@@ -203,8 +237,8 @@ export class RegisterStudentComponent implements OnInit {
 
 
   onUpload(event: { files: any; }) {
-    for(let file of event.files) {
+    for (let file of event.files) {
       this.uploadedFiles.push(file);
     }
-      }
+  }
 }

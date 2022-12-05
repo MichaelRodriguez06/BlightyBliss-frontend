@@ -1,4 +1,4 @@
-export interface Place {
+export interface Place{
   idPlace: number,
   idLocation?: number,
   placeName: string,
