@@ -33,6 +33,7 @@ import { PendingFileAsignationComponent } from './components/pending-file-asigna
 import { ViewGeneralCertificatesComponent } from './components/view-general-certificates/view-general-certificates.component';
 import { EditCertificateComponent } from './components/edit-certificate/edit-certificate.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
+import { AgreementCreateComponent } from './components/agreement-crud/agreement-create.component';
 
 
 
@@ -59,7 +60,8 @@ import { UserInformationComponent } from './components/user-information/user-inf
     PendingFileAsignationComponent,
     ViewGeneralCertificatesComponent,
     EditCertificateComponent,
-    UserInformationComponent
+    UserInformationComponent,
+    AgreementCreateComponent
   ],
   imports: [
     BrowserModule,
