@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AppRoutes } from '../../core/services/app-routes';
+import {Component, OnInit} from '@angular/core';
+import {AppRoutes} from '../../core/services/app-routes';
 
 @Component({
   selector: 'app-side-navigation-bar',
@@ -49,7 +49,6 @@ export class SideNavigationBarComponent implements OnInit {
 
 
   constructor() {
-    console.log(this.items)
   }
 
   ngOnInit(): void {
