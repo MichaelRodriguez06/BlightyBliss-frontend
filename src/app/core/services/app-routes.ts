@@ -24,6 +24,6 @@ export abstract class AppRoutes {
   static readonly GET_AGREEMENTS: string = `Agreements/false`;
   static readonly ADD_AGREEMENT: string = `Agreements`;
   static readonly GENERAL_CERTIFICATES: string = `general-certificates`;
-
+  static readonly AGREEMENT_CRUD: string = `agreement_option`;
 
 }
