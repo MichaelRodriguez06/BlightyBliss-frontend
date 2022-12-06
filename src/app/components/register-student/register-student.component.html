@@ -2,53 +2,53 @@
  <div>
    <mat-stepper [linear]="isLinear" #stepper>
      <mat-step [stepControl]="firstFormGroup">
-       <form [formGroup]="firstFormGroup">
+       <form [formGroup]="studentForm">
          <ng-template matStepLabel>Student Information</ng-template>
          <div class="card">
            <p>Personal information</p>
            <div class="p-fluid p-formgrid grid">
              <div class="field col-12 md:col-3">
-               <input placeholder="First name" type="text" pInputText class="p-inputtext-me  " >
+               <input placeholder="First name" type="text" pInputText class="p-inputtext-me" formControlName="firstName">
              </div>
              <div class="field col-12 md:col-3">
-               <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" >
+               <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" [ngModel]="studentInfo.lastName">
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select Document type" inputId="dropdown" [autoDisplayFirst]="false" [options]="documentTypesList" optionLabel="name"></p-dropdown>
+               <p-dropdown placeholder="Select Document type" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.documentTypesList" [ngModel]="studentInfo.documentType" optionLabel="name"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                  <p-inputNumber placeholder="Identification document" [ngModelOptions]="{standalone: true}" [(ngModel)]="identification" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
                </p-inputNumber>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="bloodTypeList" optionLabel="name"></p-dropdown>
+               <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.bloodTypeList" optionLabel="name"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3 myCalendar">
                <p-calendar placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
-                 <p-dropdown placeholder="Student type" [options]="studentTypeList" optionLabel="name" [showClear]="true"></p-dropdown>
+                 <p-dropdown placeholder="Student type" [options]="data.studentTypeList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select gender" [options]="gendersList" optionLabel="name" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="Select gender" [options]="data.gendersList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Vulnerable Population" [options]="vulnerablePopulationList" optionLabel="name" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="Vulnerable Population" [options]="data.vulnerablePopulationList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown  placeholder="Residence city" [options]="cityList" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Discapacity" [options]="disabilityList" optionLabel="disabilityType" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="Discapacity" [options]="data.disabilityList" optionLabel="disabilityType" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Marital status" [options]="maritalStatusList" optionLabel="name" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="Marital status" [options]="data.maritalStatusList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown  placeholder="Born country" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born region" [options]="regionList" (onClick)="setCountries()"  optionLabel="placeName" [showClear]="false"></p-dropdown>
+               <p-dropdown  placeholder="Born region" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown  placeholder="Born city" [options]="cityList" optionLabel="placeName" [showClear]="false"></p-dropdown>
@@ -103,7 +103,7 @@
                <input placeholder="Resident in last five years" type="text" pInputText class="p-inputtext-me">
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Socioeconomic state" [options]="socioeconomicStateList" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="Socioeconomic state" [options]="data.socioeconomicStateList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
            </div>
          </div>
@@ -132,13 +132,13 @@
              <input placeholder="Ocupation" type="text" pInputText class="p-inputtext-me">
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown  placeholder="company country" [options]="countryList" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown  placeholder="company region" [options]="regionList" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-3">
-             <p-dropdown  placeholder="company city" [options]="cityList" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company city" [options]="cityList" optionLabel="placeName" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-6">
              <p-chips [(ngModel)]="attendantCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -164,13 +164,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="motherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -193,13 +193,13 @@
                  <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident region" [options]="regionList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident city" [options]="cityList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
                  <p-chips [(ngModel)]="fatherCellphoneNumber" [ngModelOptions]="{standalone: true}" separator="," placeholder="Cellphone Ej:3123456789,3234567890"></p-chips>
@@ -220,13 +220,13 @@
            <p>Institutional information</p>
            <div class="p-fluid p-formgrid grid">
                <div class="field col-12 md:col-3">
-                 <p-dropdown placeholder="Agreement" [options]="agreementList" optionLabel="name" [showClear]="true"></p-dropdown>
+                 <p-dropdown placeholder="Agreement" [options]="data.agreementList" optionLabel="name" [showClear]="true"></p-dropdown>
                </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Program to inscribe" [options]="programList" optionLabel="name" [showClear]="true"></p-dropdown>
+               <p-dropdown  placeholder="Program to inscribe" [options]="data.programList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="English level" [options]="levelList" optionLabel="name" [showClear]="true"></p-dropdown>
+               <p-dropdown placeholder="English level" [options]="data.levelList" optionLabel="name" [showClear]="true"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-calendar placeholder="Incription date" [showIcon]="true" inputId="icon" [minDate]="minDateValue"></p-calendar>
@@ -255,7 +255,7 @@
              </ng-template>
            </p-fileUpload>
            <div class="flex justify-content-end flex-wrap">
-            <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registStudent()"></button>
+            <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registerStudent()"></button>
             <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
            </div>
          </div>

@@ -1,22 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../models/user";
 import {CreateFilesComponent} from "../create-files/create-files.component";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
-import {Constraints} from "../../models/constraints/constraints";
-import {DisabilitiesService} from "../services/disablilities-service/disabilities.service";
-import {StudentService} from "../../modules/Students/services/student.service";
-import {LevelsService} from "../services/levels-service/levels.service";
-import {AgreementService} from "../services/agreementService/agreement.service";
-import {ProgramsService} from "../services/programsServices/programs.service";
 import {PlacesService} from "../services/places-service/places.service";
-import {AppRoutes} from "../../core/services/app-routes";
 import {NotificationService} from "../../core/services/notification/notification.service";
-import {Place} from "../../models/place";
-import {combineLatestAll, map} from "rxjs/operators";
-import {Observable} from "rxjs";
-import {HttpApiResponse} from "../../core/models/http-api-response";
+import {RegisterStudentDialogData} from "./register-student-dialog-data";
+import {StudentInfo} from "../../models/student-form/student-info";
 
 @Component({
   selector: 'app-register-student',
@@ -32,7 +22,7 @@ export class RegisterStudentComponent implements OnInit {
 
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
-    attendantCelphoneNumber: ['', Validators.required]
+    attendantCellphoneNumber: ['', Validators.required]
   });
 
   thirdFormGroup = this._formBuilder.group({
@@ -42,24 +32,13 @@ export class RegisterStudentComponent implements OnInit {
   isLinear = false;
   studentForm: FormGroup;
   public editMode: boolean;
-  val: number = 0;
-  studentCellphoneNumber: number[] = [];
-  gendersList: any[];
   identification: number | undefined;
-  documentTypesList: any[];
-  bloodTypeList: any[];
   cityList: any[] = [];
-  vulnerablePopulationList: any[];
-  socioeconomicStateList: any[];
-  agreementList: any[] = [];
-  disabilityList: any[] = [];
-  maritalStatusList: any[] = [];
+
+  studentCellphoneNumber: number[] = [];
   minDateValue: Date = new Date("1920-01-01");
   maxDateValue: Date = new Date();
   DefaultDate: Date = new Date();
-  programList: any[] = [];
-  levelList: any[] = [];
-  studentTypeList: any[] = [];
   attendantCellphoneNumber: any[] = [];
   attendantLandline: any[] = [];
   motherCellphoneNumber: any[] = [];
@@ -68,21 +47,24 @@ export class RegisterStudentComponent implements OnInit {
   countryList: any[] = [];
   uploadedFiles: any[] = [];
 
+  studentInfo: StudentInfo;
+  //studentMotherInfo: StudentParent;
+  //studentFatherInfo: StudentParent;
+  //studentAttendantInfo: StudentAttendant;
+  //studentEnrollmentInfo: StudentEnrollment;
+
   constructor(private _formBuilder: FormBuilder,
-              private dialog: MatDialog,
-              private _disabilities: DisabilitiesService,
-              private _students: StudentService,
-              private _levels: LevelsService,
-              private _agreements: AgreementService,
-              private _programs: ProgramsService,
               private _places: PlacesService,
-              private notification: NotificationService
+              private dialog: MatDialog,
+              private notification: NotificationService,
+              public dialogRef: MatDialogRef<RegisterStudentComponent>,//Referencia al dialog usado
+              @Inject(MAT_DIALOG_DATA) public data: RegisterStudentDialogData,//Datos del dialog
   ) {
     this.editMode = true
     //Crea el formulario de usuario
-    this.studentForm = _formBuilder.group({
+    /*this.studentForm = _formBuilder.group({
       id: [''],
-      document: ['', Validators.required],
+      document: ['', Validators.required, Validators.minLength(2)],
       full_name: ['', Validators.required],
       document_type: ['', Validators.required],
       credentialId: ['', Validators.required],
@@ -90,73 +72,34 @@ export class RegisterStudentComponent implements OnInit {
       city: ['', Validators.required],
       address: ['', Validators.required],
       phone_number: ['', Validators.required]
-    })
-    this.gendersList = Constraints.GENDER;
-    this.documentTypesList = Constraints.DOCUMENT_TYPE;
-    this.bloodTypeList = Constraints.BLOOD_TYPE;
-    this.vulnerablePopulationList = Constraints.VULNERABLE_POPULATION;
-    this.socioeconomicStateList = Constraints.SOCIOECONOMIC_STRATUM;
+    })*/
+    this.studentInfo = {
+      academicTraining: "", address: "",
+      bloodType: "", documentNumber: "",
+      documentType: "", email: "",
+      eps: "", firstName: "",
+      gender: "", idAcademic: 0,
+      idBornPlace: 0, idCity: 0,
+      idDisability: 0, idStudentType: 0,
+      institution: "", lastName: "",
+      maritalStatus: "", neighborhood: "",
+      personType: "", phoneNumbers: [],
+      socioeconomicStratum: 0, vulnerablePopulation: ""
+    }
+    this.studentForm = _formBuilder.group(this.studentInfo);
   }
 
   ngOnInit(): void {
-    this._agreements.getAgreements().subscribe({
-        next: res => {
-          this.agreementList = res.data;
-        },
-        error: err => {
-          console.log(err.error.message)
-        }
-      }
-    )
-    this._disabilities.requestDisabilities().subscribe({
-        next: res => {
-          this.disabilityList = res.data;
-        },
-        error: err => {
-          console.log(err.error.message)
-        }
-      }
-    )
-    this.maritalStatusList = Constraints.MARITAL_STATUS;
-    this._programs.getPrograms().subscribe({
-        next: res => {
-          this.programList = res.data;
-        },
-        error: err => {
-          console.log(err.error.message)
-        }
-      }
-    )
-    this._levels.getLevels().subscribe({
-      next: res => {
-        this.levelList = res.data;
-      },
-      error: err => {
-        console.log(err.error.message)
-      }
-    });
-    this._students.getStudentTypes().subscribe({
-      next: res => {
-        this.studentTypeList = res.data;
-      },
-      error: err => {
-        console.log(err.error.message)
-      }
-    });
     this.setCountries();
   }
 
-  setCountries(){
+  setCountries() {
     console.log("SETTING COUNTRIES")
     this._places.getCountries().subscribe({
       next: (res) => {
         this.countryList = res.data;
-        const {idPlace, places} = res.data[0];
+        const {idPlace} = res.data[0];
         this.setRegions(idPlace);
-        if (places) {
-          console.log()
-          this.setCities(places[0].idPlace)
-        }
       },
       error: err => {
         this.notification.showsError(err.error.message);
@@ -164,11 +107,14 @@ export class RegisterStudentComponent implements OnInit {
     })
   }
 
-  setRegions(idCountry: number){
+  setRegions(idCountry: number) {
     this._places.getPlace(idCountry).subscribe({
       next: (res) => {
-        if (res.data.places){
+        if (res.data.places) {
           ({places: this.regionList} = res.data);
+          if (res.data["places"]) {
+            this.setCities(res["data"].places[0].idPlace)
+          }
         }
       },
       error: err => {
@@ -177,10 +123,10 @@ export class RegisterStudentComponent implements OnInit {
     })
   }
 
-  setCities(idRegion: number){
+  setCities(idRegion: number) {
     this._places.getPlace(idRegion).subscribe({
       next: (res) => {
-        if (res.data.places){
+        if (res.data.places) {
           ({places: this.cityList} = res.data);
         }
       },
@@ -188,30 +134,6 @@ export class RegisterStudentComponent implements OnInit {
         this.notification.showsError(err.error.message);
       }
     })
-  }
-
-  saveUser(): void {
-    const id = this.studentForm.get('id')?.value;
-    const document = this.studentForm.get('document')?.value;
-    const full_name = this.studentForm.get('full_name')?.value;
-    const document_type = this.studentForm.get('document_type')?.value;
-    const credentialId = this.studentForm.get('credentialId')?.value;
-    const password = this.studentForm.get('password')?.value;
-    const city = this.studentForm.get('city')?.value;
-    const phone_number = this.studentForm.get('phone_number')?.value;
-    const address = this.studentForm.get('address')?.value;
-    const user: User = {
-      id: parseInt(id),
-      document: document.toString(),
-      full_name,
-      document_type,
-      password,
-      city,
-      phone_number: phone_number.toString(),
-      credentialId,
-      address
-    };
-
   }
 
   updateDocumentPanel() {
@@ -231,8 +153,8 @@ export class RegisterStudentComponent implements OnInit {
     });
   }
 
-  registStudent() {
-
+  registerStudent() {
+    this.dialogRef.close(this.studentForm.value)
   }
 
 

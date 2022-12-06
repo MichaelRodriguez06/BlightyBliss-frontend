@@ -4,8 +4,8 @@ export class Constraints {
 
   static readonly DOCUMENT_TYPE: Constraint[] = [
     {name: "CEDULA", value: "CC"},
-    {name: "IDENTITY_CARD", value: "TI"},
-    {name: "FOREIGN_CARD", value: "CE"},
+    {name: "IDENTITY CARD", value: "TI"},
+    {name: "FOREIGN CARD", value: "CE"},
     {name: "PASSPORT", value: "PA"},
     {name: "OTHER", value: "OTHER"},
   ]
@@ -47,8 +47,12 @@ export class Constraints {
   ]
 
   static readonly SOCIOECONOMIC_STRATUM: Constraint[] = [
-    {name: "STRATUM_ONE", value: 1},
-    {name: "STRATUM_SIX", value: 6}
+    {name: "STRATUM ONE", value: 1},
+    {name: "STRATUM TWO", value: 2},
+    {name: "STRATUM THREE", value: 3},
+    {name: "STRATUM FOUR", value: 4},
+    {name: "STRATUM FIVE", value: 5},
+    {name: "STRATUM SIX", value: 6}
   ]
 
   static readonly MARITAL_STATUS: Constraint[] = [
