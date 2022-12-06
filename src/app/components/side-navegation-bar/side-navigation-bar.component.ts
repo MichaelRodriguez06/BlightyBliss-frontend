@@ -6,43 +6,50 @@ import { AppRoutes } from '../../core/services/app-routes';
   templateUrl: './side-navigation-bar.component.html',
   styleUrls: ['./side-navigation-bar.component.scss']
 })
+
 export class SideNavigationBarComponent implements OnInit {
 
-  items = [{
-    title: 'Profile', subMenu: [{
-      subtitle: "Show users", icon: 'assets/account.svg', Direction:AppRoutes.VIEW_ACCOUNT_LIST
-    },{
-      subtitle: "User", icon: ""
-    }], icon: ""
-  }, {
-    title: "Students", icon: "", subMenu: [{
-      subtitle: "Shows students", icon: "", Direction:AppRoutes.VIEW_STUDENTS
+  items = [
+    {
+      title: 'Profile', icon: "", subMenu: [{
+        subtitle: "User", Direction: AppRoutes.VIEW_INFO_USER
+      }, {
+        subtitle: "Show users", icon: 'assets/account.svg', Direction: AppRoutes.VIEW_ACCOUNT_LIST
+      }, {
+        subtitle: '', icon: ""
+      }]
+    },
+    {
+      title: "Students", icon: "", subMenu: [{
+        subtitle: "Shows students", icon: "", Direction: AppRoutes.VIEW_STUDENTS
+      }, {
+        subtitle: "Certificates", icon: "", Direction: AppRoutes.GENERAL_CERTIFICATES
+      }]
     }, {
-      subtitle: "Certificates", icon: ""
-    }
-    ]
-  }, {
-    title: "Folders", icon: "", subMenu: [{
-      subtitle: "Show folders", icon: "", Direction: AppRoutes.FOLDER_VIEW
+      title: "Folders", icon: "", subMenu: [{
+        subtitle: "Show folders", icon: "", Direction: AppRoutes.FOLDER_VIEW
+      }, {
+        subtitle: "Pending files", icon: "", Direction: AppRoutes.PENDING_FILES
+      }]
     }, {
-      subtitle: "Pending files", icon: "",Direction:AppRoutes.PENDING_FILES
-    }]
-  }, {
-    title: "Options", icon: "", subMenu: [{
-      subtitle: 'Options', icon: '', Direction: AppRoutes.FILE_MANAGEMENT
-    }]
-  }, {
-    title: "Reports", icon: "", subMenu: [{
-      subtitle: "Report 1", icon: ""
+      title: "Options", icon: "", subMenu: [{
+        subtitle: 'Options', icon: '', Direction: AppRoutes.FILE_MANAGEMENT
+      }, {
+        subtitle: 'Agreements', icon: '', Direction: AppRoutes.AGREEMENT_CRUD
+      }]
     }, {
-      subtitle: "Report 2", icon: ""
-    }, {
-      subtitle: "Report 3", icon: ""
-    }]
-  }];
+      title: "Reports", icon: "", subMenu: [{
+        subtitle: "Report 1", icon: ""
+      }, {
+        subtitle: "Report 2", icon: ""
+      }, {
+        subtitle: "Report 3", icon: ""
+      }]
+    }];
 
 
   constructor() {
+    console.log(this.items)
   }
 
   ngOnInit(): void {

@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TypeFiles} from '../services/GetTypesFile/get-types-documents.service';
-import {TypeFile} from '../../models/typeFile';
 import {ProgramsService} from "../services/programsServices/programs.service";
-import {AgreementService} from "../services/agreementService/agreement.service";
 
 @Component({
   selector: 'app-options-management',
@@ -15,15 +13,12 @@ import {AgreementService} from "../services/agreementService/agreement.service";
 export class OptionsManagementComponent implements OnInit {
 
   filesTypeForm: FormGroup;
-  agreementForm: FormGroup;
   programsForm: FormGroup;
 
-  constructor(private Filesfb: FormBuilder,
-              private Agreementfb: FormBuilder,
-              private Programsfb: FormBuilder,
+  constructor(private filesTypeFormfb: FormBuilder,
+              private programsFormfb: FormBuilder,
               private serviceTypeFiles: TypeFiles,
               private servicePrograms: ProgramsService,
-              private serviceAgreements: AgreementService,
   ) {
     servicePrograms.getPrograms().subscribe(data => {
       console.log(data.data)
@@ -31,119 +26,54 @@ export class OptionsManagementComponent implements OnInit {
     serviceTypeFiles.getTypesDocument().subscribe(data => {
       console.log(data.data)
     });
-    serviceAgreements.getAgreements().subscribe(data => {
-      console.log(data.data)
+    this.filesTypeForm = this.filesTypeFormfb.group({
+      fileTypes: this.filesTypeFormfb.array([this.filesTypeFormfb.group({fileType:['']})])
     });
-    this.filesTypeForm = this.Filesfb.group({
-      nameTypeFile: [Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(20)],
-
-      fileTypes: this.Filesfb.array([])
+    this.programsForm = this.programsFormfb.group({
+      programs: this.programsFormfb.array([this.programsFormfb.group({program:['']})])
     });
-    this.agreementForm = this.Agreementfb.group({
-      name: [Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(20)],
-      agreement: this.Agreementfb.array([])
-    });
-    this.programsForm = this.Programsfb.group({
-      name: [Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(20)],
-      programs: this.Programsfb.array([])
-    });
-  }
-
-  get fileTypes() {
-    return this.filesTypeForm.controls["fileTypes"] as FormArray;
-  }
-
-  get agreement() {
-    return this.agreementForm.controls["agreement"] as FormArray;
-  }
-
-  get programs() {
-    return this.programsForm.controls["programs"] as FormArray;
   }
 
   ngOnInit(): void {
   }
 
-  addFileType() {
-    const filesTypeForm = this.Filesfb.group({
-      nameTypeFile: ['', Validators.required],
-    });
-
-    this.fileTypes.push(filesTypeForm);
-
+  get getPrograms(){
+    return this.programsForm.get('programs') as FormArray;
   }
 
-  addAgreement() {
-    const agreementForm = this.Agreementfb.group({
-      title: ['', Validators.required],
-    });
+  get getFileTypes(){
+    return this.filesTypeForm.get('fileTypes') as FormArray;
+  }
 
-    this.agreement.push(agreementForm);
+
+  addFileType() {
+    const control = <FormArray>this.filesTypeForm.controls['fileTypes'];
+    control.push(this.filesTypeFormfb.group({fileType:[]}))
+  }
+
+  removeFileType(index: number){
+    const control = <FormArray>this.filesTypeForm.controls['fileTypes'];
+    control.removeAt(index)
   }
 
   addPrograms() {
-    const programsForm = this.Programsfb.group({
-      title: ['', Validators.required],
-    });
-
-    this.programs.push(programsForm);
+    const control = <FormArray>this.programsForm.controls['programs'];
+    control.push(this.programsFormfb.group({program:[]}))
   }
 
-  deleteFileType(fileTypesIndex: number) {
-    /*
-    const dialogRef = this.dialog.open(CreateFolderComponent, {
-      width: '45%',
-      height: '55%',
-      data: {edit: false}
-    });
-     */
-    if (true) {
-      this.fileTypes.removeAt(fileTypesIndex);
-    }
+  removePrograms(index: number){
+    const control = <FormArray>this.programsForm.controls['programs'];
+    control.removeAt(index)
   }
 
-  deleteAgreement(fileTypesIndex: number) {
-    /*
-    const dialogRef = this.dialog.open(CreateFolderComponent, {
-      width: '45%',
-      height: '55%',
-      data: {edit: false}
-    });
-     */
-    if (true) {
-      this.agreement.removeAt(fileTypesIndex);
-    }
-  }
-
-  deletePrograms(fileTypesIndex: number) {
-    /*
-    const dialogRef = this.dialog.open(CreateFolderComponent, {
-      width: '45%',
-      height: '55%',
-      data: {edit: false}
-    });
-     */
-    if (true) {
-      this.programs.removeAt(fileTypesIndex);
-    }
-  }
 
   summitChangesFileTypes() {
     console.log(this.filesTypeForm.value);
   }
 
-  summitChangesAgreement() {
-
-  }
-
   summitChangesPrograms() {
 
   }
+
 }
 

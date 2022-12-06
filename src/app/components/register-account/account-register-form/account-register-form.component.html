@@ -7,55 +7,55 @@
 
     <div class="p-fluid p-formgrid grid">
       <div class="field col-12 md:col-6">
-        <label>Name</label>
+        <label>Name*</label>
       </div>
       <div class="field col-12 md:col-6">
         <input placeholder="First name" type="text" id="name" formControlName="name" pInputText class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
-        <label>Last name</label>
+        <label>Last name*</label>
       </div>
       <div class="field col-12 md:col-6">
         <input placeholder="Last name" type="text" id="lastname" formControlName="lastName" pInputText
                class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
-        <label>Email</label>
+        <label>Email*</label>
       </div>
       <div class="field col-12 md:col-6">
         <input placeholder="Email" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co"
                pInputText class="p-inputtext-me">
       </div>
       <div class="field col-12 md:col-6">
-        <label>User type</label>
+        <label>User type*</label>
       </div>
       <div class="field col-12 md:col-6 myLimiterHeigt">
         <p-selectButton class="Option" [options]="stateOptions" formControlName="accountType" optionLabel="label"
                         optionValue="value"></p-selectButton>
       </div>
       <div class="field col-12 md:col-6">
-        <label>Identification document</label>
+        <label>Identification document*</label>
       </div>
       <div class="field col-12 md:col-6">
         <p-inputNumber placeholder="Identification document" formControlName="docNumber" [(ngModel)]="value1"
-                       mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+                       mode="decimal" inputId="withoutgrouping" [maxlength]="11" [useGrouping]="false" >
         </p-inputNumber>
       </div>
       <div class="field col-12 md:col-6">
-        <label>Password</label>
+        <label>Password*</label>
       </div>
       <div class="field col-12 md:col-6">
         <p-password formControlName="password" [toggleMask]="true"></p-password>
       </div>
       <div class="field col-12 md:col-6">
-        <label>Confirm password</label>
+        <label>Confirm password*</label>
       </div>
       <div class="field col-12 md:col-6">
         <p-password [(ngModel)]="passwordConfirmation" formControlName="confirmPassword"
                     [toggleMask]="true"></p-password>
       </div>
       <div class="field col-12 md:col-6">
-        <label>Document type</label>
+        <label>Document type*</label>
       </div>
       <div class="field col-12 md:col-6 flex justify-content-center flex-wrap card-container ">
         <div *ngFor="let category of categories" class="flex align-items-center justify-content-center w-4rem h-4rem">
@@ -66,10 +66,11 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row-reverse">
+    <div class="flex justify-content-end flex-wrap">
       <button class="buttonCreateFolder p-button-help" icon="pi pi-send" pButton pRipple label="Register account"
               (click)="registerAccount()"></button>
     </div>
   </form>
+
 </div>
 </body>

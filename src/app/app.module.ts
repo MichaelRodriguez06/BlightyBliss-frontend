@@ -10,7 +10,6 @@ import {SharedModule} from "./core/modules/shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {ConfirmationDialogComponent} from "./components/general/confirmation-dialog/confirmation-dialog.component";
 import { TopNavegationBarComponent } from './components/top-navegation-bar/top-navegation-bar.component';
-import { SideNavigationBarComponent } from './components/side-navegation-bar/side-navigation-bar.component';
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { ErrorPageComponent } from './components/ErrorPages/error-page/error-page.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
@@ -28,10 +27,13 @@ import {CoreModule} from "./core/core.module";
 import { PendingFilesComponent } from './components/pending-files/pending-files.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import { ViewStudentsComponent } from './components/view-students/view-students.component';
-import { ViewStudentInformationComponent } from './components/view-student-information/view-student-information.component';
 import { ExamTryComponent } from './components/exam-try/exam-try.component';
 import { ViewUserListComponent } from './components/view-user-list/view-user-list.component';
 import { PendingFileAsignationComponent } from './components/pending-file-asignation/pending-file-asignation.component';
+import { ViewGeneralCertificatesComponent } from './components/view-general-certificates/view-general-certificates.component';
+import { EditCertificateComponent } from './components/edit-certificate/edit-certificate.component';
+import { UserInformationComponent } from './components/user-information/user-information.component';
+import { AgreementCreateComponent } from './components/agreement-crud/agreement-create.component';
 
 
 
@@ -55,7 +57,11 @@ import { PendingFileAsignationComponent } from './components/pending-file-asigna
     ViewStudentsComponent,
     ExamTryComponent,
     ViewUserListComponent,
-    PendingFileAsignationComponent
+    PendingFileAsignationComponent,
+    ViewGeneralCertificatesComponent,
+    EditCertificateComponent,
+    UserInformationComponent,
+    AgreementCreateComponent
   ],
   imports: [
     BrowserModule,

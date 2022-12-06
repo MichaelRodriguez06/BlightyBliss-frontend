@@ -1,63 +1,38 @@
 <body>
   <div class="container">
     <div class="grid">
-      <div class="col-12 lg:col-4">
-        <div class="card">
-          <p>Agreement in system</p>
-          <div class="agreementList" [formGroup]="agreementForm">
-            <ng-container  >
-              <ng-container *ngFor="let agreementForm of agreement.controls; let i = index">
-                <div class="formgroup-inline">
-                  <div class="p-inputgroup" formControlName='name'>
-                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteAgreement(i)"></button>
-                    <input type="text" pInputText placeholder="Agreement">
-                  </div>
-                </div>
-              </ng-container>
-            </ng-container>
-          </div>
-          <div class="buttons">
-            <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addAgreement()"></button>
-            <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesAgreement()"></button>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 lg:col-4">
+      <div class="col-12 lg:col-6">
         <div class="card">
           <p>File types in system</p>
-          <div class="agrermentList" [formGroup]="agreementForm">
-            <ng-container  >
-              <ng-container *ngFor="let fileTypeForm of fileTypes.controls; let i = index">
-                <div class="formgroup-inline">
+          <form [formGroup]="filesTypeForm" >
+              <div formArrayName="fileTypes">
+                <div *ngFor="let item of getFileTypes.controls; let pointIndex=index" [formGroupName]="pointIndex" >
                   <div class="p-inputgroup">
-                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deleteFileType(i)"></button>
-                    <input type="text" pInputText placeholder="File type" formControlName='nameTypeFile' id='nameTypeFile'>
+                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removeFileType(pointIndex)"></button>
+                    <input type="text" pInputText placeholder="FileType">
                   </div>
                 </div>
-              </ng-container>
-            </ng-container>
-          </div>
+              </div>
+          </form>
           <div class="buttons">
-            <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addFileType()"></button>
+            <button pButton pRipple icon="pi pi-plus" class="p-button-help" (click)="addFileType()"></button>
             <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesFileTypes()"></button>
           </div>
         </div>
       </div>
-      <div class="col-12 lg:col-4">
+      <div class="col-12 lg:col-6">
         <div class="card">
           <p>Programs in system</p>
-          <div class="ProgramList" [formGroup]="programsForm">
-            <ng-container  >
-              <ng-container *ngFor="let programsForm of programs.controls; let i = index">
-                <div class="formgroup-inline">
-                  <div class="p-inputgroup">
-                    <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="deletePrograms(i)"></button>
-                    <input type="text" pInputText placeholder="Program">
-                  </div>
+          <form [formGroup]="programsForm" >
+            <div formArrayName="programs">
+              <div *ngFor="let item of getPrograms.controls;   let pointIndex=index" [formGroupName]="pointIndex" >
+                <div class="p-inputgroup">
+                  <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removePrograms(pointIndex)"></button>
+                  <input type="text" pInputText placeholder="Program">
                 </div>
-              </ng-container>
-            </ng-container>
-          </div>
+              </div>
+            </div>
+          </form>
           <div class="buttons">
             <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addPrograms()"></button>
             <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesPrograms()"></button>

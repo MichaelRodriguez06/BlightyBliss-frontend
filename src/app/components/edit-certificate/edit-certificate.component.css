@@ -1,6 +1,3 @@
-.body {
-  background:#eff3f8;
-}
 p{
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
@@ -12,19 +9,12 @@ p{
   letter-spacing: -0.015em;
   margin-bottom: 16px;
 }
-button{
-  margin-right: 1%;
-  margin-top:1%;
-}
 .card{
-  margin-top: 1%;
+  margin: 0 0 0 0;
+
   background: #ffffff;
   color: #495057;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   padding: 0.5rem;
-  min-height: 90%;
-}
-topmargin{
-  margin-top: 1%;
 }

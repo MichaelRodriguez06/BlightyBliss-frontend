@@ -1,0 +1,74 @@
+<body>
+  <div class="card px-6 py-6 lessPadding">
+    <p-table #dt [value]="certificateList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="5"
+             [globalFilterFields]="['studentName','docnumber','examLevel','certificateState','deliveredDate','act','fol']" [paginator]="true"
+             [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
+      <ng-template pTemplate="caption">
+        <h3 class="m-0">Manage Students</h3>
+        <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+          <div class="formgroup-inline">
+          <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."
+                                   class="w-full sm:w-auto"/>
+                        </span>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th *ngFor="let col of columnsSchema" pSortableColumn="{{col.field}}">{{col.header}}
+            <p-sortIcon field="{{col.field}}"></p-sortIcon>
+          </th>
+          <th>Options</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-certificate>
+        <tr>
+          <td style="width:2rem">
+            <i class="pi pi-student-open" style="font-size: 2rem"></i>
+          </td>
+          <td style="width:14%; min-width:10rem;"><span class="p-column-title">studentName</span>
+            {{certificate.studentName}}
+          </td>
+          <td style="width:14%; min-width:10rem;">
+            <span class="p-column-title">docNumber</span>
+            {{certificate.docnumber}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">examLevel</span>
+            {{certificate.examLevel}}
+          </td>
+          <td style="width:14%; min-width: 10rem;"><span class="p-column-title">Status</span>
+            <span [class]="'certificate status-' + (certificate.certificateState.toUpperCase())">{{getStatusName(certificate)}}</span>
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">certificateState</span>
+            {{certificate.certificateState}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">deliveredDate</span>
+            {{certificate.deliveredDate}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">act</span>
+            {{certificate.act}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">fol</span>
+            {{certificate.fol}}
+          </td>
+          <td>
+            <div class="flex">
+              <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+<a (click)="createEditCertificatePanel()">ejemplo ver </a>
+</body>
