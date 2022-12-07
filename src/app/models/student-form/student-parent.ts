@@ -1,6 +1,4 @@
 export interface StudentParent {
-
-  idPerson: number
   documentNumber: string
   documentType: string
   firstName: string

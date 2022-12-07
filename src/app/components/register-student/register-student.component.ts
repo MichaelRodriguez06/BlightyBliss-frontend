@@ -7,6 +7,9 @@ import {PlacesService} from "../services/places-service/places.service";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {RegisterStudentDialogData} from "./register-student-dialog-data";
 import {StudentInfo} from "../../models/student-form/student-info";
+import {StudentAttendant} from "../../models/student-form/student-attendant";
+import {StudentParent} from "../../models/student-form/student-parent";
+import {StudentForm} from "../../models/student-form/student-form";
 
 @Component({
   selector: 'app-register-student',
@@ -20,17 +23,13 @@ export class RegisterStudentComponent implements OnInit {
     firstCtrl: ['', Validators.required],
   });
 
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-    attendantCellphoneNumber: ['', Validators.required]
-  });
-
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required],
   });
 
   isLinear = false;
   studentForm: FormGroup;
+  secondFormGroup: FormGroup;
   public editMode: boolean;
   cityList: any[] = [];
   minDateValue: Date = new Date("1920-01-01");
@@ -45,9 +44,9 @@ export class RegisterStudentComponent implements OnInit {
   uploadedFiles: any[] = [];
 
   studentInfo: StudentInfo;
-  //studentMotherInfo: StudentParent;
-  //studentFatherInfo: StudentParent;
-  //studentAttendantInfo: StudentAttendant;
+  studentAttendantInfo: StudentAttendant;
+  studentMotherInfo: StudentParent;
+  studentFatherInfo: StudentParent;
   //studentEnrollmentInfo: StudentEnrollment;
 
   constructor(private _formBuilder: FormBuilder,
@@ -60,8 +59,9 @@ export class RegisterStudentComponent implements OnInit {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentInfo = {
+      birthDay: undefined,
       academicTraining: "", address: "",
-      bloodType: "", documentNumber: "",
+      bloodType: "", documentNumber: undefined,
       documentType: "", email: "",
       eps: "", firstName: "",
       gender: "", idBornPlace: 0, idCity: 0,
@@ -73,7 +73,39 @@ export class RegisterStudentComponent implements OnInit {
       socioeconomicStratum: 0, vulnerablePopulation: "",
       residentPlaceLastFiveYears: ""
     }
+
     this.studentForm = _formBuilder.group(this.studentInfo);
+
+    this.studentAttendantInfo = {
+      idPerson: "attendant", documentNumber: "123",
+      documentType: "string", firstName: "",
+      lastName: "", personType: "USER",
+      phoneNumbers: [], fixedPhoneNumbers: [],
+      companyName: "", companyAddress: "",
+      companyNeighborhood: "", idCity: 0
+    }
+
+    this.studentFatherInfo = {
+      documentNumber: "", documentType: "",
+      firstName: "", lastName: "",
+      email: "", address: "",
+      neighborhood: "", personType: "",
+      idCity: 0, PhoneNumbers: []
+    }
+
+    this.studentMotherInfo = {
+      documentNumber: "", documentType: "",
+      firstName: "", lastName: "",
+      email: "", address: "",
+      neighborhood: "", personType: "",
+      idCity: 0, PhoneNumbers: []
+    }
+
+    this.secondFormGroup = _formBuilder.group({
+      studentAttendantInfo: this.studentAttendantInfo,
+      studentFatherInfo: this.studentFatherInfo,
+      studentMotherInfo: this.studentMotherInfo
+    });
   }
 
   ngOnInit(): void {
@@ -142,7 +174,22 @@ export class RegisterStudentComponent implements OnInit {
 
   registerStudent() {
     console.log("registr student")
-    this.dialogRef.close(this.studentForm.value)
+    this.studentAttendantInfo = this.secondFormGroup.controls["studentAttendantInfo"].value
+    this.studentMotherInfo = this.secondFormGroup.controls["studentMotherInfo"].value
+    this.studentFatherInfo = this.secondFormGroup.controls["studentFatherInfo"].value
+    const totalForm: StudentForm = {
+      studentEnrollment: {
+        idProgram: 1,
+        idAgreement: 1,
+        idLevel: 2,
+        date: new Date()
+      },
+      studentInfo: this.studentForm.value,
+      studentAttendant: this.studentAttendantInfo,
+      studentFather: this.studentFatherInfo,
+      studentMother: this.studentMotherInfo
+    }
+    this.dialogRef.close(totalForm)
   }
 
 

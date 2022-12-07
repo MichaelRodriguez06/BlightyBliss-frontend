@@ -1,5 +1,5 @@
 export interface StudentInfo {
-  documentNumber: string,
+  documentNumber: string | undefined,
   documentType: string,
   firstName: string,
   lastName: string,
@@ -10,6 +10,7 @@ export interface StudentInfo {
   vulnerablePopulation: string,
   gender: string,
   bloodType: string,
+  birthDay: Date | undefined,
   maritalStatus: string,
   socioeconomicStratum: number,
   eps: string,
