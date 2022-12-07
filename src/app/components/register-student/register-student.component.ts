@@ -10,6 +10,7 @@ import {StudentInfo} from "../../models/student-form/student-info";
 import {StudentAttendant} from "../../models/student-form/student-attendant";
 import {StudentParent} from "../../models/student-form/student-parent";
 import {StudentForm} from "../../models/student-form/student-form";
+import {StudentEnrollment} from "../../models/student-form/student-enrollment";
 
 @Component({
   selector: 'app-register-student',
@@ -23,22 +24,16 @@ export class RegisterStudentComponent implements OnInit {
     firstCtrl: ['', Validators.required],
   });
 
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
-  });
 
   isLinear = false;
   studentForm: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   public editMode: boolean;
   cityList: any[] = [];
   minDateValue: Date = new Date("1920-01-01");
   maxDateValue: Date = new Date();
   DefaultDate: Date = new Date();
-  attendantCellphoneNumber: any[] = [];
-  attendantLandline: any[] = [];
-  motherCellphoneNumber: any[] = [];
-  fatherCellphoneNumber: any[] = [];
   regionList: any[] = [];
   countryList: any[] = [];
   uploadedFiles: any[] = [];
@@ -47,7 +42,7 @@ export class RegisterStudentComponent implements OnInit {
   studentAttendantInfo: StudentAttendant;
   studentMotherInfo: StudentParent;
   studentFatherInfo: StudentParent;
-  //studentEnrollmentInfo: StudentEnrollment;
+  studentEnrollmentInfo: StudentEnrollment;
 
   constructor(private _formBuilder: FormBuilder,
               private _places: PlacesService,
@@ -77,11 +72,11 @@ export class RegisterStudentComponent implements OnInit {
     this.studentForm = _formBuilder.group(this.studentInfo);
 
     this.studentAttendantInfo = {
-      idPerson: "attendant", documentNumber: "123",
-      documentType: "string", firstName: "",
-      lastName: "", personType: "USER",
-      phoneNumbers: [], fixedPhoneNumbers: [],
-      companyName: "", companyAddress: "",
+      documentNumber: "123", documentType: "string",
+      firstName: "", lastName: "",
+      personType: "USER", phoneNumbers: [],
+      fixedPhoneNumbers: [], companyName: "",
+      companyAddress: "", charge: "",
       companyNeighborhood: "", idCity: 0
     }
 
@@ -89,8 +84,8 @@ export class RegisterStudentComponent implements OnInit {
       documentNumber: "", documentType: "",
       firstName: "", lastName: "",
       email: "", address: "",
-      neighborhood: "", personType: "",
-      idCity: 0, PhoneNumbers: []
+      neighborhood: "", personType: "USER",
+      idCity: 0, phoneNumbers: []
     }
 
     this.studentMotherInfo = {
@@ -98,14 +93,23 @@ export class RegisterStudentComponent implements OnInit {
       firstName: "", lastName: "",
       email: "", address: "",
       neighborhood: "", personType: "",
-      idCity: 0, PhoneNumbers: []
+      idCity: 0, phoneNumbers: []
     }
 
     this.secondFormGroup = _formBuilder.group({
-      studentAttendantInfo: this.studentAttendantInfo,
-      studentFatherInfo: this.studentFatherInfo,
-      studentMotherInfo: this.studentMotherInfo
+      studentAttendantInfo: _formBuilder.group(this.studentAttendantInfo),
+      studentFatherInfo: _formBuilder.group(this.studentFatherInfo),
+      studentMotherInfo: _formBuilder.group(this.studentMotherInfo)
     });
+
+    this.studentEnrollmentInfo = {
+      idProgram: 0,
+      idAgreement: 0,
+      idLevel: 0,
+      date: undefined
+    }
+
+    this.thirdFormGroup = _formBuilder.group(this.studentEnrollmentInfo)
   }
 
   ngOnInit(): void {
@@ -178,12 +182,7 @@ export class RegisterStudentComponent implements OnInit {
     this.studentMotherInfo = this.secondFormGroup.controls["studentMotherInfo"].value
     this.studentFatherInfo = this.secondFormGroup.controls["studentFatherInfo"].value
     const totalForm: StudentForm = {
-      studentEnrollment: {
-        idProgram: 1,
-        idAgreement: 1,
-        idLevel: 2,
-        date: new Date()
-      },
+      studentEnrollment: this.thirdFormGroup.value,
       studentInfo: this.studentForm.value,
       studentAttendant: this.studentAttendantInfo,
       studentFather: this.studentFatherInfo,

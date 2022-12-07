@@ -8,5 +8,5 @@ export interface StudentParent {
   neighborhood: string
   personType: string
   idCity: number
-  PhoneNumbers: string[]
+  phoneNumbers: string[]
 }

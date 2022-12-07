@@ -1,5 +1,4 @@
 export interface StudentAttendant {
-  idPerson: string
   documentNumber: string
   documentType: string
   firstName: string
@@ -10,5 +9,6 @@ export interface StudentAttendant {
   companyName: string
   companyAddress: string
   companyNeighborhood: string
+  charge: string
   idCity: number
 }
