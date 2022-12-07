@@ -36,7 +36,13 @@
                <p-dropdown placeholder="Vulnerable Population" [options]="data.vulnerablePopulationList" optionLabel="name" [showClear]="true" formControlName="vulnerablePopulation"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Residence city" [options]="cityList" [showClear]="true" formControlName="idCity"></p-dropdown>
+               <p-dropdown  placeholder="Residence country" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown  placeholder="Residence region" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
+             </div>
+             <div class="field col-12 md:col-3">
+               <p-dropdown  placeholder="Residence city" [options]="cityList" optionLabel="placeName" [showClear]="false" formControlName="idCity"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown placeholder="Discapacity" [options]="data.disabilityList" optionLabel="disabilityType" [showClear]="true" formControlName="idDisability"></p-dropdown>
@@ -117,7 +123,10 @@
          <p>Attendant information</p>
          <div class="p-fluid p-formgrid grid">
            <div class="field col-12 md:col-4">
-             <input placeholder="Name" type="text" pInputText class="p-inputtext-me">
+             <input placeholder="First name" type="text" pInputText class="p-inputtext-me">
+           </div>
+           <div class="field col-12 md:col-4">
+             <input placeholder="Last name" type="text" pInputText class="p-inputtext-me">
            </div>
            <div class="field col-12 md:col-4">
              <input placeholder="Company where works" type="text" pInputText class="p-inputtext-me" >
@@ -152,7 +161,10 @@
              <p>Father information</p>
              <div class="p-fluid p-formgrid grid">
                <div class="field col-12 md:col-6">
-                 <input placeholder="Name" type="text" pInputText class="p-inputtext-me">
+                 <input placeholder="First name" type="text" pInputText class="p-inputtext-me">
+               </div>
+               <div class="field col-12 md:col-6">
+                 <input placeholder="Last name" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
                  <input placeholder="Email" type="text" pInputText class="p-inputtext-me">
@@ -181,7 +193,10 @@
              <p>Mother information</p>
              <div class="p-fluid p-formgrid grid">
                <div class="field col-12 md:col-6">
-                 <input placeholder="Name" type="text" pInputText class="p-inputtext-me">
+                 <input placeholder="First name" type="text" pInputText class="p-inputtext-me">
+               </div>
+               <div class="field col-12 md:col-6">
+                 <input placeholder="Last name" type="text" pInputText class="p-inputtext-me">
                </div>
                <div class="field col-12 md:col-6">
                  <input placeholder="Email" type="text" pInputText class="p-inputtext-me">
