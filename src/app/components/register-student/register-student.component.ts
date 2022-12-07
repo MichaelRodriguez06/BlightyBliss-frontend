@@ -32,10 +32,7 @@ export class RegisterStudentComponent implements OnInit {
   isLinear = false;
   studentForm: FormGroup;
   public editMode: boolean;
-  identification: number | undefined;
   cityList: any[] = [];
-
-  studentCellphoneNumber: number[] = [];
   minDateValue: Date = new Date("1920-01-01");
   maxDateValue: Date = new Date();
   DefaultDate: Date = new Date();
@@ -62,29 +59,19 @@ export class RegisterStudentComponent implements OnInit {
   ) {
     this.editMode = true
     //Crea el formulario de usuario
-    /*this.studentForm = _formBuilder.group({
-      id: [''],
-      document: ['', Validators.required, Validators.minLength(2)],
-      full_name: ['', Validators.required],
-      document_type: ['', Validators.required],
-      credentialId: ['', Validators.required],
-      password: ['', Validators.required],
-      city: ['', Validators.required],
-      address: ['', Validators.required],
-      phone_number: ['', Validators.required]
-    })*/
     this.studentInfo = {
       academicTraining: "", address: "",
       bloodType: "", documentNumber: "",
       documentType: "", email: "",
       eps: "", firstName: "",
-      gender: "", idAcademic: 0,
-      idBornPlace: 0, idCity: 0,
+      gender: "", idBornPlace: 0, idCity: 0,
       idDisability: 0, idStudentType: 0,
       institution: "", lastName: "",
       maritalStatus: "", neighborhood: "",
-      personType: "", phoneNumbers: [],
-      socioeconomicStratum: 0, vulnerablePopulation: ""
+      // TODO define person type in constraints
+      personType: "STUDENT", phoneNumbers: [],
+      socioeconomicStratum: 0, vulnerablePopulation: "",
+      residentPlaceLastFiveYears: ""
     }
     this.studentForm = _formBuilder.group(this.studentInfo);
   }
@@ -148,12 +135,13 @@ export class RegisterStudentComponent implements OnInit {
   updateExamTry() {
     const dialogRef = this.dialog.open(ExamTryComponent, {
       width: '55%',
-      height: '55%',
+      height: '100%',
       data: {edit: false}
     });
   }
 
   registerStudent() {
+    console.log("registr student")
     this.dialogRef.close(this.studentForm.value)
   }
 

@@ -18,7 +18,7 @@ export interface StudentInfo {
   idBornPlace: number,
   idDisability: number,
   academicTraining: string,
-  idAcademic: number,
   idStudentType: number,
+  residentPlaceLastFiveYears: string,
   phoneNumbers: string[]
 }
