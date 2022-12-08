@@ -32,6 +32,7 @@ export class RegisterStudentComponent implements OnInit {
   public editMode: boolean;
   cityList: any[] = [];
   minDateValue: Date = new Date("1920-01-01");
+  minInscriptionDateValue: Date = new Date("2010-01-01");
   maxDateValue: Date = new Date();
   DefaultDate: Date = new Date();
   regionList: any[] = [];
