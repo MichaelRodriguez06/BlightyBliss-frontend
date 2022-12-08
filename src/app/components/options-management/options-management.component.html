@@ -9,7 +9,7 @@
                 <div *ngFor="let item of getFileTypes.controls; let pointIndex=index" [formGroupName]="pointIndex" >
                   <div class="p-inputgroup">
                     <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removeFileType(pointIndex)"></button>
-                    <input type="text" pInputText placeholder="FileType">
+                    <input type="text" pInputText placeholder="FileType" maxlength="40">
                   </div>
                 </div>
               </div>
@@ -28,7 +28,7 @@
               <div *ngFor="let item of getPrograms.controls;   let pointIndex=index" [formGroupName]="pointIndex" >
                 <div class="p-inputgroup">
                   <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removePrograms(pointIndex)"></button>
-                  <input type="text" pInputText placeholder="Program">
+                  <input type="text" pInputText placeholder="Program" maxlength="40">
                 </div>
               </div>
             </div>

@@ -8,56 +8,56 @@
            <p>Personal information</p>
            <div class="p-fluid p-formgrid grid">
              <div class="field col-12 md:col-3">
-               <input placeholder="First name" type="text" pInputText class="p-inputtext-me" formControlName="firstName">
+               <input placeholder="First name*" type="text" pInputText class="p-inputtext-me" formControlName="firstName" maxlength="50">
              </div>
              <div class="field col-12 md:col-3">
-               <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" formControlName="lastName">
+               <input placeholder="Last name*" type="text" pInputText class="p-inputtext-me" formControlName="lastName" maxlength="50">
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select Document type" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.documentTypesList" optionLabel="name" optionValue="value" formControlName="documentType"></p-dropdown>
+               <p-dropdown placeholder="Select Document type*" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.documentTypesList" optionLabel="name" optionValue="value" formControlName="documentType"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-                 <p-inputNumber placeholder="Identification document" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" formControlName="documentNumber">
+                 <p-inputNumber placeholder="Identification document*" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" formControlName="documentNumber" [maxlength]="11">
                </p-inputNumber>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select Blood Type" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.bloodTypeList" optionLabel="name" optionValue="value" formControlName="bloodType"></p-dropdown>
+               <p-dropdown placeholder="Select Blood Type*" inputId="dropdown" [autoDisplayFirst]="false" [options]="data.bloodTypeList" optionLabel="name" optionValue="value" formControlName="bloodType"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3 myCalendar">
-               <p-calendar appendTo="body" placeholder="Date birth" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate" formControlName="birthDay"></p-calendar>
+               <p-calendar appendTo="body" placeholder="Date birth*" [showIcon]="true" inputId="icon" [minDate]="minDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate" formControlName="birthDay"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
-                 <p-dropdown placeholder="Student type" [options]="data.studentTypeList" optionLabel="name" optionValue="idStudentType" [showClear]="true" formControlName="idStudentType"></p-dropdown>
+               <p-dropdown placeholder="Student type*" [options]="data.studentTypeList" optionLabel="name" optionValue="idStudentType" [showClear]="true" formControlName="idStudentType"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Select gender" [options]="data.gendersList" optionLabel="name" optionValue="name" [showClear]="true" formControlName="gender"></p-dropdown>
+               <p-dropdown placeholder="Select gender*" [options]="data.gendersList" optionLabel="name" optionValue="name" [showClear]="true" formControlName="gender"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown placeholder="Vulnerable Population" [options]="data.vulnerablePopulationList" optionLabel="name" optionValue="value" [showClear]="true" formControlName="vulnerablePopulation"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Residence country" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
+               <p-dropdown  placeholder="Residence country*" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Residence region" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
+               <p-dropdown  placeholder="Residence region*" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Residence city" [options]="cityList" [showClear]="false" optionLabel="placeName" optionValue="idPlace" formControlName="idCity"></p-dropdown>
+               <p-dropdown  placeholder="Residence city*" [options]="cityList" [showClear]="false" optionLabel="placeName" optionValue="idPlace" formControlName="idCity"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
                <p-dropdown placeholder="Disability" [options]="data.disabilityList" optionLabel="disabilityType" optionValue="idDisability" [showClear]="true" formControlName="idDisability"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Marital status" [options]="data.maritalStatusList" optionLabel="name" optionValue="name" [showClear]="true" formControlName="maritalStatus"></p-dropdown>
+               <p-dropdown placeholder="Marital status*" [options]="data.maritalStatusList" optionLabel="name" optionValue="name" [showClear]="true" formControlName="maritalStatus"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born country" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
+               <p-dropdown  placeholder="Born country*" [options]="countryList" optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born region" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
+               <p-dropdown  placeholder="Born region*" [options]="regionList"  optionLabel="placeName" [showClear]="false"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Born city" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="false" formControlName="idBornPlace"></p-dropdown>
+               <p-dropdown  placeholder="Born city*" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="false" formControlName="idBornPlace"></p-dropdown>
              </div>
            </div>
          </div>
@@ -65,10 +65,10 @@
            <p>Informacion de contacto</p>
            <div class="topmargin p-fluid p-formgrid grid">
              <div class="field col-12 md:col-8">
-               <p-chips separator="," placeholder="Cellphone Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
+               <p-chips separator="," placeholder="Cellphone* Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
              </div>
              <div class="field col-12 md:col-4">
-               <input  placeholder="Email" type="text" pInputText class="p-inputtext-me" formControlName="email">
+               <input  placeholder="Email*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="email" >
              </div>
           </div>
          </div>
@@ -77,10 +77,10 @@
              <p>Academic information</p>
              <div class="p-fluid p-formgrid grid">
                <div class="field col-12 md:col-6">
-                 <input placeholder="Current institution" type="text" pInputText class="p-inputtext-me" formControlName="institution">
+                 <input placeholder="Current institution*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="institution">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Academic Traning Level" type="text" pInputText class="p-inputtext-me" formControlName="academicTraining">
+                 <input placeholder="Academic Traning Level*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="academicTraining">
                </div>
              </div>
            </div>
@@ -88,10 +88,10 @@
              <p>Laboral information</p>
              <div class="p-fluid p-formgrid grid">
                <div class="field col-12 md:col-6">
-                 <input placeholder="Ocupation" type="text" pInputText class="p-inputtext-me">
+                 <input placeholder="Ocupation*" type="text" pInputText class="p-inputtext-me" maxlength="50" >
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="EPS" type="text" pInputText class="p-inputtext-me" formControlName="eps">
+                 <input placeholder="EPS*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="eps">
                </div>
              </div>
            </div>
@@ -100,16 +100,16 @@
            <p>Residencial information</p>
            <div class="p-fluid p-formgrid grid">
              <div class="field col-12 md:col-3">
-               <input  placeholder="Current address" type="text" pInputText class="p-inputtext-me" formControlName="address">
+               <input  placeholder="Current address*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="address">
              </div>
              <div class="field col-12 md:col-3">
-               <input  placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me" formControlName="neighborhood">
+               <input  placeholder="Resident neighborhood*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="neighborhood">
              </div>
              <div class="field col-12 md:col-3">
-               <input placeholder="Resident in last five years" type="text" pInputText class="p-inputtext-me" formControlName="residentPlaceLastFiveYears">
+               <input placeholder="Resident in last five years*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="residentPlaceLastFiveYears">
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="Socioeconomic stratum" [options]="data.socioeconomicStateList" optionLabel="name" optionValue="value"  [showClear]="true" formControlName="socioeconomicStratum"></p-dropdown>
+               <p-dropdown placeholder="Socioeconomic stratum*" [options]="data.socioeconomicStateList" optionLabel="name" optionValue="value"  [showClear]="true" formControlName="socioeconomicStratum"></p-dropdown>
              </div>
            </div>
          </div>
@@ -123,37 +123,37 @@
          <p>Attendant information</p>
          <div class="p-fluid p-formgrid grid" formGroupName="studentAttendantInfo">
            <div class="field col-12 md:col-4">
-             <input placeholder="First name" type="text" pInputText class="p-inputtext-me" formControlName="firstName">
+             <input placeholder="First name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="firstName">
            </div>
            <div class="field col-12 md:col-4">
-             <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" formControlName="lastName">
+             <input placeholder="Last name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="lastName">
            </div>
            <div class="field col-12 md:col-4">
-             <input placeholder="Company where works" type="text" pInputText class="p-inputtext-me" formControlName="companyName">
+             <input placeholder="Company where works*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="companyName">
            </div>
            <div class="field col-12 md:col-4">
-             <input placeholder="Curret company address" type="text" pInputText class="p-inputtext-me" formControlName="companyAddress">
+             <input placeholder="Curret company address*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="companyAddress">
            </div>
            <div class="field col-12 md:col-4">
-             <input placeholder="Curret company neighborhood" type="text" pInputText class="p-inputtext-me" formControlName="companyNeighborhood">
+             <input placeholder="Curret company neighborhood*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="companyNeighborhood">
            </div>
            <div class="field col-12 md:col-4">
-             <input placeholder="Ocupation" type="text" pInputText class="p-inputtext-me" formControlName="charge">
+             <input placeholder="Ocupation*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="charge">
            </div>
            <div class="field col-12 md:col-4">
-             <p-dropdown  placeholder="company country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company country*" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-4">
-             <p-dropdown  placeholder="company region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+             <p-dropdown  placeholder="company region*" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
            </div>
            <div class="field col-12 md:col-4">
-             <p-dropdown  placeholder="company city" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
+             <p-dropdown  placeholder="company city*" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
            </div>
            <div class="field col-12 md:col-6">
-             <p-chips separator="," placeholder="Cellphone Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
+             <p-chips separator="," placeholder="Cellphone* Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
            </div>
            <div class="field col-12 md:col-6">
-             <p-chips separator="," placeholder="LandLane Ej:3123456789,3234567890" formControlName="fixedPhoneNumbers"></p-chips>
+             <p-chips separator="," placeholder="LandLane* Ej:3123456789,3234567890" formControlName="fixedPhoneNumbers"></p-chips>
            </div>
          </div>
          <div class="margintop p-fluid p-formgrid grid">
@@ -161,31 +161,31 @@
              <p>Father information</p>
              <div class="p-fluid p-formgrid grid" formGroupName="studentFatherInfo">
                <div class="field col-12 md:col-6">
-                 <input placeholder="First name" type="text" pInputText class="p-inputtext-me" formControlName="firstName">
+                 <input placeholder="First name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="firstName">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" formControlName="lastName">
+                 <input placeholder="Last name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="lastName">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Email" type="text" pInputText class="p-inputtext-me" formControlName="email">
+                 <input placeholder="Email*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="email">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Resident address" type="text" pInputText class="p-inputtext-me" formControlName="address">
+                 <input placeholder="Resident address*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="address">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me" formControlName="neighborhood">
+                 <input placeholder="Resident neighborhood*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="neighborhood">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country*" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident region*" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
+                 <p-dropdown  placeholder="resident city*" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
                </div>
                <div class="field col-12">
-                 <p-chips separator="," placeholder="Cellphone Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
+                 <p-chips separator="," placeholder="Cellphone* Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
                </div>
              </div>
            </div>
@@ -193,31 +193,31 @@
              <p>Mother information</p>
              <div class="p-fluid p-formgrid grid" formGroupName="studentMotherInfo">
                <div class="field col-12 md:col-6">
-                 <input placeholder="First name" type="text" pInputText class="p-inputtext-me" formControlName="firstName">
+                 <input placeholder="First name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="firstName">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Last name" type="text" pInputText class="p-inputtext-me" formControlName="lastName">
+                 <input placeholder="Last name*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="lastName">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Email" type="text" pInputText class="p-inputtext-me" formControlName="email">
+                 <input placeholder="Email*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="email">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Resident address" type="text" pInputText class="p-inputtext-me" formControlName="address">
+                 <input placeholder="Resident address*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="address">
                </div>
                <div class="field col-12 md:col-6">
-                 <input placeholder="Resident neighborhood" type="text" pInputText class="p-inputtext-me" formControlName="neighborhood">
+                 <input placeholder="Resident neighborhood*" type="text" pInputText class="p-inputtext-me" maxlength="50" formControlName="neighborhood">
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident country" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident country*" [options]="countryList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident region" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
+                 <p-dropdown  placeholder="resident region*" [options]="regionList" optionLabel="placeName" [showClear]="true"></p-dropdown>
                </div>
                <div class="field col-12 md:col-6">
-                 <p-dropdown  placeholder="resident city" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
+                 <p-dropdown  placeholder="resident city*" [options]="cityList" optionLabel="placeName" optionValue="idPlace" [showClear]="true" formControlName="idCity"></p-dropdown>
                </div>
                <div class="field col-12">
-                 <p-chips separator="," placeholder="Cellphone Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
+                 <p-chips separator="," placeholder="Cellphone* Ej:3123456789,3234567890" formControlName="phoneNumbers"></p-chips>
                </div>
              </div>
            </div>
@@ -238,16 +238,16 @@
                  <p-dropdown placeholder="Agreement" [options]="data.agreementList" optionLabel="name" optionValue="idAgreement" [showClear]="true" formControlName="idAgreement"></p-dropdown>
                </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown  placeholder="Program to inscribe" [options]="data.programList" optionLabel="name" optionValue="idProgram" [showClear]="true" formControlName="idProgram"></p-dropdown>
+               <p-dropdown  placeholder="Program to inscribe*" [options]="data.programList" optionLabel="name" optionValue="idProgram" [showClear]="true" formControlName="idProgram"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-dropdown placeholder="English level" [options]="data.levelList" optionLabel="name" optionValue="idLevel" [showClear]="true" formControlName="idLevel"></p-dropdown>
+               <p-dropdown placeholder="English level*" [options]="data.levelList" optionLabel="name" optionValue="idLevel" [showClear]="true" formControlName="idLevel"></p-dropdown>
              </div>
              <div class="field col-12 md:col-3">
-               <p-calendar appendTo="body" placeholder="Inscription date" [showIcon]="true" inputId="icon" [minDate]="minDateValue" formControlName="date"></p-calendar>
+               <p-calendar appendTo="body" placeholder="Inscription date*" [showIcon]="true" inputId="icon" [minDate]="minDateValue" formControlName="date"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
-               <input placeholder="Study Schedule" type="text" pInputText class="p-inputtext-me">
+               <input placeholder="Study Schedule*" type="text" pInputText maxlength="50" class="p-inputtext-me">
              </div>
            </div>
          </div>
@@ -257,7 +257,7 @@
          <button type="button" pButton pRipple icon="pi pi-chevron-right" class="buttonNext p-button-help" matStepperNext></button>
        </div>
      </mat-step>
-     <mat-step >
+     <mat-step>
        <form>
          <div class="card">
            <ng-template matStepLabel>Documents</ng-template>
