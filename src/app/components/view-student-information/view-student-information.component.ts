@@ -8,6 +8,8 @@ import {NotificationService} from "../../core/services/notification/notification
 import {CreateFolderComponent} from "../create-folder/create-folder.component";
 import {Table} from "primeng/table";
 import {ExamTryComponent} from "../exam-try/exam-try.component";
+import {MenuItem} from "primeng/api";
+import {FormControl} from "@angular/forms";
 
 export interface FolderItem {
   name: string,
@@ -40,15 +42,29 @@ export class ViewStudentInformationComponent implements OnInit {
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
   dataSource = new MatTableDataSource<Student>(this.studentList);
+  documents: any[] = [{name: 'Accounting'}, {name: 'Marketing'}, {name: 'Production'}, {name: 'Research'}];
+  selectedCategories: any[] = [{name: 'Accounting'}, {name: 'Production'}];
+  items: MenuItem[];
+  tabs = [{examLevel:'A1',teacherName:'Pepito perez',listeningAnswered:10,listeningTotal:10,readingAnswered:1,readingTotal:1,writingAnswered:1,writingTotal:1,speakingAnswered:523,speakingTotal:1,grammarAnswered:23,grammarTotal:1,vocabularyAnswered:1,vocabularyTotal:1,resultAnswered:1,resultTotal:1,pass:"yes",startDate:"21-02-2022",finishDate:"21-02-2022",comments:"Ser mejor :thumsup"}
+    ,{examLevel:'B2',teacherName:'Rodolfo hernandez',listeningAnswered:10,listeningTotal:10,readingAnswered:1,readingTotal:1,writingAnswered:1,writingTotal:1,speakingAnswered:523,speakingTotal:1,grammarAnswered:23,grammarTotal:1,vocabularyAnswered:1,vocabularyTotal:1,resultAnswered:1,resultTotal:1,pass:"yes",startDate:"21-02-2022",finishDate:"21-02-2022",comments:"Ser mejor :thumsup"}];
+  //Al que va a llegar primero por defecto
+  selected = new FormControl(this.tabs.length);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-
 
   constructor(
     private dialog: MatDialog,
     private studentService: StudentService,
     private notification: NotificationService,
-  ) {/*
+  ) {
+    this.items = [
+      {label: 'Home', icon: 'pi pi-fw pi-home'},
+      {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
+      {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
+      {label: 'Documentation', icon: 'pi pi-fw pi-file'},
+      {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+    ];
+    /*
     this.studentService.getStudentList(1).subscribe((response) => {
       this.studentList = response.data;
       console.log(this.studentList);
@@ -74,7 +90,7 @@ export class ViewStudentInformationComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result)
       if (result) {
-        console.log("Result")
+        console.log("result")
         this.studentService.creatStudent(result).subscribe({
           next: res => {
             console.log(res.message)
@@ -104,9 +120,10 @@ export class ViewStudentInformationComponent implements OnInit {
 
   createExamTryPanel() {
     const dialogRef = this.dialog.open(ExamTryComponent, {
-      width: '55%',
-      height: '55%',
+      width: '60%',
+      height: '70%',
       data: {edit: false}
     });
   }
+
 }

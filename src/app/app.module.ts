@@ -34,6 +34,7 @@ import { ViewGeneralCertificatesComponent } from './components/view-general-cert
 import { EditCertificateComponent } from './components/edit-certificate/edit-certificate.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { AgreementCreateComponent } from './components/agreement-crud/agreement-create.component';
+import { ReportStudentsComponent } from './components/report-students/report-students.component';
 
 
 
@@ -61,7 +62,8 @@ import { AgreementCreateComponent } from './components/agreement-crud/agreement-
     ViewGeneralCertificatesComponent,
     EditCertificateComponent,
     UserInformationComponent,
-    AgreementCreateComponent
+    AgreementCreateComponent,
+    ReportStudentsComponent
   ],
   imports: [
     BrowserModule,

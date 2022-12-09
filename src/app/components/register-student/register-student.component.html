@@ -247,7 +247,7 @@
                <p-calendar appendTo="body" placeholder="Inscription date*" [showIcon]="true" inputId="icon" [minDate]="minInscriptionDateValue" [maxDate]="maxDateValue" [defaultDate]="DefaultDate" formControlName="date"></p-calendar>
              </div>
              <div class="field col-12 md:col-3">
-               <input placeholder="Study Schedule*" type="text" pInputText maxlength="50" class="p-inputtext-me">
+               <input placeholder="Study Schedule" type="text" pInputText maxlength="50" class="p-inputtext-me">
              </div>
            </div>
          </div>
@@ -271,7 +271,7 @@
            </p-fileUpload>
            <div class="flex justify-content-end flex-wrap">
             <button type="button" pButton pRipple label="Register student" class="p-button-help" (click)="registerStudent()"></button>
-            <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Update exam try" (click)="updateExamTry()"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-import" class="p-button-help" label=" Upload exam try" (click)="updateExamTry()"></button>
            </div>
          </div>
          <div class="flex justify-content-end flex-wrap align-items-stretch ">

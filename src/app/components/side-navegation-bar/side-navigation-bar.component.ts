@@ -4,7 +4,9 @@ import { AppRoutes } from '../../core/services/app-routes';
 @Component({
   selector: 'app-side-navigation-bar',
   templateUrl: './side-navigation-bar.component.html',
-  styleUrls: ['./side-navigation-bar.component.scss']
+  styleUrls: ['./side-navigation-bar.component.scss',
+    '../../../../node_modules/primeflex/primeflex.css',
+    '../../../../node_modules/primeng/resources/themes/lara-light-indigo/theme.css']
 })
 
 export class SideNavigationBarComponent implements OnInit {
@@ -39,7 +41,7 @@ export class SideNavigationBarComponent implements OnInit {
       }]
     }, {
       title: "Reports", icon: "", subMenu: [{
-        subtitle: "Report 1", icon: ""
+        subtitle: "Report 1", icon: "", Direction: AppRoutes.REPORT_STUDENTS
       }, {
         subtitle: "Report 2", icon: ""
       }, {

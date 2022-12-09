@@ -119,11 +119,102 @@
             </div>
           </div>
         </p-tabPanel>
+        <p-tabPanel header="Certificates" class="line-height-3 m-0">
+          <p>Documents required for certificate</p>
+          <div *ngFor="let document of documents" class="checkBoxList field-checkbox">
+            <p-checkbox name="group2" value="document" [value]="document"  [(ngModel)]="selectedCategories" [inputId]="document.key" [disabled]="document"></p-checkbox>
+            <label>{{document.name}}</label>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Academic information" class="line-height-3 m-0">
+          <p>Student academic information</p>
+          <div class="p-fluid p-formgrid grid">
+            <div class="field col-12 md:col-3">
+              <label >Actual English level</label>
+              <input pInputText id="englishLevel" type="text" readonly/>
+            </div>
+            <div class="field col-12 md:col-3">
+              <label >Actual program</label>
+              <input pInputText id="actualProgram" type="text" readonly/>
+            </div>
+            <div class="field col-12 md:col-3">
+              <label >Last inscription date</label>
+              <input pInputText id="lastInscriptionDate" type="text" readonly/>
+            </div>
+            <div class="field col-12 md:col-3">
+              <label >Agreement</label>
+              <input pInputText id="actualAgreement" type="text" readonly/>
+            </div>
+          </div>
+          <mat-tab-group [selectedIndex]="selected.value"
+                         (selectedIndexChange)="selected.setValue($event)" >
+            <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab.examLevel">
+              <br>
+              <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-6">
+                  <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-12">
+                      <label>Teacher name</label>
+                      <input pInputText id="teacherName" type="text" value="{{tab.teacherName}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>Listening result</label>
+                      <input pInputText id="listeningResult" type="text" value="{{tab.listeningAnswered}}/{{tab.listeningTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>reading result</label>
+                      <input pInputText id="readingResult" type="text" value="{{tab.readingAnswered}}/{{tab.readingTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>writing result</label>
+                      <input pInputText id="writingResult" type="text" value="{{tab.writingAnswered}}/{{tab.writingTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>speaking result</label>
+                      <input pInputText id="speakingResult" type="text" value="{{tab.speakingAnswered}}/{{tab.speakingTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>grammar result</label>
+                      <input pInputText id="grammarResult" type="text" value="{{tab.grammarAnswered}}/{{tab.grammarTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>vocabulary result</label>
+                      <input pInputText id="vocabularyResult" type="text" value="{{tab.vocabularyAnswered}}/{{tab.vocabularyTotal}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-3">
+                      <label>Result</label>
+                      <input pInputText id="result" type="text" value="{{tab.resultAnswered}}/{{tab.resultTotal}}" readonly/>
+                    </div>
+                  </div>
+                </div>
+                <div class="field col-12 md:col-6">
+                  <div class="p-fluid p-formgrid grid">
+                    <div class="field col-12 md:col-6">
+                      <label>Pass</label>
+                      <input pInputText id="pass" type="text" value="{{tab.pass}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                      <label>start Date</label>
+                      <input pInputText id="startDate" type="text" value="{{tab.startDate}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                      <label>final Date</label>
+                      <input pInputText id="finalDate" type="text" value="{{tab.finishDate}}" readonly/>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                      <label>comments</label>
+                      <textarea rows="3" cols="10" id="comments" pInputTextarea [disabled]="true" maxlength="200" value="{{tab.comments}}" readonly></textarea>
+                    </div>
+                 </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </p-tabPanel>
+        <div class="buttons">
+          <button pButton pRipple label="ExamTry" (click)="createExamTryPanel()" ></button>
+        </div>
       </p-tabView>
-    </div>
-    <div class="buttons">
-      <button pButton pRipple label="ExamTry" (click)="createExamTryPanel()" ></button>
-      <button pButton pRipple label="Close" (click)="disable()" ></button>
     </div>
   </div>
 </body>

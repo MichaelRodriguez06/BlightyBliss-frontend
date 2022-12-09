@@ -7,7 +7,6 @@ import {Student} from "../../modules/Students/models/student";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {Table} from "primeng/table";
 import {RegisterStudentComponent} from "../register-student/register-student.component";
-import {ExamTryComponent} from "../exam-try/exam-try.component";
 import {DisabilitiesService} from "../services/disablilities-service/disabilities.service";
 import {LevelsService} from "../services/levels-service/levels.service";
 import {AgreementService} from "../services/agreementService/agreement.service";
@@ -182,11 +181,6 @@ export class ViewStudentsComponent implements OnInit {
     this.dataSource.data = this.studentList;
   }
 
-  createExamTry() {
-    const dialogRef = this.dialog.open(ExamTryComponent, {
-      width: '60%',
-      height: '70%',
-      data: {edit: false}
-    });
+  seeStudentInformation() {
   }
 }

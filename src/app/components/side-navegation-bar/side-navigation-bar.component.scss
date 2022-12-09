@@ -37,7 +37,10 @@ $sidebar-footer-height: 64px;
 
 .container {
   width: 30%;
-  height: 100%;
+  height:100%;
+  margin:0;
+  display: flex;
+  flex-direction: column;
   background-color: #A60000;
 }
 
@@ -482,4 +485,9 @@ body {
 .mat-expansion-panel-header {
   font-family: "Calibri Light", ui-sans-serif;
   font-size: 19px;
+}
+.logoutButton{
+  align-self: center;
+  width: 50%;
+  margin: auto 2% 2% 1%;
 }
