@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {TypeFiles} from '../services/GetTypesFile/get-types-documents.service';
 import {ProgramsService} from "../services/programsServices/programs.service";
 
@@ -14,6 +14,7 @@ export class OptionsManagementComponent implements OnInit {
 
   filesTypeForm: FormGroup;
   programsForm: FormGroup;
+  isAdmin: boolean = true;
 
   constructor(private filesTypeFormfb: FormBuilder,
               private programsFormfb: FormBuilder,

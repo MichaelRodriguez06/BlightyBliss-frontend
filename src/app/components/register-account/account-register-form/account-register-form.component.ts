@@ -25,7 +25,7 @@ export class AccountRegisterFormComponent implements OnInit {
   passwordConfirmation: string = "";
   selectedCategory: any = null;
   categories: any[] = [{name: 'CC', key: 'CC'}, {name: 'TI', key: 'TI'}, {name: 'CE', key: 'CE'}];
-
+  editMode: boolean = true;
 
   constructor(
     private fb: FormBuilder,

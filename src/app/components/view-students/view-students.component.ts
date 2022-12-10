@@ -46,6 +46,7 @@ export class ViewStudentsComponent implements OnInit {
   studentList: Student[] = [];
   student: { document_number: number; first_name: string; document_type: number } = {first_name: "", document_type: 0, document_number: 0}
   dataSource = new MatTableDataSource<Student>(this.studentList);
+  isAdmin:boolean =true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 

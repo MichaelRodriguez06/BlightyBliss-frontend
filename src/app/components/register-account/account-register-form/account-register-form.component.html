@@ -3,8 +3,6 @@
   <p>User registration form</p>
 
   <form action="" [formGroup]="form">
-
-
     <div class="p-fluid p-formgrid grid">
       <div class="field col-12 md:col-6">
         <label>Name*</label>
@@ -26,17 +24,17 @@
         <input placeholder="Email" type="email" id="email" formControlName="email" pattern=".+@blightybliss.edu.co"
                pInputText class="p-inputtext-me">
       </div>
-      <div class="field col-12 md:col-6">
+      <div class="field col-12 md:col-6" *ngIf="editMode">
         <label>User type*</label>
       </div>
-      <div class="field col-12 md:col-6 myLimiterHeigt">
+      <div class="field col-12 md:col-6 myLimiterHeigt" *ngIf="editMode">
         <p-selectButton class="Option" [options]="stateOptions" formControlName="accountType" optionLabel="label"
-                        optionValue="value"></p-selectButton>
+                        optionValue="value" ></p-selectButton>
       </div>
-      <div class="field col-12 md:col-6">
+      <div class="field col-12 md:col-6" *ngIf="editMode">
         <label>Identification document*</label>
       </div>
-      <div class="field col-12 md:col-6">
+      <div class="field col-12 md:col-6" *ngIf="editMode">
         <p-inputNumber placeholder="Identification document" formControlName="docNumber" [(ngModel)]="value1"
                        mode="decimal" inputId="withoutgrouping" [maxlength]="11" [useGrouping]="false" >
         </p-inputNumber>

@@ -7,7 +7,7 @@
     <ng-template pTemplate="caption">
       <h3 class="m-0">Users Accounts</h3>
       <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-        <button pButton pRipple label="New User" icon="pi pi-plus" class="p-button-success mr-2"
+        <button pButton pRipple label="New User" icon="pi pi-plus" class="p-button-success mr-2" *ngIf="isAdmin"
                 (click)="createUserPanel()"></button>
         <div class="formgroup-inline">
           <span class="block mt-2 md:mt-0 p-input-icon-left">
@@ -50,12 +50,12 @@
           <span class="p-column-title">status</span>
           {{account.status}}
         </td>
-        <td>
-          <div class="flex">
+        <td *ngIf="isAdmin">
+          <div class="flex" >
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                    (click)="createUserPanel()"></button>
-            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                     (click)="createEditPanel()"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    (click)="createDeletePanel()"></button>
           </div>
         </td>
       </tr>

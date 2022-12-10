@@ -47,6 +47,8 @@ export class ViewStudentInformationComponent implements OnInit {
     ,{examLevel:'B2',teacherName:'Rodolfo hernandez',listeningAnswered:10,listeningTotal:10,readingAnswered:1,readingTotal:1,writingAnswered:1,writingTotal:1,speakingAnswered:523,speakingTotal:1,grammarAnswered:23,grammarTotal:1,vocabularyAnswered:1,vocabularyTotal:1,resultAnswered:1,resultTotal:1,pass:"yes",startDate:"21-02-2022",finishDate:"21-02-2022",comments:"Ser mejor :thumsup"}];
   //Al que va a llegar primero por defecto
   selected = new FormControl(this.tabs.length);
+  isYounger:boolean=false;
+  isAdmin:boolean=true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 

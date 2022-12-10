@@ -7,7 +7,7 @@
     <ng-template pTemplate="caption">
       <h3 class="m-0">Manage Folders</h3>
       <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-        <button pButton pRipple label="New Folder" icon="pi pi-plus" class="p-button-success mr-2" (click)="createFolderPanel()"></button>
+        <button *ngIf="isAdmin" pButton pRipple label="New Folder" icon="pi pi-plus" class="p-button-success mr-2" (click)="createFolderPanel()"></button>
         <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."
@@ -48,7 +48,7 @@
           <span [class]="'folder status-' + (folder.physicalStatus.toUpperCase())">{{getStatusName(folder)}}</span>
         </td>
         <td>
-          <div class="flex">
+          <div class="flex" *ngIf="isAdmin">
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
                     (click)="createFolderPanel()"></button>
             <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"

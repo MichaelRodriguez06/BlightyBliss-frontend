@@ -10,6 +10,7 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 })
 export class AgreementCreateComponent implements OnInit {
   agreementForm: FormGroup;
+  isAdmin: boolean=true;
 
   constructor(private agreementFormfb: FormBuilder,) {
     this.agreementForm = this.agreementFormfb.group({

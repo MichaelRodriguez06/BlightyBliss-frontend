@@ -7,7 +7,7 @@
     <ng-template pTemplate="caption">
       <h3 class="m-0">Manage Pending Files</h3>
       <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-        <button pButton pRipple label="New Pending File" icon="pi pi-plus" class="p-button-success mr-2"
+        <button *ngIf="isAdmin" pButton pRipple label="New Pending File" icon="pi pi-plus" class="p-button-success mr-2"
                 (click)="createUploadPendingFile()"></button>
         <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
@@ -27,7 +27,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-pendingFile>
       <tr>
-        <td style="width:20%; width:2rem">
+        <td style="width:2rem">
           <i class="pi pi-file-pdf" style="font-size: 2rem"></i>
         </td>
         <td style="width:20%; min-width:10rem;   white-space: nowrap;overflow: hidden;">
@@ -45,7 +45,7 @@
         </td>
 
         <th>
-          <div class="flex">
+          <div class="flex" *ngIf="isAdmin">
             <button pButton pRipple icon="pi pi-folder" class="p-button-rounded p-button-success mr-2"
                     (click)="createAsignationPanel()"></button>
             <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
