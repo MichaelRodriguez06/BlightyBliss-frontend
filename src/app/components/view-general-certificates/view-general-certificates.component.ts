@@ -52,6 +52,7 @@ export class ViewGeneralCertificatesComponent implements OnInit {
   columnsSchema: any = COLUMNS_SCHEMA;
   certificateList: Certificate[] = [];
   certificate: Certificate = {studentName: "", docnumber: 0, examLevel: "", certificateState: "", deliveredDate: "", act: "", fol: ""}
+  isAdmin: boolean=false;
 
   constructor(
     private dialog: MatDialog,

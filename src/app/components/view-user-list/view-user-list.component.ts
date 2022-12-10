@@ -50,6 +50,7 @@ export class ViewUserListComponent implements OnInit {
   }
   dataSource = new MatTableDataSource<AccountTemplate>(this.accountList);
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  isAdmin: boolean = true;
 
   constructor(private dialog: MatDialog,
               private getAccountsService: GetAccountsService,
@@ -72,14 +73,18 @@ export class ViewUserListComponent implements OnInit {
     const dialogRef = this.dialog.open(RegisterAccountComponent, {
       width: '50%',
       height: '95%',
-      data: {edit: false}
+      data: {editMode: false}
     });
 
   }
 
 
   createEditPanel() {
-
+    const dialogRef = this.dialog.open(RegisterAccountComponent, {
+      width: '50%',
+      height: '95%',
+      data: {editMode: true}
+    });
   }
 
   createDeletePanel() {
