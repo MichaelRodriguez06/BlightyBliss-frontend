@@ -44,6 +44,7 @@ import {PasswordModule} from "primeng/password";
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {CheckboxModule} from "primeng/checkbox";
 import {MatTabsModule} from "@angular/material/tabs";
+import {ChartModule} from "primeng/chart";
 
 @NgModule({
   declarations: [],
@@ -98,7 +99,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     PasswordModule,
     AutoCompleteModule,
     CheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -145,7 +147,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     PasswordModule,
     AutoCompleteModule,
     CheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    ChartModule
   ]
 })
 export class SharedModule { }

@@ -215,11 +215,14 @@
             </mat-tab>
           </mat-tab-group>
         </p-tabPanel>
+        <p-tabPanel  header="Statistic" class="line-height-3 m-0">
+          <div class="stadistic">
+            <p-chart type="radar" [data]="data"></p-chart>
+          </div>
+        </p-tabPanel>
         <div class="buttons">
           <button pButton pRipple label="ExamTry" (click)="createExamTryPanel()" ></button>
         </div>
-        <p-tabPanel header="Statistic" class="line-height-3 m-0">
-        </p-tabPanel>
       </p-tabView>
     </div>
   </div>
