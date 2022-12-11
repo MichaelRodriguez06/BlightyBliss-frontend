@@ -11,7 +11,7 @@ export abstract class AppRoutes {
   static readonly FILE_MANAGEMENT: string = 'options-management';
   static readonly PENDING_FILES: string = 'pending-files';
   static readonly VIEW_STUDENTS: string = 'view-students';
-  static readonly VIEW_STUDENT_INFORMATION: string = 'view-students-information';
+  static readonly VIEW_STUDENT_INFORMATION: string = 'view-student-information';
   static readonly UPLOAD_PENDING_FILE: string = `Files/uploadpending`;
   static readonly GET_TYPE_FILES: string = `FileType/false`;
   static readonly CREATE_USER: string = `Access/newUser`;
@@ -25,5 +25,5 @@ export abstract class AppRoutes {
   static readonly ADD_AGREEMENT: string = `Agreements`;
   static readonly GENERAL_CERTIFICATES: string = `general-certificates`;
   static readonly AGREEMENT_CRUD: string = `agreement_option`;
-  static readonly REPORT_STUDENTS: string = `report_stududents`;
+  static readonly REPORT_STUDENTS: string = `report_students`;
 }

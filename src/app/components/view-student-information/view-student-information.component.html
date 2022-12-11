@@ -137,13 +137,17 @@
               <label >Actual program</label>
               <input pInputText id="actualProgram" type="text" readonly/>
             </div>
-            <div class="field col-12 md:col-3">
+            <div class="field col-12 md:col-2">
               <label >Last inscription date</label>
               <input pInputText id="lastInscriptionDate" type="text" readonly/>
             </div>
-            <div class="field col-12 md:col-3">
+            <div class="field col-12 md:col-2">
               <label >Agreement</label>
               <input pInputText id="actualAgreement" type="text" readonly/>
+            </div>
+            <div class="field col-12 md:col-2">
+              <label >Course status</label>
+              <input pInputText id="courseStatus" type="text" readonly/>
             </div>
           </div>
           <mat-tab-group [selectedIndex]="selected.value"
@@ -214,6 +218,8 @@
         <div class="buttons">
           <button pButton pRipple label="ExamTry" (click)="createExamTryPanel()" ></button>
         </div>
+        <p-tabPanel header="Statistic" class="line-height-3 m-0">
+        </p-tabPanel>
       </p-tabView>
     </div>
   </div>

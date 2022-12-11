@@ -41,7 +41,7 @@ export class SideNavigationBarComponent implements OnInit {
       }]
     }, {
       title: "Reports", icon: "", subMenu: [{
-        subtitle: "Report 1", icon: "", Direction: AppRoutes.REPORT_STUDENTS
+        subtitle: "Report students", icon: "", Direction: AppRoutes.REPORT_STUDENTS
       }, {
         subtitle: "Report 2", icon: ""
       }, {

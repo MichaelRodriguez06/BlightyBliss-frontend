@@ -1,4 +1,121 @@
 <body>
-  <div class="card">
+  <div class="card px-6 py-6 lessPadding">
+    <p-table #dt [value]="studentList" [columns]="columnsSchema" responsiveLayout="scroll" [rows]="5"
+             [globalFilterFields]="['name','country.name','representative.name','status']" [paginator]="true"
+             [rowsPerPageOptions]="[5,10,15]" [showCurrentPageReport]="true"
+             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" dataKey="id">
+      <ng-template pTemplate="caption">
+        <h3 class="m-0">Manage Students</h3>
+        <div id="TableHeader" class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+          <div class="formgroup-inline">
+            <span class="block mt-2 md:mt-0 p-input-icon-left">
+                              <i class="pi pi-search"></i>
+                              <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."
+                                     class="w-full sm:w-auto"/>
+                          </span>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th *ngFor="let col of columnsSchema" pSortableColumn="{{col.field}}">{{col.header}}
+            <p-sortIcon field="{{col.field}}"></p-sortIcon>
+          </th>
+          <th>Options</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-student>
+        <tr>
+          <td style="width:2rem">
+            <i class="pi pi-student-open" style="font-size: 2rem"></i>
+          </td>
+          <td style="width:20%; min-width:10rem;"><span class="p-column-title">Document number</span>
+            {{student.document_number}}
+          </td>
+          <td style="width:20%; min-width:10rem;">
+            <span class="p-column-title">Document type</span>
+            {{student.document_type}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">First name</span>
+            {{student.first_name}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Last name</span>
+            {{student.last_name}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Email</span>
+            {{student.email}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Address</span>
+            {{student.address}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Neighborhood</span>
+            {{student.neighborhood}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Person type</span>
+            {{student.person_type}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Vulnerable population</span>
+            {{student.vulnerable_population}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Gender</span>
+            {{student.gender}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Rh</span>
+            {{student.blood_type}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Marital status</span>
+            {{student.marital_status}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Socioeconomic stratum</span>
+            {{student.socioeconomic_stratum}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Eps</span>
+            {{student.eps}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Institution</span>
+            {{student.institution}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">City</span>
+            {{student.city}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Disability</span>
+            {{student.disability}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Born place</span>
+            {{student.born_place}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Student type</span>
+            {{student.student_type}}
+          </td>
+          <td style="width:14%; min-width:8rem;">
+            <span class="p-column-title">Academic</span>
+            {{student.academic}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="flex">
+    <button id="exportToExcel" label="To excel" pButton pRipple icon="pi pi-file-excel" class="p-button-raised p-button-success mr-2" ></button>
+    <button id="exportToExcelFilter" label="To excel filtered" pButton pRipple icon="pi pi-file-excel" class="p-button-raised p-button-success mr-2" ></button>
   </div>
 </body>

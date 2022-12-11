@@ -1,0 +1,16 @@
+body{
+  position: absolute;
+  left: 17% ;
+  top: 0;
+  right: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 39px;
+  /*display: flex;*/
+  align-items: center;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
