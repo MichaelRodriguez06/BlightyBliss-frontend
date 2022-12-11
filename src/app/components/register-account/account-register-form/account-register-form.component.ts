@@ -66,7 +66,7 @@ export class AccountRegisterFormComponent implements OnInit {
     const formRegister: Account = this.form.value;
     if ((this.form.get('password')?.value) == (this.form.get('confirmPassword')?.value)) {
       formRegister.docNumber = String(formRegister.docNumber);
-      formRegister.personType = 'STUDENT';
+      formRegister.personType = 'ADMIN';
       console.log(formRegister);
       this.serviceAccount.addAccount(formRegister).subscribe({
         next: (res) => {
