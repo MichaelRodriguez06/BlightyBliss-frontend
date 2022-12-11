@@ -11,6 +11,7 @@ import {StudentAttendant} from "../../models/student-form/student-attendant";
 import {StudentParent} from "../../models/student-form/student-parent";
 import {StudentForm} from "../../models/student-form/student-form";
 import {StudentEnrollment} from "../../models/student-form/student-enrollment";
+import {PersonType} from "../../models/constraints/person-type";
 
 @Component({
   selector: 'app-register-student',
@@ -55,7 +56,7 @@ export class RegisterStudentComponent implements OnInit {
     this.editMode = true
     //Crea el formulario de usuario
     this.studentInfo = {
-      birthDay: undefined,
+      bornDate: undefined,
       academicTraining: "", address: "",
       bloodType: "", documentNumber: undefined,
       documentType: "", email: "",
@@ -64,8 +65,7 @@ export class RegisterStudentComponent implements OnInit {
       idDisability: 0, idStudentType: 0,
       institution: "", lastName: "",
       maritalStatus: "", neighborhood: "",
-      // TODO define person type in constraints
-      personType: "STUDENT", phoneNumbers: [],
+      personType: PersonType.STUDENT, phoneNumbers: [],
       socioeconomicStratum: 0, vulnerablePopulation: "",
       residentPlaceLastFiveYears: ""
     }
@@ -73,9 +73,8 @@ export class RegisterStudentComponent implements OnInit {
     this.studentForm = _formBuilder.group(this.studentInfo);
 
     this.studentAttendantInfo = {
-      documentNumber: "123", documentType: "string",
       firstName: "", lastName: "",
-      personType: "USER", phoneNumbers: [],
+      personType: PersonType.ATTENDANT, phoneNumbers: [],
       fixedPhoneNumbers: [], companyName: "",
       companyAddress: "", charge: "",
       companyNeighborhood: "", idCity: 0
@@ -85,7 +84,7 @@ export class RegisterStudentComponent implements OnInit {
       documentNumber: "", documentType: "",
       firstName: "", lastName: "",
       email: "", address: "",
-      neighborhood: "", personType: "USER",
+      neighborhood: "", personType: PersonType.FATHER,
       idCity: 0, phoneNumbers: []
     }
 
@@ -93,7 +92,7 @@ export class RegisterStudentComponent implements OnInit {
       documentNumber: "", documentType: "",
       firstName: "", lastName: "",
       email: "", address: "",
-      neighborhood: "", personType: "",
+      neighborhood: "", personType: PersonType.MOTHER,
       idCity: 0, phoneNumbers: []
     }
 

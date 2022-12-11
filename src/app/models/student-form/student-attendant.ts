@@ -1,6 +1,4 @@
 export interface StudentAttendant {
-  documentNumber: string
-  documentType: string
   firstName: string
   lastName: string
   personType: string
