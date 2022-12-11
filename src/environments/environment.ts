@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   hostUrl: "http://localhost:3006/",
-  apiUrl: "https://localhost:7187/api"
-  // apiUrl: "https://blightyapi.onrender.com/api"
+//   apiUrl: "https://localhost:7187/api"
+  apiUrl: "https://blightyapi.onrender.com/api"
 };
 
 /*
