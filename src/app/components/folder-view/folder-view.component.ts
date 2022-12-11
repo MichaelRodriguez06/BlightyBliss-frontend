@@ -49,6 +49,7 @@ export class FolderViewComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Folder>(this.folderList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  isAdmin: boolean=true;
 
 
   constructor(

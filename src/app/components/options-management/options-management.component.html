@@ -8,14 +8,14 @@
           <div formArrayName="fileTypes">
             <div *ngFor="let item of typeFileList; let pointIndex=index" [formGroupName]="pointIndex">
               <div class="p-inputgroup">
-                <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help"
+                <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-trash" class="p-button-help"
                         (click)="removeFileType(pointIndex)"></button>
                 <input type="text" value="{{item.name}}" pInputText placeholder="FileType" maxlength="40">
               </div>
             </div>
           </div>
         </form>
-        <div class="buttons">
+        <div class="buttons" *ngIf="isAdmin">
           <button pButton pRipple icon="pi pi-plus" class="p-button-help" (click)="addFileType()"></button>
           <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"
                   (click)="summitChangesFileTypes()"></button>
@@ -29,14 +29,14 @@
           <div formArrayName="programs">
             <div *ngFor="let item of programList; let pointIndex=index" [formGroupName]="pointIndex">
               <div class="p-inputgroup">
-                <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help"
+                <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-trash" class="p-button-help"
                         (click)="removePrograms(pointIndex)"></button>
                 <input type="text" value="{{item.name}}" pInputText placeholder="Program" maxlength="40">
               </div>
             </div>
           </div>
         </form>
-        <div class="buttons">
+        <div class="buttons" *ngIf="isAdmin">
           <button pButton pRipple icon="pi pi-plus" class="p-button-help" (click)="addPrograms()"></button>
           <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"
                   (click)="summitChangesPrograms()"></button>

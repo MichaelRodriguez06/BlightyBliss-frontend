@@ -16,6 +16,7 @@ export class OptionsManagementComponent implements OnInit {
 
   filesTypeForm: FormGroup;
   programsForm: FormGroup;
+  isAdmin: boolean = true;
   public programList: Program[] = []
   public typeFileList: TypeFile[] = []
 
@@ -24,6 +25,12 @@ export class OptionsManagementComponent implements OnInit {
               private serviceTypeFiles: TypeFiles,
               private servicePrograms: ProgramsService,
   ) {
+    servicePrograms.getPrograms().subscribe(data => {
+      console.log(data.data)
+    });
+    serviceTypeFiles.getTypesDocument().subscribe(data => {
+      console.log(data.data)
+    });
     this.filesTypeForm = this.filesTypeFormfb.group({
       fileTypes: this.filesTypeFormfb.array([this.filesTypeFormfb.group({fileType: ['']})])
     });

@@ -5,7 +5,7 @@
       <div formArrayName="agreements">
         <div *ngFor="let item of getAgreements.controls; let items of getCompanyName.controls ; let pointIndex=index" [formGroupName]="pointIndex" >
           <div class="p-inputgroup ">
-            <button type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removeAgreements(pointIndex)" (click)="removeCompanyName(pointIndex)"></button>
+            <button *ngIf="isAdmin" type="button" pButton pRipple icon="pi pi-trash" class="p-button-help" (click)="removeAgreements(pointIndex)" (click)="removeCompanyName(pointIndex)"></button>
             <input type="text" pInputText placeholder="Company name" maxlength="60">
             <input type="text" pInputText placeholder="Agreement Name" maxlength="60">
           </div>
@@ -13,8 +13,8 @@
       </div>
     </form>
     <div class="buttons flex justify-content-end flex-wrap">
-      <button pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addAgreements()" (click)="addCompanyName()"></button>
-      <button pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesAgreements()"></button>
+      <button *ngIf="isAdmin" pButton pRipple icon="pi pi-plus" class="p-button-help"  (click)="addAgreements()" (click)="addCompanyName()"></button>
+      <button *ngIf="isAdmin" pButton pRipple label="Submit" icon="pi pi-upload" class="p-button-help"  (click)="summitChangesAgreements()"></button>
     </div>
   </div>
 </body>

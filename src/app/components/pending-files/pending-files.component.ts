@@ -2,12 +2,9 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {CreateFolderComponent} from "../create-folder/create-folder.component";
-import {FolderService} from "../../modules/Folders/services/folder.service";
 import {Folder} from "../../modules/Folders/models/folder";
 import {NotificationService} from "../../core/services/notification/notification.service";
 import {Table} from "primeng/table";
-import {FileUpload} from "primeng/fileupload";
 import {CreateFilesComponent} from "../create-files/create-files.component";
 import {GetPendingFilesService} from "../services/PendingFilesService/get-pending-files.service";
 import {FilePending} from "../../models/FilePending";
@@ -50,6 +47,7 @@ export class PendingFilesComponent implements OnInit, AfterViewInit {
     link: 'https://docs.google.com/document/d/1396WtOSSqwr04eRmpPYo-SlDZnymM-nEOuomNg6eqOI/edit?usp=sharing'
   }
   dataSource = new MatTableDataSource<FilePending>(this.pendingFileList);
+  isAdmin: boolean = true;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
