@@ -45,6 +45,7 @@ import {AutoCompleteModule} from "primeng/autocomplete";
 import {CheckboxModule} from "primeng/checkbox";
 import {MatTabsModule} from "@angular/material/tabs";
 import {ChartModule} from "primeng/chart";
+import {MatTableExporterModule} from "mat-table-exporter";
 
 @NgModule({
   declarations: [],
@@ -100,7 +101,8 @@ import {ChartModule} from "primeng/chart";
     AutoCompleteModule,
     CheckboxModule,
     MatTabsModule,
-    ChartModule
+    ChartModule,
+    MatTableExporterModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -148,7 +150,8 @@ import {ChartModule} from "primeng/chart";
     AutoCompleteModule,
     CheckboxModule,
     MatTabsModule,
-    ChartModule
+    ChartModule,
+    MatTableExporterModule
   ]
 })
 export class SharedModule { }

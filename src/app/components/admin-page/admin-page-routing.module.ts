@@ -13,6 +13,8 @@ import {ViewGeneralCertificatesComponent} from "../view-general-certificates/vie
 import {UserInformationComponent} from "../user-information/user-information.component";
 import {AgreementCreateComponent} from "../agreement-crud/agreement-create.component";
 import {ReportStudentsComponent} from "../report-students/report-students.component";
+import {ReportStudentsProgramComponent} from "../report-students-program/report-students-program.component";
+import {ReportGeneralStadisticsComponent} from "../report-general-stadistics/report-general-stadistics.component";
 
 const routes: Routes = [
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
       {path: AppRoutes.GENERAL_CERTIFICATES, component: ViewGeneralCertificatesComponent},
       {path: AppRoutes.AGREEMENT_CRUD, component: AgreementCreateComponent},
       {path: AppRoutes.REPORT_STUDENTS, component: ReportStudentsComponent},
+      {path: AppRoutes.REPORT_STUDENTS_BY_PROGRAM, component: ReportStudentsProgramComponent},
+      {path: AppRoutes.REPORT_STUDENTS_GENERAL_STADISTIC, component: ReportGeneralStadisticsComponent},
     ]
   }
 ];

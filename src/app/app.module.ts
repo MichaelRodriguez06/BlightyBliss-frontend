@@ -35,6 +35,8 @@ import { EditCertificateComponent } from './components/edit-certificate/edit-cer
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { AgreementCreateComponent } from './components/agreement-crud/agreement-create.component';
 import { ReportStudentsComponent } from './components/report-students/report-students.component';
+import { ReportStudentsProgramComponent } from './components/report-students-program/report-students-program.component';
+import { ReportGeneralStadisticsComponent } from './components/report-general-stadistics/report-general-stadistics.component';
 
 
 
@@ -63,7 +65,9 @@ import { ReportStudentsComponent } from './components/report-students/report-stu
     EditCertificateComponent,
     UserInformationComponent,
     AgreementCreateComponent,
-    ReportStudentsComponent
+    ReportStudentsComponent,
+    ReportStudentsProgramComponent,
+    ReportGeneralStadisticsComponent
   ],
   imports: [
     BrowserModule,

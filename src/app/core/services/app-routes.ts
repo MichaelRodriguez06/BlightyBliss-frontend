@@ -26,4 +26,6 @@ export abstract class AppRoutes {
   static readonly GENERAL_CERTIFICATES: string = `general-certificates`;
   static readonly AGREEMENT_CRUD: string = `agreement_option`;
   static readonly REPORT_STUDENTS: string = `report_students`;
+  static readonly REPORT_STUDENTS_BY_PROGRAM: string = `report_students_by_program`;
+  static readonly REPORT_STUDENTS_GENERAL_STADISTIC: string = `report_students_general_stadistic`;
 }

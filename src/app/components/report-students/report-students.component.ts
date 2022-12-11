@@ -164,4 +164,5 @@ export class ReportStudentsComponent implements OnInit {
     table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 
+
 }
