@@ -10,7 +10,7 @@ export interface StudentInfo {
   vulnerablePopulation: string,
   gender: string,
   bloodType: string,
-  birthDay: Date | undefined,
+  bornDate: Date | undefined,
   maritalStatus: string,
   socioeconomicStratum: number,
   eps: string,
